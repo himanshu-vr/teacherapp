@@ -1,0 +1,71 @@
+.teacher-fair{
+  margin-top: 20%;
+}
+.teacher-fair .logo img{
+width: 150px !important;
+height: 50px !important;
+}
+.log-head h1{
+  font-size: 20px;
+  color: blue;
+  text-align: center;
+}
+.login-sec{
+  padding: 0px 30px 30px 30px !important;
+}
+.login-sec .student-sec {
+  text-align: center;
+    border-radius: 50%;
+    border: 1px solid;
+    height: 130px;
+    vertical-align: middle;
+    padding-top: 20px;
+}
+.login-sec .student-sec:focus, .login-sec .student-sec:active, .login-sec .student-sec:visited {
+    border: 1px solid blue !important;
+}
+.login-sec .student-sec img{
+  width: 40px !important;
+  height: 40px !important;
+}
+.login-sec .student-sec p{
+  font-size: 15px;
+  color: blue;
+  font-weight: 600;
+}
+.login-form{
+  padding-left: 40px !important;
+  padding-right: 50px !important;
+}
+.login-form input{
+  padding-left: 10px !important;
+  border: 1px solid blue !important;
+  border-radius: 15px !important;
+  font-size: 17px !important;
+  color: blue !important;
+  box-shadow: none !important;
+}
+ .user-fix{
+  background: url('../images/icons.png') no-repeat -64px -623px;
+	width: 23px;
+	height: 43px;
+}
+.forgot-pass{
+  margin-top: -10px !important;
+  margin-right: -10px !important;
+  color: #000;
+  opacity: .3;
+}
+.sign-in{
+  position: fixed;
+  bottom: 0px;
+  padding: 0 !important;
+}
+.sign-in button{
+  height: 50px;
+  width: 100% !important;
+  background: blue;
+  border: 0px !important;
+  color: #fff !important;
+  font-size: 20px !important;
+}

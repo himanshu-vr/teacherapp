@@ -1,0 +1,39 @@
+<!-- index.html -->
+<!DOCTYPE html>
+
+<!-- define angular app -->
+<html ng-app="studentApp">
+<head>
+<title></title>
+  <!-- For proper rendering of this page in mobile screen-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <!-- SCROLLS -->
+  <!-- load bootstrap and fontawesome via CDN -->
+  <link rel="stylesheet" href="app/css/materialize.min.css" />
+  <link rel="stylesheet" href="app/css/style.css" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- SPELLS -->
+  <!-- load angular via CDN -->
+  <script type="text/javascript" src="app/js/library/angular.min.js"></script>
+  <script type="text/javascript" src="app/js/library/angular-route.min.js"></script>
+  <script type="text/javascript" src="app/js/library/angular-cookie.min.js"></script>
+  <script type="text/javascript" src="app/js/app/app.js"></script>
+
+  <!-- <script type="text/javascript" src="cordova.js"></script> -->
+
+  <!-- All Controller should load here -->
+   <script type="text/javascript" src="app/js/app/controllers/loginCtrl.js"></script>
+  <!-- *************** -->
+</head>
+<body ng-cloak>
+<div ng-view>
+
+</div>
+
+</body>
+
+
+</html>
