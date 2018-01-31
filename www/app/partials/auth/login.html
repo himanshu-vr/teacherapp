@@ -6,32 +6,32 @@
       <h1>Login to your account</h1>
     </div>
     <div class="col s12 login-sec">
-        <div class="col s6">
-          <div class="col s12 student-sec">
-                  <img src="app/images/logo.jpg" alt="teacher Fair">
+        <div class="col s6 stu-div">
+          <button class="col s11 student-sec">
+                  <img src="app/images/graduate-student-avatar (1).png" alt="teacher Fair">
                 <p>I'm a Student
                 </p>
-          </div>
+          </button>
         </div>
-        <div class="col s6">
-          <div class="col s12 student-sec">
-                  <img src="app/images/logo.jpg" alt="teacher Fair">
-                <p>I'm a Teacher
+        <div class="col s6 tea-div">
+          <button class="col s11 student-sec">
+                  <img src="app/images/male-cartoon-pointing-to-white-board.png" alt="teacher Fair">
+                <p>I'm a Lecturer
                 </p>
-          </div>
+          </button>
         </div>
     </div>
     <div class="col s12 login-form">
       <div class="col s12 user-name">
-        <span class="user-fix prefix"></span>
-        <input type="text" placeholder="Username" class="validate">
+        <input type="text" placeholder="Username" class="user-fix">
       </div>
       <div class="col s12 user-pass">
-        <input type="password" placeholder="Password">
+        <input type="password" placeholder="Password" class="user-fix">
         <a class="right forgot-pass">Forgot Password?</a>
       </div>
     </div>
     <div class="col s12 sign-in">
-      <button>Sign in</button>
+      <button ng-click="login()">Sign in</button>
     </div>
 </div>
+

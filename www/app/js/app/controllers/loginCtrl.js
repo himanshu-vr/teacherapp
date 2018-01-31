@@ -4,5 +4,10 @@
   Himanshu Gupta
 */
 angular.module('studentApp').controller('loginCtrl',['$scope','$rootScope','$location','$timeout','$cookies', function ($scope,$rootScope,$location,$timeout,$cookies) {
-  console.log('here');
+  
+
+
+  $scope.login = function(){
+  	$location.path('home');
+  }
 }]);
