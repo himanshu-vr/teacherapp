@@ -21,6 +21,8 @@ height: 50px !important;
     vertical-align: middle;
     padding-top: 10px;
     background-color: transparent;
+    min-width: 120px;
+    max-width: 125px;
 }
 .login-sec .student-sec:focus, .login-sec .student-sec:active, .login-sec .student-sec:visited {
     border: 1px solid #42AEF3 !important;
@@ -41,6 +43,7 @@ height: 50px !important;
 .login-form{
   padding-left: 24px !important;
   padding-right: 60px !important;
+  padding-bottom: 40px !important;
 }
 .login-form input{
   padding-left: 35px !important;
@@ -199,7 +202,7 @@ padding-top: 40px;
   background-color: #ffffff;
   vertical-align: middle;
   padding-top: 15px;
-  padding-left: 2px;
+  padding-left: 0px;
   -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0);
 -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0);
 box-shadow: 0px 0px 5px 0px rgba(0,0,0,0);
@@ -220,7 +223,7 @@ box-shadow: 0px 0px 5px 0px rgba(0,0,0,0);
 .month-lecture .month-name{
       font-size: 15px;
     font-weight: 500;
-    color: #42AEF3;
+    color: #486078;
 }
 .pointer{
   cursor: pointer;
@@ -277,6 +280,15 @@ font-size: 20px !important;
   font-size: 16px;
   font-weight: 600;
 }
+.lecture-info .lecture-detail:nth-of-type(even) .lect-name{
+  margin: 0px !important;
+  color: #ffffff !important;
+  font-size: 16px;
+  font-weight: 600;
+}
+.lecture-info .lecture-detail:nth-of-type(even) .lect-time{
+  color: #ffffff !important;
+}
 .test-info{
   padding-top: 15px !important;
   padding-bottom: 15px !important;
@@ -320,4 +332,139 @@ font-size: 20px !important;
   color: #fff !important;
   font-size: 20px !important;
 }
-    
+.lect-teacher .lect-time{
+  float: right;
+  color: #486078;
+}
+
+/* Style the tab */
+.tab {
+    overflow: hidden;
+    border-bottom: 1px solid #ccc;
+    background-color: #ffffff;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+    width: 50%;
+    height: 50px;
+    color: #807e7e;
+}
+
+/* Change background color of buttons on hover */
+/*.tab button:hover {
+    background-color: #ddd;
+}*/
+
+/* Create an active/current tablink class */
+.tab button.active {
+    color: #486078;
+    font-weight: 500;
+    border-bottom: 2px solid #42AEF3;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: none;
+    border-top: none;
+} 
+#upcomingTest .uptest-name {
+ padding: 0px 0px 10px 0px;
+}  
+#upcomingTest .uptest-name h6{
+  font-size: 18px;
+   color: #807e7e;
+  font-weight: 600;
+}
+#upcomingTest .uptest-info{
+      background-color: white;
+    border-radius: 3px;
+    width: 70%;
+    -webkit-box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.15);
+    -moz-box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.15);
+    box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.15);
+}
+#upcomingTest .uptest-info .test-name{
+    font-size: 20px;
+   color: #486078;
+  font-weight: 600;
+}
+#upcomingTest .uptest-info .test-expiry{
+    font-size: 10px;
+    color: #807e7e;
+    margin-top: 0px;
+}
+#upcomingTest .uptest-info .test-expiry span i{
+      font-size: 15px;
+    color: black;
+    opacity: .4;
+    padding-right: 5px;
+    vertical-align: sub;
+}
+#upcomingTest .uptest-info .test-syllabus{
+    font-size: 12px;
+    color: #42AEF3;
+    font-weight: 500;
+    letter-spacing: .2px;
+    margin-top: 0px;
+}
+#upcomingTest .uptest-info .testsyllabus-info{
+    margin: 0px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+.syllabus-border{
+    border-bottom: 1px solid #ccc;
+}
+#upcomingTest .uptest-info .testsyllabus-info .span-num{
+    font-size: 17px;
+    color: black;
+    font-weight: 600;
+    padding-left: 5px;
+}
+#upcomingTest .uptest-info .testsyllabus-info .span-text{
+    font-size: 17px;
+    color: black;
+    padding-left: 10px;
+    opacity: .4;
+}
+#upcomingTest .uptest-info .testsyllabus-info .span-ques{
+  float: right;
+    font-size: 17px;
+    color: black;
+    opacity: .4;
+    padding-right: 10px;
+}
+#upcomingTest .uptest-info .testsyllabus-info .span-done i{
+    float: right;
+    font-size: 15px;
+    color: black;
+    opacity: .4;
+    padding-right: 5px;
+    padding-top: 5px;
+}
+ #upcomingTest .uptest-info .teststart{
+  margin-top: 5px;
+    margin-bottom: 10px;
+    width: 100%;
+    height: 30px;
+    font-weight: 500;
+    color: #ffffff;
+    background-color: #42AEF3;
+    border: none;
+    outline: none;
+    -webkit-box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.5);
+    box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.5);
+}
+}

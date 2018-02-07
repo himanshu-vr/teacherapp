@@ -19,6 +19,8 @@ angular.module('studentApp')
           { controller: 'homeCtrl', templateUrl: 'app/partials/home.html'})
       .when('/student/lecture',
           { controller: 'stLectureCtrl', templateUrl: 'app/partials/student/lecture.html'})
+      .when('/test/schedule',
+          { controller: 'stTestCtrl', templateUrl: 'app/partials/student/test/schedule.html'})
       $routeProvider.otherwise('/login');
   });
 
