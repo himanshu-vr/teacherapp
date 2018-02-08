@@ -17,30 +17,50 @@
 	</div>
 	<div class="col s12 side-no-pad">
 			<!-- Tab links -->
-			<div class="tab">
-			  <button class="tablinks" onclick="openTestSchedule(event, 'upcomingTest')" id="defaultOpen">Upcoming Tests</button>
-			  <button class="tablinks" onclick="openTestSchedule(event, 'attemptedTest')">Attempted Test</button>
+			<div class="upcomingTesttab">
+			  <button class="tablinks" ng-click="openTestSchedule('upcomingTest')">Upcoming Tests</button>
+			  <button class="tablinks" ng-click="openTestSchedule('attemptedTest')">Attempted Test</button>
 			</div>
 
 			<!-- Tab content -->
-			<div id="upcomingTest" class="tabcontent">
-			  	<div class="col s12">
+			<div ng-show="upcomingTest" class="tabcontent" id="upcomingTest">
+			  	<div class="col s12 side-no-pad">
 			  		<div class="col s12 uptest-name">
 			  			<h6> DI & Reasoning</h6>
 			  		</div>
-			  		<div class="col s12 uptest-info">
-			  			<h6 class="test-name"> DI & Reasoning Test 1</h6>
-			  			<p class="test-expiry"><span><i class="material-icons dp48">timer</i></span> Expires on : 10 sep 2017</p>
-			  			<p class="test-syllabus">Syllabus Info</p>
-			  			<p class="testsyllabus-info syllabus-border"><span class="span-num">10</span><span class="span-text">Question</span><span class="span-ques">?</span></p>
-			  			<p class="testsyllabus-info syllabus-border"><span class="span-num">10</span><span class="span-text">Marks</span><span class="span-done"><i class="material-icons dp48">done</i></span></p>
-			  			<p class="testsyllabus-info"><span class="span-num">10</span><span class="span-text">Minutes</span><span class="span-done"><i class="material-icons dp48">timer</i></span></p>
-			  			<button class="teststart">Start Test</button>
-			  		</div>
+			  		<div class="col s12 uptest-info slick">
+				  		<div class="col s12 white slider-item">
+				  			<h6 class="test-name"> DI & Reasoning Test 1</h6>
+				  			<p class="test-expiry"><span><i class="material-icons dp48">timer</i></span> Expires on : 10 sep 2017</p>
+				  			<p class="test-syllabus">Syllabus Info</p>
+				  			<p class="testsyllabus-info syllabus-border"><span class="span-num">10</span><span class="span-text">Question</span><span class="span-ques">?</span></p>
+				  			<p class="testsyllabus-info syllabus-border"><span class="span-num">10</span><span class="span-text">Marks</span><span class="span-done"><i class="material-icons dp48">done</i></span></p>
+				  			<p class="testsyllabus-info"><span class="span-num">10</span><span class="span-text">Minutes</span><span class="span-done"><i class="material-icons dp48">timer</i></span></p>
+				  			<button class="teststart">Start Test</button>
+				  		</div>
+				  		<div class="col s12 white slider-item">
+				  			<h6 class="test-name"> DI & Reasoning Test 1</h6>
+				  			<p class="test-expiry"><span><i class="material-icons dp48">timer</i></span> Expires on : 10 sep 2017</p>
+				  			<p class="test-syllabus">Syllabus Info</p>
+				  			<p class="testsyllabus-info syllabus-border"><span class="span-num">10</span><span class="span-text">Question</span><span class="span-ques">?</span></p>
+				  			<p class="testsyllabus-info syllabus-border"><span class="span-num">10</span><span class="span-text">Marks</span><span class="span-done"><i class="material-icons dp48">done</i></span></p>
+				  			<p class="testsyllabus-info"><span class="span-num">10</span><span class="span-text">Minutes</span><span class="span-done"><i class="material-icons dp48">timer</i></span></p>
+				  			<button class="teststart">Start Test</button>
+				  		</div>
+				  		<div class="col s10 white slider-item">
+				  			<h6 class="test-name"> DI & Reasoning Test 1</h6>
+				  			<p class="test-expiry"><span><i class="material-icons dp48">timer</i></span> Expires on : 10 sep 2017</p>
+				  			<p class="test-syllabus">Syllabus Info</p>
+				  			<p class="testsyllabus-info syllabus-border"><span class="span-num">10</span><span class="span-text">Question</span><span class="span-ques">?</span></p>
+				  			<p class="testsyllabus-info syllabus-border"><span class="span-num">10</span><span class="span-text">Marks</span><span class="span-done"><i class="material-icons dp48">done</i></span></p>
+				  			<p class="testsyllabus-info"><span class="span-num">10</span><span class="span-text">Minutes</span><span class="span-done"><i class="material-icons dp48">timer</i></span></p>
+				  			<button class="teststart">Start Test</button>
+				  		</div>
+				  	</div>
 			  	</div>
 			</div>
 
-			<div id="attemptedTest" class="tabcontent">
+			<div ng-hide="upcomingTest" class="tabcontent">
 			 hello
 			</div>	
 	</div>
