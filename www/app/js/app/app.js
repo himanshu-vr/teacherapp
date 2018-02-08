@@ -6,7 +6,7 @@
 
 //Create a Global scope module here
 
-angular.module('studentApp',['ngRoute' , 'ngCookies']);
+var app  = angular.module('studentApp',['ngRoute' , 'ngCookies']);
 angular.module('studentApp')
 
 //Settig Up the routes
@@ -47,3 +47,20 @@ angular.module('studentApp').filter('cut', function () {
             return value + (tail || ' …');
         };
     });
+  //set basic headers for api key and another base authentication
+  app.run(['$http','$rootScope', '$cookies', '$location','$timeout', function ($http,$rootScope,$cookies,$location,$timeout) {
+      $rootScope.$on('$routeChangeStart', function (event) {
+        //get curent location of routes and check if it satisfy the url
+        //Himanshu
+          var readCookie = $cookies.get('access_token');
+          $timeout(function () {
+            if(readCookie == undefined || readCookie == null){
+                $location.path('/login');
+              }
+            else{
+              $rootScope.isloggedin = true;
+            }
+          }, 10);
+    });
+
+  }]);
