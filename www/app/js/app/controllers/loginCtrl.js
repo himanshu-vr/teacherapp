@@ -36,7 +36,7 @@ if($cookies.get('access_token') == undefined || $cookies.get('access_token') == 
             var time = now.getTime();
             time += 3600 * 1000 * 14;
             now.setTime(time);
-            $cookies.put("access_token",response.data.access_token,{expires:now.toUTCString()});
+            $cookies.put("access_token",JSON.stringify(response.data),{expires:now.toUTCString()});
             $location.path('/home');
           }else{
 
