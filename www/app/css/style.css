@@ -168,6 +168,7 @@ box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
 text-align: center;
 vertical-align: middle;
 padding-top: 40px;
+border-radius: 2px;
 }
 /*.dash-link .task-list img{
   height: 80px;
@@ -383,6 +384,7 @@ font-size: 20px !important;
   font-size: 18px;
    color: #807e7e;
   font-weight: 600;
+  padding-left: 20px;
 }
 #upcomingTest .uptest-info{
     padding-left: 0px;
@@ -486,4 +488,134 @@ input:-webkit-autofill {
 }
 .text-center{
   text-align: center;
+}
+/* The side navigation menu */
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: #fff; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 0px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+/* The navigation menu links */
+.sidenav a {
+    padding: 10px 8px 10px 15px;
+    text-decoration: none;
+    font-size: 17px;
+    color: #000;
+    display: block;
+    transition: 0.3s;
+    opacity: .6;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover,.sidenav a:active ,.sidenav a:focus {
+    color: #486078;
+    background-color: #ebebeb;
+    opacity: 1;
+    font-weight: 500;
+    outline: none;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    color: white;
+    opacity: 1;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+/*#main {
+    transition: margin-left .5s;
+    padding: 20px;
+}*/
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+.sidenav-icon{
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    vertical-align: sub;
+}
+.sidenav .stlec-heading .head-nav {
+    text-align: left !important;
+    padding-left: 20px;
+}
+.sidenav .stlec-heading p {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.sidenav .nav-links {
+    font-size: 17px;
+    padding-left: 35px;
+}
+.sidenav .nav-logout{
+    position: absolute;
+    bottom: 0px;
+    height: 50px;
+    width: 300px;
+    background: #486078;
+    border: 0px !important;
+    color: #fff !important;
+    font-size: 20px !important;
+    border-radius: 0px;
+}
+.home-videos{
+  width: 160px !important;
+}
+.home-videos .vid-open{
+  width: 150px !important;
+  border-radius: 5px;
+}
+.home-videos .slider-text{
+    max-width: 120px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.home-videos h6{
+    margin: 0px;
+    color: #486078;
+    outline: none;
+    font-size: 12px;
+}
+.home-videos p{
+      margin: 0;
+    font-size: 10px;
+    opacity: .7;
+}
+.f5f5f5{
+  background-color: #f5f5f5;
+}
+.st-lect-vid{
+    border-radius: 5px;
+    background-color: white;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+.st-lect-vid .heading{
+    padding-left: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #486078;
+    letter-spacing: .2px;
+    padding-bottom: 10px;
+}
+#popular_videos .slick-list {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
 }
