@@ -22,7 +22,7 @@
 		 </div>
 
 			<!-- Tab content -->
-		<div ng-hide="upcomingTest" class="tabcontent upcomingTest">
+		<div ng-show="upcomingTest" class="tabcontent upcomingTest">
 	  	<div class="col s12 side-no-pad" ng-repeat="test in tests">
 	  		<div class="col s12 uptest-name">
 	  			<h6>{{test.SubjectName}}</h6>
@@ -44,27 +44,24 @@
 		  		</div>
 		  	</div>
   	</div>
-		<div ng-show="attemptedTest" class="tabcontent upcomingTest">
+	</div>
+	<div class="col s12 side-no-pad">
+		<div ng-hide="upcomingTest" class="tabcontent upcomingTest row">
 			<div class="col s12 side-no-pad" ng-repeat="test in tests">
 				<div class="col s12 uptest-name">
-					<h6>{{test.SubjectName}} </h6>
+					<h6>{{test.SubjectName}}</h6>
 				</div>
-				<div slick-slider="{arrows: false,
-												infinite: false,
-												centerMode: true,
-												centerPadding: '50px',
-												slidesToShow: 1,
-												variableWidth: false}" class="col s12 uptest-info slick">
+				<div class="col s12 uptest-info slick">
 					<div class="col s12 white slider-item" ng-repeat="subtest in test.TDetails">
 						<h6 class="test-name"> </h6>
-						<p class="test-expiry"><span><i class="material-icons dp48">timer</i></span> Expires on : 10 sep 2017</p>
+						<p class="test-expiry"><span><i class="material-icons dp48">timer</i></span> Published on : {{ subtest.PublishDate | date :  "dd MMM yyyy"  }}</p>
 						<p class="test-syllabus">Syllabus Info</p>
-						<p class="testsyllabus-info syllabus-border"><span class="span-num">10</span><span class="span-text">Question</span><span class="span-ques">?</span></p>
-						<p class="testsyllabus-info syllabus-border"><span class="span-num">10</span><span class="span-text">Marks</span><span class="span-done"><i class="material-icons dp48">done</i></span></p>
-						<p class="testsyllabus-info"><span class="span-num">10</span><span class="span-text">Minutes</span><span class="span-done"><i class="material-icons dp48">timer</i></span></p>
+						<p class="testsyllabus-info syllabus-border"><span class="span-num">{{subtest.TotalQuestion}}</span><span class="span-text">Question</span><span class="span-ques">?</span></p>
+						<p class="testsyllabus-info syllabus-border"><span class="span-num">{{subtest.TotalMarks}}</span><span class="span-text">Marks</span><span class="span-done"><i class="material-icons dp48">done</i></span></p>
+						<p class="testsyllabus-info"><span class="span-num">{{subtest.TotalTime}}</span><span class="span-done"><i class="material-icons dp48">timer</i></span></p>
 						<button class="teststart">Start Test</button>
 					</div>
 				</div>
-		</div>
+			</div>
 	</div>
 </div>

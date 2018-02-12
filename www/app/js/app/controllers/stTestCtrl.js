@@ -27,12 +27,22 @@ angular.module('studentApp').controller('stTestCtrl',['$scope','$rootScope','$lo
    $scope.openTestSchedule = function(testType) {
         if(testType == 'upcomingTest'){
             $scope.upcomingTest = true;
-            $scope.attemptedTest = false;
         }else{
             $scope.upcomingTest = false;
-            $scope.attemptedTest = true;
             //$scope.attemptedTest  = true;
         }
+        var options = {
+              arrows: false,
+              infinite: false,
+              centerMode: true,
+              centerPadding: '50px',
+              slidesToShow: 1,
+              variableWidth: false
+         };
+       setTimeout(function () {
+            console.log('sdfs');
+             $(".uptest-info").not('.slick-initialized').slick(options)
+         }, 10);
     }
   $scope.goBack  = function(){
     $location.path('/home');
