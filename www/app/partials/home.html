@@ -1,10 +1,9 @@
 <!-- nav menu -->
-
-<div class="row home-bg">
+<div class="row f5f5f5">
+<div class="home-bg">
 	<div class="col s12 home-nav">
 		  <div class="col s1 menu">
-		    <img src="app/images/menu-three-horizontal-lines-symbol.png" class="" width="20" height="20">
-		    
+		    <img src="app/images/menu-three-horizontal-lines-symbol.png" class="" width="20" height="20" onclick="openNav()">  
 		  </div>
 		  <div class="col s5 home-head">
 		  	Hi Aditya
@@ -37,13 +36,13 @@
 			</div>
 			<div class="col s6">
 				<div class="col s12 task-list">
-					<img src="app/images/test (1).png" class="">
+					<img src="app/images/test.png" class="">
 					<h6>Test Schedule</h6>
 				</div>
 			</div>
 			<div class="col s6">
 				<div class="col s12 task-list">
-					<img src="app/images/statistics (2).png" class="">
+					<img src="app/images/statistics.png" class="">
 					<h6>Results and Analysis</h6>
 				</div>
 			</div>
@@ -55,5 +54,67 @@
 			</div>
 		</div>
   </div>
+		<div class="col s12">
+		  <div class="col s12 st-lect-vid">
+		  	<h6 class="heading">
+		  		Popular Videos
+		  	</h6>
+		  	<div class="slick" id="popular_videos">
+			  	<div class="col s12 home-videos">
+			  		<video  class="vid-open" height="">
+						  <source src="app/videos/videoplayback.mp4#t=1" type="video/mp4" />
+					</video>
+			  		<h6 class="slider-text">Map based for upcoming test</h6>
+			  		<p class="slider-text">Geography test upcoming test</p>
+			  	</div>
+			  	<div class="col s12 home-videos">
+			  		<video  class="vid-open">
+						  <source src="app/videos/videoplayback.mp4#t=1" type="video/mp4" />
+					</video>
+			  		<h6 class="slider-text">Map based for upcoming test</h6>
+			  		<p class="slider-text">Geography test upcoming test</p>
+			  	</div>
+			  	<div class="col s12 home-videos">
+			  		<video  class="vid-open">
+						  <source src="app/videos/videoplayback.mp4#t=1" type="video/mp4" />
+					</video>
+			  		<h6 class="slider-text">Map based for upcoming test</h6>
+			  		<p class="slider-text">Geography test upcoming test</p>
+			  	</div>
+		  </div>
+ 	 </div>
+  </div>
+</div> 
+</div>
+
+<!-- side nav -->
+<div id="mySidenav" class="sidenav">
+  
+  <div class="row">
+	<div class="col s12 lecture-bg">
+			  
+			  <div class="col s11 stlec-heading">
+			  		<div class="col s4 ">
+				  		<div class="icon">
+				  			<img src="app/images/lecture.png" >
+				  		</div>
+			  		</div>
+			  		<div class="col s12 head-nav">
+			  			<h6 class="white-text">Hi Aditya</h6>
+			  			<p class="white-text">34% used space</p>
+			  		</div>
+			  		
+			  </div>
+			    <span class="closebtn" onclick="closeNav()">&times;</span>
+	</div>
+	</div>
+  <a href="#"><img src="app/images/lecture.png" class="sidenav-icon"><span class="nav-links">Home</span></a>
+  <a href="#!/student/lecture"><img src="app/images/lecture.png" class="sidenav-icon"><span class="nav-links">Lecture Schedule</span></a>
+  <a href="#"><img src="app/images/lecture.png" class="sidenav-icon"><span class="nav-links">Test Schedule</span></a>
+  <a href="#"><img src="app/images/lecture.png" class="sidenav-icon"><span class="nav-links">Results and Analysis</span></a>
+  <a href="#"><img src="app/images/lecture.png" class="sidenav-icon"><span class="nav-links">Recommended Videos</span></a>
+  <a href="#"><img src="app/images/lecture.png" class="sidenav-icon"><span class="nav-links">Upload a document</span></a>
+  <a href="#"><img src="app/images/lecture.png" class="sidenav-icon"><span class="nav-links">Profile</span></a>
+  <button type="submit" class="btn nav-logout">Logout</button>
 </div>
  
