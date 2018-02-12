@@ -5,13 +5,21 @@
 */
 angular.module('studentApp').controller('homeCtrl',['$scope','$rootScope','$location','$timeout','$cookies', function ($scope,$rootScope,$location,$timeout,$cookies) {
 
-  var data = $cookies.get('access_token');
-  console.log(JSON.parse(data));
+  //var data = $cookies.get('access_token');
+  //console.log(JSON.parse(data));
   $scope.lecture = function(){
   	$location.path('/student/lecture');
   }
+  $scope.testSchedule = function(){
+    $location.path('/test/schedule');
+  }
+  $scope.logout = function(){
+    $cookies.remove("access_token");
+    $location.path('/login');
+  }
 
-    $('#popular_videos').slick({
+
+  $('#popular_videos').slick({
          centerMode: false,
   centerPadding: '0px',
   slidesToShow: 1,
@@ -38,7 +46,10 @@ angular.module('studentApp').controller('homeCtrl',['$scope','$rootScope','$loca
     }
   ]
     });
+
 }]);
+
+   
 
   /* Set the width of the side navigation to 250px */
 function openNav() {
