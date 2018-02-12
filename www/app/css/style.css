@@ -255,7 +255,6 @@ box-shadow: 0px 0px 5px 0px rgba(0,0,0,0);
 }
 .f5f5f5-bg{
   background-color: #f5f5f5 !important;
-  position: fixed;
   height: 100%;
   width: 100%;
 }
@@ -376,45 +375,45 @@ font-size: 20px !important;
 .tabcontent {
     border: none;
     border-top: none;
-} 
-#upcomingTest .uptest-name {
+}
+.upcomingTest .uptest-name {
  padding: 0px 0px 10px 0px;
-}  
-#upcomingTest .uptest-name h6{
+}
+.upcomingTest .uptest-name h6{
   font-size: 18px;
    color: #807e7e;
   font-weight: 600;
   padding-left: 20px;
 }
-#upcomingTest .uptest-info{
+.upcomingTest .uptest-info{
     padding-left: 0px;
     padding-right: 0px;
 }
-#upcomingTest .uptest-info .test-name{
+.upcomingTest .uptest-info .test-name{
     font-size: 20px;
    color: #486078;
   font-weight: 600;
 }
-#upcomingTest .uptest-info .test-expiry{
+.upcomingTest .uptest-info .test-expiry{
     font-size: 10px;
     color: #807e7e;
     margin-top: 0px;
 }
-#upcomingTest .uptest-info .test-expiry span i{
+.upcomingTest .uptest-info .test-expiry span i{
       font-size: 15px;
     color: black;
     opacity: .4;
     padding-right: 5px;
     vertical-align: sub;
 }
-#upcomingTest .uptest-info .test-syllabus{
+.upcomingTest .uptest-info .test-syllabus{
     font-size: 12px;
     color: #42AEF3;
     font-weight: 500;
     letter-spacing: .2px;
     margin-top: 0px;
 }
-#upcomingTest .uptest-info .testsyllabus-info{
+.upcomingTest .uptest-info .testsyllabus-info{
     margin: 0px;
     padding-bottom: 5px;
     padding-top: 5px;
@@ -422,26 +421,26 @@ font-size: 20px !important;
 .syllabus-border{
     border-bottom: 1px solid #ccc;
 }
-#upcomingTest .uptest-info .testsyllabus-info .span-num{
+.upcomingTest .uptest-info .testsyllabus-info .span-num{
     font-size: 17px;
     color: black;
     font-weight: 600;
     padding-left: 5px;
 }
-#upcomingTest .uptest-info .testsyllabus-info .span-text{
+.upcomingTest .uptest-info .testsyllabus-info .span-text{
     font-size: 17px;
     color: black;
     padding-left: 10px;
     opacity: .4;
 }
-#upcomingTest .uptest-info .testsyllabus-info .span-ques{
+.upcomingTest .uptest-info .testsyllabus-info .span-ques{
   float: right;
     font-size: 17px;
     color: black;
     opacity: .4;
     padding-right: 10px;
 }
-#upcomingTest .uptest-info .testsyllabus-info .span-done i{
+.upcomingTest .uptest-info .testsyllabus-info .span-done i{
     float: right;
     font-size: 15px;
     color: black;
@@ -449,7 +448,7 @@ font-size: 20px !important;
     padding-right: 5px;
     padding-top: 5px;
 }
- #upcomingTest .uptest-info .teststart{
+ .upcomingTest .uptest-info .teststart{
   margin-top: 5px;
     margin-bottom: 10px;
     width: 100%;

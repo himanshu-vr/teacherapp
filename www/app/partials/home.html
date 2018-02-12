@@ -1,9 +1,9 @@
 <!-- nav menu -->
-<div class="row f5f5f5">
+<div class="row f5f5f5" ng-init="init()">
 <div class="home-bg">
 	<div class="col s12 home-nav">
 		  <div class="col s1 menu">
-		    <img src="app/images/menu-three-horizontal-lines-symbol.png" class="" width="20" height="20" onclick="openNav()">  
+		    <img src="app/images/menu-three-horizontal-lines-symbol.png" class="" width="20" height="20" ng-click="openNav()">
 		  </div>
 		  <div class="col s5 home-head">
 		  	Hi Aditya
@@ -60,14 +60,14 @@
 		  		Popular Videos
 		  	</h6>
 		  	<div class="slick" id="popular_videos">
-			  	<div class="col s12 home-videos">
-			  		<video  class="vid-open" height="">
-						  <source src="app/videos/videoplayback.mp4#t=1" type="video/mp4" />
+			  	<div class="col s12 home-videos" ng-repeat="item in popularVideos">
+			  		<video  class="vid-open" height="" ng-click="pauseOrPlay($event)">
+						  <source src="{{item.VideoPath}}" type="video/mp4" />
 					</video>
-			  		<h6 class="slider-text">Map based for upcoming test</h6>
-			  		<p class="slider-text">Geography test upcoming test</p>
+			  		<h6 class="slider-text">{{item.DOCUMENTNAME}}</h6>
+			  		<p class="slider-text">{{item.SubjectName}}</p>
 			  	</div>
-			  	<div class="col s12 home-videos">
+			  	<!-- <div class="col s12 home-videos">
 			  		<video  class="vid-open">
 						  <source src="app/videos/videoplayback.mp4#t=1" type="video/mp4" />
 					</video>
@@ -80,19 +80,19 @@
 					</video>
 			  		<h6 class="slider-text">Map based for upcoming test</h6>
 			  		<p class="slider-text">Geography test upcoming test</p>
-			  	</div>
+			  	</div> -->
 		  </div>
  	 </div>
   </div>
-</div> 
+</div>
 </div>
 
 <!-- side nav -->
 <div id="mySidenav" class="sidenav">
-  
+
   <div class="row">
 	<div class="col s12 lecture-bg">
-			  
+
 			  <div class="col s11 stlec-heading">
 			  		<div class="col s4 ">
 				  		<div class="icon">
@@ -103,9 +103,9 @@
 			  			<h6 class="white-text">Hi Aditya</h6>
 			  			<p class="white-text">34% used space</p>
 			  		</div>
-			  		
+
 			  </div>
-			    <span class="closebtn" onclick="closeNav()">&times;</span>
+			    <span class="closebtn" ng-click="closeNav()">&times;</span>
 	</div>
 	</div>
   <a href="#"><img src="app/images/lecture.png" class="sidenav-icon"><span class="nav-links">Home</span></a>
@@ -117,4 +117,3 @@
   <a href="#"><img src="app/images/lecture.png" class="sidenav-icon"><span class="nav-links">Profile</span></a>
   <button type="submit" class="btn nav-logout" ng-click="logout()">Logout</button>
 </div>
- 
