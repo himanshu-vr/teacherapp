@@ -17,5 +17,49 @@ angular.module('studentApp').factory('studentService', ['$http', '$cookies', fun
           return $promise;
     },
 
+    //function to get recommended videos
+    recommendedVideo: function(){
+      var cookie = $cookies.get('access_token');
+      cookie  = JSON.parse(cookie);
+      var access_token = cookie.access_token;
+      var data = {
+        "StudentId" : cookie.UserID
+      }
+      console.log(data);
+      var $promise = $http.post('http://ajay.abhigna.info/api/api/RecommendedVideos', {
+        data : data
+        }, {
+        headers: {
+          'Authorization': 'bearer ' + access_token
+        }
+      })
+      $promise.then(function onSuccess(result) {
+        })
+        .catch(function onError(error) {
+        });
+      return $promise;
+    },
+    //functiont to get scheduleTest
+    testSchedule : function(){
+      var cookie = $cookies.get('access_token');
+      cookie  = JSON.parse(cookie);
+      var access_token = cookie.access_token;
+      var data = {
+        "StudentId" : cookie.UserID
+      }
+      console.log(data);
+      var $promise = $http.post('http://ajay.abhigna.info/api/api/TestSchedule', {
+        data : data
+        }, {
+        headers: {
+          'Authorization': 'bearer ' + access_token
+        }
+      })
+      $promise.then(function onSuccess(result) {
+        })
+        .catch(function onError(error) {
+        });
+      return $promise;
+    }
   };
 }])
