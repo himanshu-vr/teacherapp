@@ -17,6 +17,9 @@ angular.module('studentApp').controller('stTestCtrl',['$scope','$rootScope','$lo
             $scope.upcomingTest = false;    
         }
     }
+//     $('.uptest-info').on('edge', function(event, slick){
+//     console.log("initialized")
+// });
     $('.uptest-info').slick({
          centerMode: false,
   centerPadding: '0px',

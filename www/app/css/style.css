@@ -295,6 +295,8 @@ font-size: 20px !important;
   padding-bottom: 15px !important;
   background-color: #2E5E86 !important;
   color: #ffffff;
+  position: fixed;
+  top: 0px;
 }
 .test-name h6{
       font-size: 16px;
@@ -306,7 +308,7 @@ font-size: 20px !important;
   font-size: 20px !important;
   color: #2E5E86 !important;
   font-weight: 600;
-  margin-top: 30px !important;
+  margin-top: 70px !important;
 }
 .test-instructions .instr-img{
   padding-top: 10px;
@@ -317,8 +319,8 @@ font-size: 20px !important;
         line-height: 1.25;
 }
 .test-instructions {
-    padding-top: 20px !important;
-    padding-bottom: 20px !important;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
 }
 .test-start{
   position: fixed;
@@ -558,19 +560,20 @@ input:-webkit-autofill {
     margin-bottom: 0px;
 }
 .sidenav .nav-links {
-    font-size: 17px;
+    font-size: 14px;
     padding-left: 35px;
 }
 .sidenav .nav-logout{
     position: absolute;
     bottom: 0px;
-    height: 50px;
+    height: 40px;
     width: 300px;
-    background: #486078;
+    background: #42AEF3;
     border: 0px !important;
     color: #fff !important;
-    font-size: 20px !important;
+    font-size: 15px !important;
     border-radius: 0px;
+    text-transform: none;
 }
 .home-videos{
   width: 160px !important;
@@ -618,4 +621,19 @@ input:-webkit-autofill {
 #popular_videos .slick-list {
     padding-left: 0px !important;
     padding-right: 0px !important;
+}
+.no-notify{
+    text-align: center;
+    padding-top: 50% !important;
+}
+.no-notify .text-p{
+      opacity: .7;
+    color: black;
+}
+.no-notify .text-span{
+      opacity: 1;
+    color: #2E5E86 !important;
+}
+.pad40{
+      padding-bottom: 40px !important;
 }

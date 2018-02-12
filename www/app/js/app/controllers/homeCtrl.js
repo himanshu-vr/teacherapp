@@ -10,15 +10,20 @@ angular.module('studentApp').controller('homeCtrl',['$scope','$rootScope','$loca
   $scope.lecture = function(){
   	$location.path('/student/lecture');
   }
+  // for test schedule
   $scope.testSchedule = function(){
     $location.path('/test/schedule');
   }
+  // for logout
   $scope.logout = function(){
     $cookies.remove("access_token");
     $location.path('/login');
   }
-
-
+  // for notifications
+  $scope.notifyMsg = function(){
+    $location.path('/notifications');
+  }
+  
   $('#popular_videos').slick({
          centerMode: false,
   centerPadding: '0px',
