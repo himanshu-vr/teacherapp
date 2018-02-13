@@ -37,4 +37,26 @@ angular.module('studentApp').controller('stTestCtrl',['$scope','$rootScope','$lo
   $scope.goBack  = function(){
     $location.path('/home');
   }
+
+  $('.quesinfo-slider').slick({
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  arrows: false,
+  infinite: false,
+  fade: true,
+  asNavFor: '.question-slider'
+});
+$('.question-slider').slick({
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    asNavFor: '.quesinfo-slider',
+    dots: false,
+    nav: false,
+    infinite: false,
+    prevArrow: false,
+    nextArrow: false,
+    centerMode: true,
+    focusOnSelect: true
+});
 }]);
+
