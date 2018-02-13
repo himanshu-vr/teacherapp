@@ -711,3 +711,37 @@ input:-webkit-autofill {
 .ques-option .selection [type="radio"]:checked+label:after, [type="radio"].with-gap:checked+label:before, [type="radio"].with-gap:checked+label:after{
   display: none;
 }
+.ques-info .ques-num{
+    padding: 2px 6px 2px 6px;
+    background-color: #42AEF3;
+    color: #fff;
+    border-radius: 50%;
+}
+.ques-info .ques-time{
+  padding-left: 10px;
+    font-size: 12px;
+    opacity: .7;
+        padding: 3px 10px 3px 10px;
+    border-right: 1px solid;
+}
+.ques-info .ques-points{
+  padding-left: 10px;
+    font-size: 12px;
+    opacity: .7;
+}
+.attention-sign{
+  background: url('../images/attention-sign-outline.png');
+  background-size: 16px 16px;
+  background-position: 5% 13px !important;
+}
+.bookmark-white{
+  background: url(../images/bookmark-white.png);
+  background-position: center !important;
+      background-size: 20px 20px !important;
+
+}
+.ques-info .ques-head{
+  padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #a3a0a3;
+}
