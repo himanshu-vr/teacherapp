@@ -7,7 +7,7 @@ height: 50px !important;
 }
 .log-head h1{
   font-size: 20px;
-  color: blue;
+  color: #42AEF3;
   text-align: center;
 }
 .login-sec{
@@ -16,39 +16,47 @@ height: 50px !important;
 .login-sec .student-sec {
   text-align: center;
     border-radius: 50%;
-    border: 1px solid;
-    height: 130px;
+    border: 1px solid #d6d3d3;
+    height: 120px;
     vertical-align: middle;
-    padding-top: 20px;
+    padding-top: 10px;
+    background-color: transparent;
+    min-width: 120px;
+    max-width: 125px;
 }
 .login-sec .student-sec:focus, .login-sec .student-sec:active, .login-sec .student-sec:visited {
-    border: 1px solid blue !important;
+    border: 1px solid #42AEF3 !important;
 }
 .login-sec .student-sec img{
   width: 40px !important;
   height: 40px !important;
 }
+.login-sec .stu-div{
+  padding-right: 10px;
+}
 .login-sec .student-sec p{
-  font-size: 15px;
-  color: blue;
+  font-size: 14px;
+  color: #42AEF3;
   font-weight: 600;
+  margin-top: 3px;
 }
 .login-form{
-  padding-left: 40px !important;
-  padding-right: 50px !important;
+  padding-left: 24px !important;
+  padding-right: 60px !important;
+  padding-bottom: 40px !important;
 }
 .login-form input{
-  padding-left: 10px !important;
-  border: 1px solid blue !important;
+  padding-left: 35px !important;
+  border: 1px solid #42AEF3 !important;
   border-radius: 15px !important;
   font-size: 17px !important;
-  color: blue !important;
+  color: #42AEF3 !important;
   box-shadow: none !important;
 }
  .user-fix{
-  background: url('../images/icons.png') no-repeat -64px -623px;
-	width: 23px;
-	height: 43px;
+  background: url('../images/user.png') no-repeat;
+  background-size: 16px 16px;
+  background-position: 5% 13px !important;
 }
 .forgot-pass{
   margin-top: -10px !important;
@@ -64,8 +72,680 @@ height: 50px !important;
 .sign-in button{
   height: 50px;
   width: 100% !important;
-  background: blue;
+  background: #42AEF3;
   border: 0px !important;
   color: #fff !important;
   font-size: 20px !important;
+}
+.home-bg{
+  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),url(../images/beach.jpg);
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  width: 100%;
+  opacity: .9;
+  height: 300px !important;
+}
+.home-nav {
+  padding-top: 15px !important;
+  color: white;
+}
+.home-nav .menu img{
+  vertical-align: middle;
+}
+.home-nav .home-head{
+  font-size: 16px;
+  font-weight: 600;
+  padding-left: 20px;
+}
+.notify-badge{
+    background-color: #42AEF3;
+    font-size: 11px;
+    outline: 0;
+    border: 0;
+    position: absolute;
+    right: 17px;
+    top: 10px;
+    border-radius: 50%;
+    text-align: center;
+    padding: 3px 7px 1px 7px !important;
+}
+.side-no-pad{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+.home-dashboard{
+  margin-top: 60px;
+  color: white;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+.home-dashboard .download-head h6{
+  font-size: 15px;
+  font-weight: 500;
+  padding-top: 8px;
+}
+.home-dashboard .space-status{
+  font-size: 8px;
+  font-weight: 500;
+  padding: 0px;
+  text-align: center;
+  padding-top: 10px;
+  border-radius: 50%;
+  border: 2px solid white;
+  height: 55px;
+  width: 60px !important;
+}
+.home-dashboard .space-status p{
+  margin: 0px;
+}
+.home-dashboard .space-status .percentage{
+  font-size: 12px;
+  font-weight: 600;
+}
+.right-no-pad{
+  padding-right: 0px !important;
+}
+.left-no-pad{
+  padding-left: 0px !important;
+}
+.pad-left-10{
+  padding-left: 10px !important;
+}
+.pad-left-20{
+  padding-left: 20px !important;
+}
+.home-dashboard .dash-link{
+  padding-top: 20px;
+}
+.dash-link .task-list{
+  min-height: 170px;
+  background-color: #42AEF3;
+  margin-bottom: 10px;
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+text-align: center;
+vertical-align: middle;
+padding-top: 40px;
+border-radius: 2px;
+}
+/*.dash-link .task-list img{
+  height: 80px;
+  width: 100px;
+}*/
+.dash-link .task-list h6{
+ font-size: 15px;
+ font-weight: 600;
+}
+.home-notifications i{
+  font-size: 27px;
+}
+.lecture-bg{
+  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),url(../images/beach.jpg);
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  width: 100%;
+  opacity: .8;
+  height: 150px !important;
+}
+.stlec-heading{
+      padding-top: 15px !important;
+    text-align: center;
+    padding-left: 0px !important;
+    margin-left: -10px !important;
+}
+.stlec-heading .icon{
+  height: 75px;
+  width: 75px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  vertical-align: middle;
+  padding-top: 15px;
+  padding-left: 0px;
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0);
+-moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0);
+box-shadow: 0px 0px 5px 0px rgba(0,0,0,0);
+}
+.stlec-heading .icon img{
+  height: 45px;
+  width: 45px;
+}
+.stlec-heading h6{
+ font-size: 15px;
+ font-weight: 600;
+}
+.month-lecture {
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    border-bottom: 1px solid #d6d3d3;
+}
+.month-lecture .month-name{
+      font-size: 15px;
+    font-weight: 500;
+    color: #486078;
+}
+.pointer{
+  cursor: pointer;
+}
+.lecture-info {
+  min-height: 100% !important;
+  background-color: #f5f5f5;
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+  color: #42AEF3 !important;
+}
+.lecture-info .lecture-detail{
+  background-color: white;
+  border-radius: 3px;
+  padding: 10px !important;
+  margin-bottom: 10px;
+}
+.lecture-info .lecture-detail .lect-name{
+  margin: 0px !important;
+  color: #486078;
+  font-size: 16px;
+  font-weight: 600;
+}
+.lecture-info .lecture-detail .lect-teacher{
+  margin: 0px !important;
+  font-size: 11px !important;
+  font-weight: 600;
+}
+.f5f5f5-bg{
+  background-color: #f5f5f5 !important;
+  height: 100%;
+  width: 100%;
+}
+.pad-btm-10{
+  padding-bottom: 10px !important;
+}
+.lecture-info .lect-day h5{
+margin-bottom: 0px !important;
+font-size: 20px !important;
+}
+.lecture-info .lect-day h6{
+  margin-top: 0px !important;
+  font-weight: 500;
+  font-size: 13px;
+}
+.lecture-info .lecture-detail:nth-of-type(even){
+  background-color: #42AEF3 !important;
+  color: #ffffff !important;
+}
+.lecture-info .lecture-detail:nth-of-type(even) .lect-name{
+  margin: 0px !important;
+  color: #ffffff !important;
+  font-size: 16px;
+  font-weight: 600;
+}
+.lecture-info .lecture-detail:nth-of-type(even) .lect-name{
+  margin: 0px !important;
+  color: #ffffff !important;
+  font-size: 16px;
+  font-weight: 600;
+}
+.lecture-info .lecture-detail:nth-of-type(even) .lect-time{
+  color: #ffffff !important;
+}
+.test-info{
+  padding-top: 15px !important;
+  padding-bottom: 15px !important;
+  background-color: #2E5E86 !important;
+  color: #ffffff;
+  position: fixed;
+  top: 0px;
+}
+.test-name h6{
+      font-size: 16px;
+    font-weight: 600;
+    margin-top: 3px;
+    margin-bottom: 0px;
+}
+.test-heading h6{
+  font-size: 20px !important;
+  color: #2E5E86 !important;
+  font-weight: 600;
+  margin-top: 70px !important;
+}
+.test-instructions .instr-img{
+  padding-top: 10px;
+}
+.test-instructions .instr-details h6{
+  font-size: 14px !important;
+    opacity: 0.5;
+        line-height: 1.25;
+}
+.test-instructions {
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+}
+.test-start{
+  position: fixed;
+  bottom: 0px;
+  padding: 0 !important;
+}
+.test-start button{
+  height: 50px;
+  width: 100% !important;
+  background: #42AEF3;
+  border: 0px !important;
+  color: #fff !important;
+  font-size: 20px !important;
+}
+.lect-teacher .lect-time{
+  float: right;
+  color: #486078;
+}
+
+/* Style the tab */
+.upcomingTesttab {
+    overflow: hidden;
+    border-bottom: 1px solid #ccc;
+    background-color: #ffffff;
+}
+
+/* Style the buttons that are used to open the tab content */
+.upcomingTesttab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+    width: 50%;
+    height: 50px;
+    color: #807e7e;
+}
+
+/* Change background color of buttons on hover */
+/*.tab button:hover {
+    background-color: #ddd;
+}*/
+
+/* Create an active/current tablink class */
+.upcomingTesttab button:active {
+    color: #486078;
+    font-weight: 500;
+    border-bottom: 2px solid #42AEF3;
+}
+
+/* Style the tab content */
+.tabcontent {
+    border: none;
+    border-top: none;
+}
+.upcomingTest .uptest-name {
+ padding: 0px 0px 10px 0px;
+}
+.upcomingTest .uptest-name h6{
+  font-size: 18px;
+   color: #807e7e;
+  font-weight: 600;
+  padding-left: 20px;
+}
+.upcomingTest .uptest-info{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.upcomingTest .uptest-info .test-name{
+    font-size: 20px;
+   color: #486078;
+  font-weight: 600;
+}
+.upcomingTest .uptest-info .test-expiry{
+    font-size: 10px;
+    color: #807e7e;
+    margin-top: 0px;
+}
+.upcomingTest .uptest-info .test-expiry span i{
+      font-size: 15px;
+    color: black;
+    opacity: .4;
+    padding-right: 5px;
+    vertical-align: sub;
+}
+.upcomingTest .uptest-info .test-syllabus{
+    font-size: 12px;
+    color: #42AEF3;
+    font-weight: 500;
+    letter-spacing: .2px;
+    margin-top: 0px;
+}
+.upcomingTest .uptest-info .testsyllabus-info{
+    margin: 0px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+.syllabus-border{
+    border-bottom: 1px solid #ccc;
+}
+.upcomingTest .uptest-info .testsyllabus-info .span-num{
+    font-size: 17px;
+    color: black;
+    font-weight: 600;
+    padding-left: 5px;
+}
+.upcomingTest .uptest-info .testsyllabus-info .span-text{
+    font-size: 17px;
+    color: black;
+    padding-left: 10px;
+    opacity: .4;
+}
+.upcomingTest .uptest-info .testsyllabus-info .span-ques{
+  float: right;
+    font-size: 17px;
+    color: black;
+    opacity: .4;
+    padding-right: 10px;
+}
+.upcomingTest .uptest-info .testsyllabus-info .span-done i{
+    float: right;
+    font-size: 15px;
+    color: black;
+    opacity: .4;
+    padding-right: 5px;
+    padding-top: 5px;
+}
+ .upcomingTest .uptest-info .teststart{
+  margin-top: 5px;
+    margin-bottom: 10px;
+    width: 100%;
+    height: 30px;
+    font-weight: 500;
+    color: #ffffff;
+    background-color: #42AEF3;
+    border: none;
+    outline: none;
+    -webkit-box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.5);
+    box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.5);
+}
+.uptest-info .slider-item{
+  margin-right: 20px !important;
+}
+.uptest-info .slick-list{
+    padding-left: 20px !important;
+}
+@-webkit-keyframes autofill {
+    to {
+        color: #666;
+        background: transparent;
+    }
+}
+
+input:-webkit-autofill {
+    -webkit-animation-name: autofill;
+    -webkit-animation-fill-mode: both;
+}
+.invalid-user{
+  text-align: center;
+  margin-bottom: 10px;
+  color: red;
+  margin-left: 10%;
+}
+.text-center{
+  text-align: center;
+}
+/* The side navigation menu */
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: #fff; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 0px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+/* The navigation menu links */
+.sidenav a {
+    padding: 10px 8px 10px 15px;
+    text-decoration: none;
+    font-size: 17px;
+    color: #000;
+    display: block;
+    transition: 0.3s;
+    opacity: .6;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover,.sidenav a:active ,.sidenav a:focus {
+    color: #486078;
+    background-color: #ebebeb;
+    opacity: 1;
+    font-weight: 500;
+    outline: none;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    color: white;
+    opacity: 1;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+/*#main {
+    transition: margin-left .5s;
+    padding: 20px;
+}*/
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+.sidenav-icon{
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    vertical-align: sub;
+}
+.sidenav .stlec-heading .head-nav {
+    text-align: left !important;
+    padding-left: 20px;
+}
+.sidenav .stlec-heading p {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.sidenav .nav-links {
+    font-size: 14px;
+    padding-left: 35px;
+}
+.sidenav .nav-logout{
+    position: absolute;
+    bottom: 0px;
+    height: 40px;
+    width: 300px;
+    background: #42AEF3;
+    border: 0px !important;
+    color: #fff !important;
+    font-size: 15px !important;
+    border-radius: 0px;
+    text-transform: none;
+}
+.home-videos{
+  width: 160px !important;
+}
+.home-videos .vid-open{
+  width: 150px !important;
+  border-radius: 5px;
+}
+.home-videos .slider-text{
+    max-width: 120px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.home-videos h6{
+    margin: 0px;
+    color: #486078;
+    outline: none;
+    font-size: 12px;
+}
+.home-videos p{
+      margin: 0;
+    font-size: 10px;
+    opacity: .7;
+}
+.f5f5f5{
+  background-color: #f5f5f5;
+}
+.st-lect-vid{
+    border-radius: 5px;
+    background-color: white;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+.st-lect-vid .heading{
+    padding-left: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #486078;
+    letter-spacing: .2px;
+    padding-bottom: 10px;
+}
+#popular_videos .slick-list {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+.no-notify{
+    text-align: center;
+    padding-top: 50% !important;
+}
+.no-notify .text-p{
+      opacity: .7;
+    color: black;
+}
+.no-notify .text-span{
+      opacity: 1;
+    color: #2E5E86 !important;
+}
+.pad40{
+      padding-bottom: 40px !important;
+}
+/*for timer in student test*/
+
+.test-timer{
+    background-color: #486078;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+}
+.test-timer .test-submit{
+  text-align: right;
+}
+.test-submit button{
+    padding: 0px;
+    background: transparent;
+    border: 0px;
+    outline: 0;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+}
+.question-slider{
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    background-color: white;
+    border-bottom: 1px solid #d6d6d3;
+}
+.question-slider .slider-item {
+    text-align: center;
+}
+/*.question-slider .slick-list{
+      padding-left: 42% !important;
+}*/
+.quesinfo-slider {
+      padding-top: 20px !important;
+}
+.ques-text h6{
+      font-size: 13px;
+    color: #486078;
+}
+.ques-info{
+      border-radius: 2px;
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+    background-color: #ffffff;
+    margin-bottom: 10px;
+}
+
+
+.ques-option .selection {
+  margin-bottom: 1em;
+}
+
+.ques-option .selection label {
+  display: inline-block;
+  width: 100%;
+  background-color: white;
+  border-radius: 1px;
+  color: #000;
+  padding: 0.5em;
+  cursor: pointer;
+  height: 35px;
+}
+
+.ques-option .selection [type="radio"]:not(:checked)+label:before, .ques-option .selection  [type="radio"]:not(:checked)+label:after{
+  display: none;
+}
+
+.ques-option .selection input[type=radio]:checked ~ label {
+ background-color: #42AEF3;
+ color: white;
+}
+.ques-option .selection [type="radio"]:checked+label:after, [type="radio"].with-gap:checked+label:before, [type="radio"].with-gap:checked+label:after{
+  display: none;
+}
+.ques-info .ques-num{
+    padding: 2px 6px 2px 6px;
+    background-color: #42AEF3;
+    color: #fff;
+    border-radius: 50%;
+}
+.ques-info .ques-time{
+  padding-left: 10px;
+    font-size: 12px;
+    opacity: .7;
+        padding: 3px 10px 3px 10px;
+    border-right: 1px solid;
+}
+.ques-info .ques-points{
+  padding-left: 10px;
+    font-size: 12px;
+    opacity: .7;
+}
+.attention-sign{
+  background: url('../images/attention-sign-outline.png');
+  background-size: 16px 16px;
+  background-position: 5% 13px !important;
+}
+.bookmark-white{
+  background: url(../images/bookmark-white.png);
+  background-position: center !important;
+      background-size: 20px 20px !important;
+
+}
+.ques-info .ques-head{
+  padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #a3a0a3;
+}
+.mr20{
+  margin-top: 20px;
+}
+.mrbtm{
+  margin-bottom: 50px;
 }

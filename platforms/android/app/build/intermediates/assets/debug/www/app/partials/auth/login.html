@@ -1,4 +1,4 @@
-<div class="row teacher-fair">
+<div class="row teacher-fair" ng-init="init()">
     <div class="col s12 logo center">
       <img src="app/images/logo.jpg" alt="teacher Fair">
     </div>
@@ -6,32 +6,42 @@
       <h1>Login to your account</h1>
     </div>
     <div class="col s12 login-sec">
-        <div class="col s6">
-          <div class="col s12 student-sec">
-                  <img src="app/images/logo.jpg" alt="teacher Fair">
+        <div class="col s6 stu-div">
+          <button class="col s11 student-sec" ng-click="studentSelect()" id="isStudent">
+                  <img src="app/images/graduate-student-avatar.png" alt="teacher Fair">
                 <p>I'm a Student
                 </p>
-          </div>
+          </button>
         </div>
-        <div class="col s6">
-          <div class="col s12 student-sec">
-                  <img src="app/images/logo.jpg" alt="teacher Fair">
-                <p>I'm a Teacher
+        <div class="col s6 tea-div">
+          <button class="col s11 student-sec" ng-click="teacherSelect()" id="isTeacher">
+                  <img src="app/images/male-cartoon-pointing-to-white-board.png" alt="teacher Fair">
+                <p>I'm a Lecturer
                 </p>
-          </div>
+          </button>
         </div>
     </div>
-    <div class="col s12 login-form">
-      <div class="col s12 user-name">
-        <span class="user-fix prefix"></span>
-        <input type="text" placeholder="Username" class="validate">
+    <form name="loginForm" ng-submit="loginForm.$valid && login(user)" novalidate>
+      <div class="col s12 login-form">
+        <div class="invalid-user text-center">
+          {{inValid}}
+        </div>
+        <div class="col s12 user-name">
+          <input type="text" placeholder="Username" class="user-fix" ng-required="true" ng-model="user.name" name="name">
+          <p class="slight-margin small-font err-color pull-right" ng-show="userForm.email.$dirty && userForm.email.$invalid">
+            <span ng-show="loginForm.name.$error.required">username is required</span>
+          </p>
+        </div>
+        <div class="col s12 user-pass">
+          <input type="password" placeholder="Password" class="user-fix" ng-required="true" ng-model="user.password" name="password">
+          <p class="slight-margin err-color small-font pull-right" ng-show="loginForm.password.$dirty">
+            <span ng-show="loginForm.password.$error.required">Password is required</span>
+          </p>
+          <a class="right forgot-pass">Forgot Password?</a>
+        </div>
       </div>
-      <div class="col s12 user-pass">
-        <input type="password" placeholder="Password">
-        <a class="right forgot-pass">Forgot Password?</a>
+      <div class="col s12 sign-in">
+        <button type="submit" class="btn btn-circle" ng-disabled="loginForm.$invalid">{{loginName}}</button>
       </div>
-    </div>
-    <div class="col s12 sign-in">
-      <button>Sign in</button>
-    </div>
+    </form>
 </div>
