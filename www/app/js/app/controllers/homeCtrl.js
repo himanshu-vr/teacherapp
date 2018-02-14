@@ -47,6 +47,10 @@ angular.module('studentApp').controller('homeCtrl',['$scope','$rootScope','$loca
   $scope.notifyMsg = function(){
     $location.path('/notifications');
   }
+  //for recommended video
+  $scope.recommendedVideo = function(){
+    $location.path('/student/recommended_video');
+  }
   $('#popular_videos').slick({
     centerMode: false,
     centerPadding: '0px',
