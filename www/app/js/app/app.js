@@ -21,8 +21,8 @@ angular.module('studentApp')
           { controller: 'stLectureCtrl', templateUrl: 'app/partials/student/lecture.html'})
       .when('/test/schedule',
           { controller: 'stTestCtrl', templateUrl: 'app/partials/student/test/schedule.html'})
-      .when('/notifications',
-          { controller: 'notificationCtrl', templateUrl: 'app/partials/notifications.html'})
+      // .when('/notifications',
+      //     { controller: 'notificationCtrl', templateUrl: 'app/partials/notifications.html'})
       .when('/test/instructions',
           { controller: 'stTestCtrl', templateUrl: 'app/partials/student/test/instructions.html'})
       .when('/student/recommended_video',
