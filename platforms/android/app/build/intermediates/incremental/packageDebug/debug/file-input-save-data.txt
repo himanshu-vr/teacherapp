@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Wed Feb 14 22:40:40 IST 2018
+#Thu Feb 15 00:09:27 IST 2018
 76.base=/home/vr-himanshu/TeacherApp/platforms/android/app/build/intermediates/assets/debug
 5.base=/home/vr-himanshu/TeacherApp/platforms/android/app/build/intermediates/res/debug/resources-debug.ap_
 42.base=/home/vr-himanshu/TeacherApp/platforms/android/app/build/intermediates/assets/debug

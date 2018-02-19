@@ -131,9 +131,50 @@
 							</div>
 			  			</div>	 
 			  		</div>
+			  		<div class="slider-item" >
+			  			<div class="col s12">
+			  				<div class="col s12 ques-info">
+			  					<div class="col s12 side-no-pad ques-head">
+			  						<div class="col s10 side-no-pad">
+			  							<span class="ques-num">2</span><span class="ques-time">00:12</span><span class="ques-points">+1.00</span><span class="ques-points">-0.25</span>
+			  						</div>
+			  						<div class="col s1">
+			  							<img src="app/images/attention-sign-outline.png">
+			  						</div>
+			  						<div class="col s1">
+			  							<img src="app/images/bookmark.png" width="18">
+			  						</div>	
+			  					</div>
+			  					<div class="col s12 ques-text side-no-pad">
+			  						<h6>Which one among the following is a micronutrient present in soil for various crops?</h6>
+			  					</div>
+			  				</div>
+			  				<div class="ques-option col s12 side-no-pad">
+								  <div class="selection">
+								    <input id="option1" name="ques-option" type="radio">
+								    <label for="option1"><span>1.</span> Calcium</label>
+								  </div>
+								  <div class="selection">
+								    <input id="option2" name="ques-option" type="radio">
+								    <label for="option2"><span>2.</span> Maganese</label>
+								  </div>
+								  <div class="selection">
+								    <input id="option3" name="ques-option" type="radio">
+								    <label for="option3"><span>3.</span> Magnesium</label>
+								  </div>
+								  <div class="selection">
+								    <input id="option4" name="ques-option" type="radio">
+								    <label for="option4"><span>4.</span> Potassium</label>
+								  </div>
+							</div>
+			  			</div>	 
+			  		</div>
 			</div>
-				<div class="col s12 test-start">
-				     <button >Next</button>
+				<div class="col s12 test-start txt-strt-btn" ng-show="txt-strt-btn">
+				     <button ng-click="nextQues();">Next</button>
+				</div>
+				<div class="col s12 test-nxt-prev txt-strt-btn" ng-hide="txt-nxt-prev-btn">
+				     <button ng-click="prevQues();">Prev</button><button ng-click="nextQues();">Next</button>
 				</div>	
 </div>
 

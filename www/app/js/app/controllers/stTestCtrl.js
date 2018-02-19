@@ -9,7 +9,9 @@ angular.module('studentApp').controller('stTestCtrl',['$scope','$rootScope','$lo
   $scope.isInstruction = false;
   $scope.isTestStart = false;
   var questionIndex = 0;
+  $scope.TestId = '';
    $scope.init = function(){
+     $scope.TestId = '';
      $scope.upcomingTest = true;
      $scope.attemptedTest = false;
      //get test of students
@@ -94,10 +96,26 @@ angular.module('studentApp').controller('stTestCtrl',['$scope','$rootScope','$lo
 //     }
 // }
 
-$scope.showInstructions = function(){
+$scope.showInstructions = function(testId){
+  $scope.TestId = testId;
   $scope.isInstruction = true;
   $scope.isTest = false;
   $scope.isTestStart = false;
+  //get the question based on test ID
+  studentService.getQuestions($scope.TestId)
+    .then(function onSuccess(response) {
+    if(response != undefined && typeof(response) == 'object'){
+      if(response.data != undefined && response.data.length > 0){
+         console.log(response);
+        }
+      }else{
+      }
+    })
+    .catch(function onError(errorResponse) {
+
+    })
+  .finally(function eitherWay(){
+  })
 }
 
 $scope.startTest = function(){

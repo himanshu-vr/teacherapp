@@ -43,7 +43,7 @@ angular.module('studentApp').factory('studentService', ['$http', '$cookies', fun
         return [];
       }
     },
-    //functiont to get scheduleTest
+    //function to get scheduleTest
     testSchedule : function(){
       var cookie = $cookies.get('access_token');
       var cookie = $cookies.get('access_token');

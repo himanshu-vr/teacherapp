@@ -40,7 +40,7 @@
 		  			<p class="testsyllabus-info syllabus-border"><span class="span-num">{{subtest.TotalQuestion}}</span><span class="span-text">Question</span><span class="span-ques">?</span></p>
 		  			<p class="testsyllabus-info syllabus-border"><span class="span-num">{{subtest.TotalMarks}}</span><span class="span-text">Marks</span><span class="span-done"><i class="material-icons dp48">done</i></span></p>
 		  			<p class="testsyllabus-info"><span class="span-num">{{subtest.TotalTime}}</span><!--<span class="span-text">Minutes</span>--><span class="span-done"><i class="material-icons dp48">timer</i></span></p>
-		  			<button class="teststart" ng-click="showInstructions()">Start Test</button>
+		  			<button class="teststart" ng-click="showInstructions(subtest.TestId)">Start Test</button>
 		  		</div>
 		  	</div>
   	</div>
