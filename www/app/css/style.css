@@ -783,3 +783,14 @@ input:-webkit-autofill {
 .mrbtm{
   margin-bottom: 50px;
 }
+.heading{
+  font-size: 16px !important;
+  color: #42AEF3 !important;
+  margin-bottom: 10px !important;
+  font-weight: 600;
+}
+.play-sign{
+  position: absolute;
+top: 35px;
+left: 85px;
+}

@@ -40,6 +40,7 @@ angular.module('studentApp').controller('stVideoCtrl',['$scope','$rootScope','$l
               video[0].webkitRequestFullScreen();
           }
          video[0].play();
+         
        }else{
          video[0].pause();
        }

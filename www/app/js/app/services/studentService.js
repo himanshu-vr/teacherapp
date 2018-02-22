@@ -85,7 +85,7 @@ angular.module('studentApp').factory('studentService', ['$http', '$cookies', fun
         }, {
         headers: {
           'Authorization': 'bearer ' + access_token,
-          'Content-Type' : 'application/x-www-form-urlencoded'
+          'Content-Type' : 'application/json'
         }
       })
       $promise.then(function onSuccess(result) {

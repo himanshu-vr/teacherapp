@@ -61,11 +61,17 @@
 		  	</h6>
 		  	<div class="slick" id="popular_videos">
 			  	<div class="col s12 home-videos" ng-repeat="item in popularVideos">
-			  		<video  class="vid-open" height="" ng-click="pauseOrPlay($event)">
-						  <source src="{{item.VideoPath}}" type="video/mp4" />
-					</video>
-			  		<h6 class="slider-text">{{item.DOCUMENTNAME}}</h6>
-			  		<p class="slider-text">{{item.SubjectName}}</p>
+
+						<div class="col s12" ng-repeat="video in item.lstVideoModel">
+								<img class="play-sign" src="app/images/play-sign.png" ng-if="isPlay">
+								<img class="play-sign" src="app/images/play-sign.png" ng-if="isPause">
+							<video  class="vid-open" height="" ng-click="pauseOrPlay($event)">
+								<source src="{{video.VideoPath}}" type="video/mp4" />
+							</video>
+
+							<h6 class="">{{video.DOCUMENTNAME}}</h6>
+							<p class="slider-text">{{video.SubjectName}}</p>
+						</div>
 			  	</div>
 			  	<!-- <div class="col s12 home-videos">
 			  		<video  class="vid-open">
