@@ -46,14 +46,12 @@ angular.module('studentApp').factory('studentService', ['$http', '$cookies', fun
     //function to get scheduleTest
     testSchedule : function(){
       var cookie = $cookies.get('access_token');
-      var cookie = $cookies.get('access_token');
       if(cookie != undefined && cookie != null){
         cookie  = JSON.parse(cookie);
         var access_token = cookie.access_token;
         var data = {
           "StudentId" : cookie.UserID
         }
-        console.log(data);
         var $promise = $http.post('http://ajay.abhigna.info/api/api/TestSchedule', {
           data : data
           }, {
@@ -69,41 +67,36 @@ angular.module('studentApp').factory('studentService', ['$http', '$cookies', fun
       }else{
         return [];
       }
+    },
+  //function to get questions
+  getQuestions : function(testId){
+    console.log(testId);
+    var cookie = $cookies.get('access_token');
+    if(cookie != undefined && cookie != null){
+      cookie  = JSON.parse(cookie);
+      var access_token = cookie.access_token;
+      var data = {
+        "TestId" : "2"
+      }
+      console.log(data);
+      console.log(access_token);
+      var $promise = $http.post('http://ajay.abhigna.info/api/api/TestQuestion', {
+        data : data
+        }, {
+        headers: {
+          'Authorization': 'bearer ' + access_token,
+          'Content-Type' : 'application/x-www-form-urlencoded'
+        }
+      })
+      $promise.then(function onSuccess(result) {
+        console.log(result);
+        })
+        .catch(function onError(error) {
+        });
+      return $promise;
+    }else{
+      return [];
     }
-
-    // function Service() {
-    //     var modals = [1]; // array of modals on the page
-    //     var service = {};
- 
-    //     service.Add = Add;
-    //     service.Remove = Remove;
-    //     service.Open = Open;
-    //     service.Close = Close;
- 
-    //     return service;
- 
-    //     function Add(modal) {
-    //         // add modal to array of active modals
-    //         modals.push(modal);
-    //     }
-         
-    //     function Remove(id) {
-    //         // remove modal from array of active modals
-    //         var modalToRemove = _.findWhere(modals, { id: id });
-    //         modals = _.without(modals, modalToRemove);
-    //     }
- 
-    //     function Open(id) {
-    //         // open modal specified by id
-    //         var modal = _.findWhere(modals, { id: id });
-    //         modal.open();
-    //     }
- 
-    //     function Close(id) {
-    //         // close modal specified by id
-    //         var modal = _.findWhere(modals, { id: id });
-    //         modal.close();
-    //     }
-    // }
+  }
   };
 }])
