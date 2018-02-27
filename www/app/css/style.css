@@ -784,6 +784,17 @@ input:-webkit-autofill {
 .mrbtm{
   margin-bottom: 50px;
 }
+.heading{
+  font-size: 16px !important;
+  color: #42AEF3 !important;
+  margin-bottom: 10px !important;
+  font-weight: 600;
+}
+.play-sign{
+  position: absolute;
+top: 35px;
+left: 85px;
+}
 .sign-in button:hover, .sign-in button:focus {
     background: #42AEF3;
 }
@@ -814,8 +825,8 @@ input:-webkit-autofill {
 }
 .score-perc{
     position: absolute;
-    top: 38%;
-    left: 20%;
+    top: 190px;
+    left: 60px;
     font-size: 25px;
     font-weight: 600;
     opacity: .5;

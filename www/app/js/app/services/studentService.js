@@ -27,11 +27,10 @@ angular.module('studentApp').factory('studentService', ['$http', '$cookies', fun
           "StudentId" : cookie.UserID
         }
         console.log(data);
-        var $promise = $http.post('http://ajay.abhigna.info/api/api/RecommendedVideos', {
-          data : data
-          }, {
+        var $promise = $http.post('http://ajay.abhigna.info/api/api/RecommendedVideos', data, {
           headers: {
             'Authorization': 'bearer ' + access_token
+            // 'Content-Type' : 'application/x-www-form-urlencoded'
           }
         })
         $promise.then(function onSuccess(result) {
@@ -52,9 +51,7 @@ angular.module('studentApp').factory('studentService', ['$http', '$cookies', fun
         var data = {
           "StudentId" : cookie.UserID
         }
-        var $promise = $http.post('http://ajay.abhigna.info/api/api/TestSchedule', {
-          data : data
-          }, {
+        var $promise = $http.post('http://ajay.abhigna.info/api/api/TestSchedule', data, {
           headers: {
             'Authorization': 'bearer ' + access_token
           }
@@ -70,22 +67,39 @@ angular.module('studentApp').factory('studentService', ['$http', '$cookies', fun
     },
   //function to get questions
   getQuestions : function(testId){
-    console.log(testId);
     var cookie = $cookies.get('access_token');
     if(cookie != undefined && cookie != null){
       cookie  = JSON.parse(cookie);
       var access_token = cookie.access_token;
+      // var data = {
+      //   "TestId" : "2"
+      // }
       var data = {
-        "TestId" : "2"
+        "TestId":29,
+      	"SubjectId":3,
+      	"StartTime":"2018-02-08",
+      	"EndTime":"2018-02-09",
+      	"StudentId":4,
+      	"lstQuesAns":[
+      		{
+      		"QuestionId":59,
+      		"AnswerId":52
+      	},
+      	{
+      		"QuestionId":60,
+      		"AnswerId":53
+      	},
+      	{
+      		"QuestionId":7,
+      		"AnswerId":6
+      	}
+	     ]
       }
       console.log(data);
       console.log(access_token);
-      var $promise = $http.post('http://ajay.abhigna.info/api/api/TestQuestion', {
-        data : data
-        }, {
+      var $promise = $http.post('http://ajay.abhigna.info/api/api/TestAnswer', data, {
         headers: {
-          'Authorization': 'bearer ' + access_token,
-          'Content-Type' : 'application/x-www-form-urlencoded'
+          'Authorization': 'bearer ' + access_token
         }
       })
       $promise.then(function onSuccess(result) {
