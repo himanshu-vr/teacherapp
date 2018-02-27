@@ -29,6 +29,8 @@ angular.module('studentApp')
           { controller: 'stVideoCtrl', templateUrl: 'app/partials/student/video/recommended_video.html'})
       .when('/test/start',
           { controller: 'stTestCtrl', templateUrl: 'app/partials/student/test/start.html'})
+      .when('/test/score',
+          { controller: 'stTestCtrl', templateUrl: 'app/partials/student/test/score.html'})
       $routeProvider.otherwise('/login');
   });
 
@@ -83,5 +85,31 @@ angular.module('studentApp').filter('cut', function () {
            $(element).slick(scope.$eval(attrs.slickSlider));
        });
      }
+   }
+  });
+
+  app.directive('donut', function() {
+  return { restrict: 'E',
+           link: function(scope, element) {
+                   //custom colors          
+                  var color = d3.scale.ordinal()
+                  .range(["#FFFF33", "#FF4500", "#3CB371"]);
+                   var data = [4, 6, 10];
+                   var width = 110;
+                   var height = 110;
+                   var pie = d3.layout.pie().sort(null);
+                   var arc = d3.svg.arc()
+                     .outerRadius(width / 2 * 0.9)
+                     .innerRadius(width / 2 * 0.7)
+                   var svg = d3.select(element[0]).append('svg')
+                     .attr({width: width, height: height})
+                     .append('g')
+                     .attr('transform', 'translate(' + width / 2 + ',' + height / 2 + ')');
+                     // add the <path>s for each arc slice
+                  svg.selectAll('path').data(pie(data))
+                     .enter().append('path')
+                     .attr('d', arc)
+                     .attr('fill', function(d, i){ return color(i) });
+            }
    }
   });

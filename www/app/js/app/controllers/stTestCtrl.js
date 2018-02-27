@@ -146,8 +146,7 @@ $scope.startTest = function(){
     asNavFor: '.question-slider'
   });
   $('.question-slider').on('afterChange', function(event, slick, currentSlide, nextSlide){
-    console.log($('.question-slider').find('.slick-current').attr('data-slick-index'));
-    questionIndex = $('.question-slider').find('.slick-current').attr('data-slick-index');
+    questionIndex = parseInt($('.question-slider').find('.slick-current').attr('data-slick-index'));
     if(questionIndex == 0){
       $scope.first_question = true;
       $scope.$apply();
@@ -162,6 +161,7 @@ $scope.nextQuestion = function(){
   questionIndex+= 1
   console.log(questionIndex);
   $scope.first_question = false;
+  $(".quesinfo-slider").slick( "slickGoTo", questionIndex);
 //  $scope.$apply();
 }
 
@@ -169,8 +169,36 @@ $scope.prevQuestion = function(){
   questionIndex-= 1;
   if(questionIndex == 0){
     $scope.first_question = true;
+    $(".quesinfo-slider").slick( "slickGoTo", questionIndex);
   }else{
+    $(".quesinfo-slider").slick( "slickGoTo", questionIndex);
     $scope.first_question = false;
   }
 }
+
+// Get the modal
+var modal = document.getElementById('submit_Modal');
+
+// Get the button that opens the modal
+var btn = document.getElementById("submit_Btn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal
+// btn.onclick = function() {
+//     modal.style.display = "block";
+// }
+//
+// // When the user clicks on <span> (x), close the modal
+// span.onclick = function() {
+//     modal.style.display = "none";
+// }
+
+// // When the user clicks anywhere outside of the modal, close it
+// window.onclick = function(event) {
+//     if (event.target == modal) {
+//         modal.style.display = "none";
+//     }
+// }
 }]);
