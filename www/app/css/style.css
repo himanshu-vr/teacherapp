@@ -297,6 +297,7 @@ font-size: 20px !important;
   color: #ffffff;
   position: fixed;
   top: 0px;
+  z-index: 999;
 }
 .test-name h6{
       font-size: 16px;
@@ -813,8 +814,8 @@ input:-webkit-autofill {
 }
 .score-perc{
     position: absolute;
-    top: 190px;
-    left: 60px;
+    top: 38%;
+    left: 20%;
     font-size: 25px;
     font-weight: 600;
     opacity: .5;
@@ -899,4 +900,21 @@ input:-webkit-autofill {
     color: black;
     text-decoration: none;
     cursor: pointer;
+}
+.score::after{
+    content: " 20%";
+    font-size: 31px;
+    left: 26%;
+    margin-top: 36px;
+    position: absolute;
+    width: 90%;
+}
+.score{
+      position: relative;
+    /*width: 200px;*/
+}
+.app-logo{
+  background: url('../images/icons.png') no-repeat -51px -63px;
+  width: 552px;
+  height: 156px;
 }
