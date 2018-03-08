@@ -23,6 +23,7 @@ angular.module('studentApp').controller('homeCtrl',['$scope','$rootScope','$loca
       .finally(function eitherWay(){
       })
   }
+  var video = '';
   $scope.lecture = function(){
   	$location.path('/student/lecture');
   }
@@ -79,9 +80,8 @@ angular.module('studentApp').controller('homeCtrl',['$scope','$rootScope','$loca
     ]
       });
   //Play a video
-  $scope.isplay= true;
   $scope.pauseOrPlay = function(ele){
-    var video = angular.element(ele.srcElement);
+     video = angular.element(ele.srcElement);
     if(video != undefined){
       if(video[0].paused){
         // if (video[0].requestFullscreen) {
@@ -97,7 +97,32 @@ angular.module('studentApp').controller('homeCtrl',['$scope','$rootScope','$loca
         //      video[0].webkitRequestFullScreen();
         //  }
         video[0].play();
-        // $scope.isplay= false;
+
+      }else{
+        video[0].pause();
+        $scope.ispause= true;
+      }
+    }
+  }
+
+  //expand a video
+  $scope.vidExpand = function(ele){
+    if(video != undefined){
+      if(video[0].paused){
+        if (video[0].requestFullscreen) {
+             video[0].requestFullscreen();
+         }
+         else if (video[0].msRequestFullscreen) {
+             video[0].msRequestFullscreen();
+         }
+         else if (video[0].mozRequestFullScreen) {
+             video[0].mozRequestFullScreen();
+         }
+         else if (video[0].webkitRequestFullScreen) {
+             video[0].webkitRequestFullScreen();
+         }
+        video[0].play();
+         $scope.isplay= false;
 
       }else{
         video[0].pause();

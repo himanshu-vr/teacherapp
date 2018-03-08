@@ -579,10 +579,11 @@ input:-webkit-autofill {
 .home-videos{
   width: 160px !important;
 }
-.home-videos .vid-open{
+/*.home-videos .vid-open{
   width: 150px !important;
   border-radius: 5px;
-}
+  position: fixed;
+}*/
 .home-videos .slider-text{
     max-width: 120px;
     white-space: nowrap;
@@ -792,8 +793,9 @@ input:-webkit-autofill {
 }
 .play-sign{
   position: absolute;
-top: 35px;
-left: 85px;
+  top: 20px;
+  left: 57px;
+  z-index: 9;
 }
 .sign-in button:hover, .sign-in button:focus {
     background: #42AEF3;
@@ -928,4 +930,33 @@ left: 85px;
   background: url('../images/icons.png') no-repeat -51px -63px;
   width: 552px;
   height: 156px;
+}
+.expand_arrow{
+      position: absolute;
+    top: 55px;
+    left: 140px;
+    z-index: 9999;
+}
+/*#myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%;
+}*/
+#myBtn {
+    width: 200px;
+    font-size: 18px;
+    padding: 10px;
+    border: none;
+    background: #000;
+    color: #fff;
+    cursor: pointer;
+}
+.vid-open{
+      position: fixed;
+    left: 30px;
+    bottom: 15px;
+    width: 38%;
+    height: 14%;
 }
