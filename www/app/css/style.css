@@ -953,10 +953,78 @@ input:-webkit-autofill {
     color: #fff;
     cursor: pointer;
 }
-.vid-open{
+/*.vid-open{
       position: fixed;
     left: 30px;
     bottom: 15px;
     width: 38%;
     height: 14%;
+}*/
+.vid-open{
+width: 100%;
+height: 100%;
+}
+.vid-back{
+  position: absolute;
+  top: 20px;
+  left: 15px;
+}
+.vids-expand{
+  position: absolute;
+  top: 27%;
+  right: 15px;
+}
+.vid-exp-detail h5{
+  font-size: 16px;
+  font-weight: 500;
+  color: #486078;
+  padding-left: 10px;
+}
+.like-vid{
+  vertical-align: sub;
+}
+.text-soc{
+  font-size: 13px;
+}
+.vid-exp-detail{
+  padding-bottom: 10px !important;
+}
+ .vid-exp-detail .opa-soc{
+  opacity: .5;
+  border-bottom: 1px solid;
+    padding-bottom: 10px;
+}
+.user-vid-icon{
+  width: 25px;
+  height: 25px;
+  float: left;
+}
+.span-query{
+  float: right;
+  display: inline-block;
+  width: 87%;
+  font-size: 11px;
+  line-height: 1.4;
+}
+.no-margin{
+  margin: 0px;
+}
+.vid-query{
+  padding: 10px 0px 0px 0px !important;
+}
+.opa-comment{
+  opacity: .5;
+  padding-top: 10px !important;
+}
+.query-textarea textarea{
+  margin-top: 10px;
+  background-color: white;
+  outline: none;
+  border: none;
+}
+.play-vid{
+  position: absolute;
+  top: 17%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

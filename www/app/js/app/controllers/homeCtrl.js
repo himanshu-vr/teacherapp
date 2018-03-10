@@ -52,6 +52,10 @@ angular.module('studentApp').controller('homeCtrl',['$scope','$rootScope','$loca
   $scope.recommendedVideo = function(){
     $location.path('/student/recommended_video');
   }
+  // for video play
+  $scope.vidPlay = function(ele){
+    $location.path('/recommended_video/video-details');
+  }
   $('#popular_videos').slick({
     centerMode: false,
     centerPadding: '0px',
@@ -79,55 +83,4 @@ angular.module('studentApp').controller('homeCtrl',['$scope','$rootScope','$loca
       }
     ]
       });
-  //Play a video
-  $scope.pauseOrPlay = function(ele){
-     video = angular.element(ele.srcElement);
-    if(video != undefined){
-      if(video[0].paused){
-        // if (video[0].requestFullscreen) {
-        //      video[0].requestFullscreen();
-        //  }
-        //  else if (video[0].msRequestFullscreen) {
-        //      video[0].msRequestFullscreen();
-        //  }
-        //  else if (video[0].mozRequestFullScreen) {
-        //      video[0].mozRequestFullScreen();
-        //  }
-        //  else if (video[0].webkitRequestFullScreen) {
-        //      video[0].webkitRequestFullScreen();
-        //  }
-        video[0].play();
-
-      }else{
-        video[0].pause();
-        $scope.ispause= true;
-      }
-    }
-  }
-
-  //expand a video
-  $scope.vidExpand = function(ele){
-    if(video != undefined){
-      if(video[0].paused){
-        if (video[0].requestFullscreen) {
-             video[0].requestFullscreen();
-         }
-         else if (video[0].msRequestFullscreen) {
-             video[0].msRequestFullscreen();
-         }
-         else if (video[0].mozRequestFullScreen) {
-             video[0].mozRequestFullScreen();
-         }
-         else if (video[0].webkitRequestFullScreen) {
-             video[0].webkitRequestFullScreen();
-         }
-        video[0].play();
-         $scope.isplay= false;
-
-      }else{
-        video[0].pause();
-        $scope.ispause= true;
-      }
-    }
-  }
 }]);

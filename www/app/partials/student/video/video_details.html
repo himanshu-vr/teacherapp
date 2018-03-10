@@ -1,0 +1,63 @@
+<div class="row f5f5f5" ng-init="init()">
+	<div class="col s12 side-no-pad">
+		<video class="vid-open course_video" id="main_video" autoplay>
+		  <source src="app/videos/videoplayback.mp4#t=2" type="video/mp4">
+		  Your browser does not support the video tag.
+		</video>
+		<img src="app/images/go-back-left-arrow.png" class="vid-back" width="20" height="20" ng-click="goBack()">
+		<img src="app/images/expand-arrows.png" class="vids-expand" width="25" height="25" ng-click="expandVideo()">
+		<img src="app/images/play-sign.png" class="play-vid" width="25" height="25" ng-if="vidimg" ng-click=pauseOrPlay()>
+		<img src="app/images/pause.png" class="play-vid" width="25"  ng-if="!vidimg" height="25" ng-click=pauseOrPlay()>
+	</div>
+	<div class="col s12 vid-exp-detail">
+		<h5>Map based questions for MCQS</h5>
+		<div class="col s12">
+			<div class="col s12 opa-soc">
+				<div class="col s4 side-no-pad">
+						<img src="app/images/thumb-up.png" class="like-vid">
+					<span class="text-soc">Like</span>
+				</div>
+				<div class="col s8 side-no-pad">
+						<img src="app/images/thumb-up.png" class="like-vid">
+					<span class="text-soc">Reference Documents</span>
+				</div>
+			</div>
+			<div class="col s12 side-no-pad">
+				<div class="col s12 vid-query">
+						<img src="app/images/graduate-student-avatar.png" class="user-vid-icon">
+					<span class="span-query">
+						<p class="no-margin">Which one among the following is a micronutrient present in soil for various crops?</p>
+						<div class="col s12 opa-comment">
+							<div class="col s3 side-no-pad">
+									<img src="app/images/thumb-up.png" class="like-vid">
+								<span class="text-soc">2</span>
+							</div>
+							<div class="col s9 side-no-pad">
+								<span class="text-soc">1 days ago</span>
+							</div>
+						</div>
+					</span>
+				</div>
+				<div class="col s12 vid-query">
+						<img src="app/images/graduate-student-avatar.png" class="user-vid-icon">
+					<span class="span-query">
+						<p class="no-margin">Which one among the following is a micronutrient present in soil for various crops?</p>
+						<div class="col s12 opa-comment">
+							<div class="col s3 side-no-pad">
+									<img src="app/images/thumb-up.png" class="like-vid">
+								<span class="text-soc">2</span>
+							</div>
+							<div class="col s9 side-no-pad">
+								<span class="text-soc">1 days ago</span>
+							</div>
+						</div>
+					</span>
+				</div>
+			</div>
+			<div class="col s12 side-no-pad query-textarea">
+				<textarea rows="4" cols="50" placeholder="Ask your query..."></textarea>
+				
+			</div>
+		</div>
+	</div>
+</div>
