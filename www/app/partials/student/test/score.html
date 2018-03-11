@@ -2,7 +2,6 @@
 	<div class="col s12 test-info">
 		  <div class="col s1 st-lecture left-no-pad">
 		    <img src="app/images/go-back-left-arrow.png" class="" width="20" height="20">
-
 		  </div>
 		  <div class="col s11 test-name">
 		  		<h6> Results</h6>
@@ -12,16 +11,16 @@
 		<h6>
 			Score Obtained
 		</h6>
-		<p>20 Questions</p>
+		<p>{{testScore.TotalQues}} Questions</p>
 	</div>
 	<div class="col s12">
 		<div class="col s5">
-			<donut></donut>	
+			<donut></donut>
 		</div>
 		<div class="col s7 score-progressor">
 			<div class="col s12 side-no-pad pad-btm-10">
 				<div class="col s2 correct correct-col">
-				10
+				{{testScore.Correct}}
 				</div>
 				<div class="col s10">
 					<p class="label">Correct</p>
@@ -32,7 +31,7 @@
 			</div>
 			<div class="col s12 side-no-pad pad-btm-10">
 				<div class="col s2 correct incorrect-col">
-				6
+				{{testScore.Incorrect}}
 				</div>
 				<div class="col s10">
 					<p class="label">Incorrect</p>
@@ -43,7 +42,7 @@
 			</div>
 			<div class="col s12 side-no-pad">
 				<div class="col s2 correct unanswer-col">
-				4
+				{{testScore.Unanswered}}
 				</div>
 				<div class="col s10">
 					<p class="label">Unanswer</p>
@@ -54,8 +53,8 @@
 			</div>
 		</div>
 		<div class="score-perc">
-			20%
+			{{testScore.Correct * testScore.TotalQues /100}}
 		</div>
 	</div>
-	
+
 </div>

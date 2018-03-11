@@ -36,11 +36,11 @@
 		  		<div class="col s12 white slider-item" ng-repeat="subtest in test.TDetails">
 		  			<h6 class="test-name"> </h6>
 		  			<p class="test-expiry"><span><i class="material-icons dp48">timer</i></span> Published on : {{ subtest.PublishDate | date :  "dd MMM yyyy"  }}</p>
-		  			<p class="test-syllabus">Syllabus Info</p>
+		  			<p class="test-syllabus">{{subtest.SubjectName}}</p>
 		  			<p class="testsyllabus-info syllabus-border"><span class="span-num">{{subtest.TotalQuestion}}</span><span class="span-text">Question</span><span class="span-ques">?</span></p>
 		  			<p class="testsyllabus-info syllabus-border"><span class="span-num">{{subtest.TotalMarks}}</span><span class="span-text">Marks</span><span class="span-done"><i class="material-icons dp48">done</i></span></p>
 		  			<p class="testsyllabus-info"><span class="span-num">{{subtest.TotalTime}}</span><!--<span class="span-text">Minutes</span>--><span class="span-done"><i class="material-icons dp48">timer</i></span></p>
-		  			<button class="teststart" ng-click="showInstructions(subtest.TestId)">Start Test</button>
+		  			<button class="teststart" ng-click="showInstructions(subtest.TestId, subtest.SubjectId)">Start Test</button>
 		  		</div>
 		  	</div>
   	</div>
@@ -154,101 +154,22 @@
 
 		</div>
 		<div class="col s3 test-submit">
-			<button>Submit</button>
+			<button ng-click="submitTest(testQuestions)">Submit</button>
 		</div>
 	</div>
-	<!-- <div class="col s12 ques-slider">
-		<div slick-slider="{arrows: false,
-					                infinite: false,
-					                centerMode: false,
-					                centerPadding: '0px',
-					                slidesToShow: 4,
-					                variableWidth: false}" class="col s12 slick">
-			  		<div class="slider-item" >
-			  			<h6>1</h6>
-			  		</div>
-			  		<div class="slider-item" >
-			  			<h6>2</h6>
-			  		</div>
-			  		<div class="slider-item" >
-			  			<h6>3</h6>
-			  		</div>
-			  		<div class="slider-item" >
-			  			<h6>4</h6>
-			  		</div>
-			  		<div class="slider-item" >
-			  			<h6>5</h6>
-			  		</div>
-			  		<div class="slider-item" >
-			  			<h6>6</h6>
-			  		</div>
-			  		<div class="slider-item" >
-			  			<h6>7</h6>
-			  		</div>
-			  		<div class="slider-item" >
-			  			<h6>8</h6>
-			  		</div>
-			  		<div class="slider-item" >
-			  			<h6>9</h6>
-			  		</div>
-			  		<div class="slider-item" >
-			  			<h6>10</h6>
-			  		</div>
-			  		<div class="slider-item" >
-			  			<h6>11</h6>
-			  		</div>
-			  		<div class="slider-item" >
-			  			<h6>12</h6>
-			  		</div>
-		</div>
-
-	</div> -->
 
 			<div  class="col s12 question-slider slick">
-			  		<div class="slider-item" >
-			  			<h6>1</h6>
-			  		</div>
-			  		<div class="slider-item" >
-			  			<h6>2</h6>
-			  		</div>
-			  		<div class="slider-item" >
-			  			<h6>3</h6>
-			  		</div>
-			  		<div class="slider-item" >
-			  			<h6>4</h6>
-			  		</div>
-			  		<div class="slider-item" >
-			  			<h6>5</h6>
-			  		</div>
-			  		<div class="slider-item" >
-			  			<h6>6</h6>
-			  		</div>
-			  		<div class="slider-item" >
-			  			<h6>7</h6>
-			  		</div>
-			  		<div class="slider-item" >
-			  			<h6>8</h6>
-			  		</div>
-			  		<div class="slider-item" >
-			  			<h6>9</h6>
-			  		</div>
-			  		<div class="slider-item" >
-			  			<h6>10</h6>
-			  		</div>
-			  		<div class="slider-item" >
-			  			<h6>11</h6>
-			  		</div>
-			  		<div class="slider-item" >
-			  			<h6>12</h6>
+			  		<div class="slider-item" ng-repeat="slider in testQuestions">
+			  			<h6>{{$index + 1}}</h6>
 			  		</div>
 			</div>
 			<div  class="col s12 quesinfo-slider slick">
-			  		<div class="slider-item" >
+			  		<div class="slider-item" ng-repeat="ques in testQuestions">
 			  			<div class="col s12">
 			  				<div class="col s12 ques-info">
 			  					<div class="col s12 side-no-pad ques-head">
 			  						<div class="col s10 side-no-pad">
-			  							<span class="ques-num">1</span><span class="ques-time">00:12</span><span class="ques-points">+1.00</span><span class="ques-points">-0.25</span>
+			  							<span class="ques-num">{{$index + 1}}</span><span class="ques-time"></span><span class="ques-points">{{ques.Marks}}</span><span class="ques-points">-{{ques.NegativeMarks}}</span>
 			  						</div>
 			  						<div class="col s1">
 			  							<img src="app/images/attention-sign-outline.png">
@@ -258,218 +179,22 @@
 			  						</div>
 			  					</div>
 			  					<div class="col s12 ques-text side-no-pad">
-			  						<h6>Which one among the following is a micronutrient present in soil for various crops?</h6>
+			  						<h6>
+											{{ques.Question}}
+										</h6>
 			  					</div>
 			  				</div>
 			  				<div class="ques-option col s12 side-no-pad">
-								  <div class="selection">
-								    <input id="option1" name="ques-option" type="radio">
-								    <label for="option1"><span>1.</span> Calcium</label>
-								  </div>
-								  <div class="selection">
-								    <input id="option2" name="ques-option" type="radio">
-								    <label for="option2"><span>2.</span> Maganese</label>
-								  </div>
-								  <div class="selection">
-								    <input id="option3" name="ques-option" type="radio">
-								    <label for="option3"><span>3.</span> Magnesium</label>
-								  </div>
-								  <div class="selection">
-								    <input id="option4" name="ques-option" type="radio">
-								    <label for="option4"><span>4.</span> Potassium</label>
+								  <div class="selection" ng-repeat="option in ques.TAnswer">
+								    <input id="option_{{$index + 1}}_{{$parent.$index + 1}}" name="ques-option" type="radio">
+								    <label for="option_{{$index + 1}}_{{$parent.$index + 1}}" class="bg_{{$parent.$index + 1}} selected_{{$index + 1}}_{{$parent.$index + 1}}" ng-click="submitAnswer(ques.QuestionId, option.AnswerId,$index+1,$parent.$index + 1)">
+											<span>{{$index+1}}.
+											</span>
+											{{option.Answer}}
+										</label>
 								  </div>
 							</div>
 			  			</div>
-			  		</div>
-			  		<div class="slider-item" >
-			  			<div class="col s12">
-			  				<div class="col s12 ques-info">
-			  					<div class="col s12 side-no-pad ques-head">
-			  						<div class="col s10 side-no-pad">
-			  							<span class="ques-num">2</span><span class="ques-time">00:12</span><span class="ques-points">+1.00</span><span class="ques-points">-0.25</span>
-			  						</div>
-			  						<div class="col s1">
-			  							<img src="app/images/attention-sign-outline.png">
-			  						</div>
-			  						<div class="col s1">
-			  							<img src="app/images/bookmark.png" width="18">
-			  						</div>
-			  					</div>
-			  					<div class="col s12 ques-text side-no-pad">
-			  						<h6>Which one among the following is a micronutrient present in soil for various crops?</h6>
-			  					</div>
-			  				</div>
-			  				<div class="ques-option col s12 side-no-pad">
-								  <div class="selection">
-								    <input id="option1" name="ques-option" type="radio">
-								    <label for="option1"><span>1.</span> Calcium</label>
-								  </div>
-								  <div class="selection">
-								    <input id="option2" name="ques-option" type="radio">
-								    <label for="option2"><span>2.</span> Maganese</label>
-								  </div>
-								  <div class="selection">
-								    <input id="option3" name="ques-option" type="radio">
-								    <label for="option3"><span>3.</span> Magnesium</label>
-								  </div>
-								  <div class="selection">
-								    <input id="option4" name="ques-option" type="radio">
-								    <label for="option4"><span>4.</span> Potassium</label>
-								  </div>
-							</div>
-			  			</div>
-			  		</div>
-			  		<div class="slider-item" >
-			  			<div class="col s12">
-			  				<div class="col s12 ques-info">
-			  					<div class="col s12 side-no-pad ques-head">
-			  						<div class="col s10 side-no-pad">
-			  							<span class="ques-num">3</span><span class="ques-time">00:12</span><span class="ques-points">+1.00</span><span class="ques-points">-0.25</span>
-			  						</div>
-			  						<div class="col s1">
-			  							<img src="app/images/attention-sign-outline.png">
-			  						</div>
-			  						<div class="col s1">
-			  							<img src="app/images/bookmark.png" width="18">
-			  						</div>	
-			  					</div>
-			  					<div class="col s12 ques-text side-no-pad">
-			  						<h6>Which one among the following is a micronutrient present in soil for various crops?</h6>
-			  					</div>
-			  				</div>
-			  				<div class="ques-option col s12 side-no-pad">
-								  <div class="selection">
-								    <input id="option1" name="ques-option" type="radio">
-								    <label for="option1"><span>1.</span> Calcium</label>
-								  </div>
-								  <div class="selection">
-								    <input id="option2" name="ques-option" type="radio">
-								    <label for="option2"><span>2.</span> Maganese</label>
-								  </div>
-								  <div class="selection">
-								    <input id="option3" name="ques-option" type="radio">
-								    <label for="option3"><span>3.</span> Magnesium</label>
-								  </div>
-								  <div class="selection">
-								    <input id="option4" name="ques-option" type="radio">
-								    <label for="option4"><span>4.</span> Potassium</label>
-								  </div>
-							</div>
-			  			</div>	 
-			  		</div>
-			  		<div class="slider-item" >
-			  			<div class="col s12">
-			  				<div class="col s12 ques-info">
-			  					<div class="col s12 side-no-pad ques-head">
-			  						<div class="col s10 side-no-pad">
-			  							<span class="ques-num">4</span><span class="ques-time">00:12</span><span class="ques-points">+1.00</span><span class="ques-points">-0.25</span>
-			  						</div>
-			  						<div class="col s1">
-			  							<img src="app/images/attention-sign-outline.png">
-			  						</div>
-			  						<div class="col s1">
-			  							<img src="app/images/bookmark.png" width="18">
-			  						</div>	
-			  					</div>
-			  					<div class="col s12 ques-text side-no-pad">
-			  						<h6>Which one among the following is a micronutrient present in soil for various crops?</h6>
-			  					</div>
-			  				</div>
-			  				<div class="ques-option col s12 side-no-pad">
-								  <div class="selection">
-								    <input id="option1" name="ques-option" type="radio">
-								    <label for="option1"><span>1.</span> Calcium</label>
-								  </div>
-								  <div class="selection">
-								    <input id="option2" name="ques-option" type="radio">
-								    <label for="option2"><span>2.</span> Maganese</label>
-								  </div>
-								  <div class="selection">
-								    <input id="option3" name="ques-option" type="radio">
-								    <label for="option3"><span>3.</span> Magnesium</label>
-								  </div>
-								  <div class="selection">
-								    <input id="option4" name="ques-option" type="radio">
-								    <label for="option4"><span>4.</span> Potassium</label>
-								  </div>
-							</div>
-			  			</div>	 
-			  		</div>
-			  		<div class="slider-item" >
-			  			<div class="col s12">
-			  				<div class="col s12 ques-info">
-			  					<div class="col s12 side-no-pad ques-head">
-			  						<div class="col s10 side-no-pad">
-			  							<span class="ques-num">5</span><span class="ques-time">00:12</span><span class="ques-points">+1.00</span><span class="ques-points">-0.25</span>
-			  						</div>
-			  						<div class="col s1">
-			  							<img src="app/images/attention-sign-outline.png">
-			  						</div>
-			  						<div class="col s1">
-			  							<img src="app/images/bookmark.png" width="18">
-			  						</div>	
-			  					</div>
-			  					<div class="col s12 ques-text side-no-pad">
-			  						<h6>Which one among the following is a micronutrient present in soil for various crops?</h6>
-			  					</div>
-			  				</div>
-			  				<div class="ques-option col s12 side-no-pad">
-								  <div class="selection">
-								    <input id="option1" name="ques-option" type="radio">
-								    <label for="option1"><span>1.</span> Calcium</label>
-								  </div>
-								  <div class="selection">
-								    <input id="option2" name="ques-option" type="radio">
-								    <label for="option2"><span>2.</span> Maganese</label>
-								  </div>
-								  <div class="selection">
-								    <input id="option3" name="ques-option" type="radio">
-								    <label for="option3"><span>3.</span> Magnesium</label>
-								  </div>
-								  <div class="selection">
-								    <input id="option4" name="ques-option" type="radio">
-								    <label for="option4"><span>4.</span> Potassium</label>
-								  </div>
-							</div>
-			  			</div>	 
-			  		</div>
-			  		<div class="slider-item" >
-			  			<div class="col s12">
-			  				<div class="col s12 ques-info">
-			  					<div class="col s12 side-no-pad ques-head">
-			  						<div class="col s10 side-no-pad">
-			  							<span class="ques-num">6</span><span class="ques-time">00:12</span><span class="ques-points">+1.00</span><span class="ques-points">-0.25</span>
-			  						</div>
-			  						<div class="col s1">
-			  							<img src="app/images/attention-sign-outline.png">
-			  						</div>
-			  						<div class="col s1">
-			  							<img src="app/images/bookmark.png" width="18">
-			  						</div>	
-			  					</div>
-			  					<div class="col s12 ques-text side-no-pad">
-			  						<h6>Which one among the following is a micronutrient present in soil for various crops?</h6>
-			  					</div>
-			  				</div>
-			  				<div class="ques-option col s12 side-no-pad">
-								  <div class="selection">
-								    <input id="option1" name="ques-option" type="radio">
-								    <label for="option1"><span>1.</span> Calcium</label>
-								  </div>
-								  <div class="selection">
-								    <input id="option2" name="ques-option" type="radio">
-								    <label for="option2"><span>2.</span> Maganese</label>
-								  </div>
-								  <div class="selection">
-								    <input id="option3" name="ques-option" type="radio">
-								    <label for="option3"><span>3.</span> Magnesium</label>
-								  </div>
-								  <div class="selection">
-								    <input id="option4" name="ques-option" type="radio">
-								    <label for="option4"><span>4.</span> Potassium</label>
-								  </div>
-							</div>
-			  			</div>	 
 			  		</div>
 			</div>
 				<div class="col s12 test-start txt-strt-btn" ng-show="first_question">
@@ -478,4 +203,63 @@
 				<div class="col s12 test-nxt-prev txt-strt-btn" ng-hide="first_question">
 				     <button ng-click="prevQuestion();">Prev</button><button ng-click="nextQuestion();">Next</button>
 				</div>
+</div>
+<div class="row f5f5f5" ng-if="isScore">
+	<div class="col s12 test-info">
+			<div class="col s1 st-lecture left-no-pad" ng-click="init()">
+				<img src="app/images/go-back-left-arrow.png" class="" width="20" height="20">
+			</div>
+			<div class="col s11 test-name">
+					<h6> Results</h6>
+			</div>
+	</div>
+	<div class="col s12 score-detail">
+		<h6>
+			Score Obtained
+		</h6>
+		<p>{{testScore.TotalQues}} Questions</p>
+	</div>
+	<div class="col s12">
+		<div class="col s5">
+			<donut></donut>
+		</div>
+		<div class="col s7 score-progressor">
+			<div class="col s12 side-no-pad pad-btm-10">
+				<div class="col s2 correct correct-col">
+				{{testScore.Correct}}
+				</div>
+				<div class="col s10">
+					<p class="label">Correct</p>
+					<div class="progress">
+							<div class="determinate correctans" style="width: 50%"></div>
+					</div>
+				</div>
+			</div>
+			<div class="col s12 side-no-pad pad-btm-10">
+				<div class="col s2 correct incorrect-col">
+				{{testScore.Incorrect}}
+				</div>
+				<div class="col s10">
+					<p class="label">Incorrect</p>
+					<div class="progress">
+							<div class="determinate incorrectans" style="width: 30%"></div>
+					</div>
+				</div>
+			</div>
+			<div class="col s12 side-no-pad">
+				<div class="col s2 correct unanswer-col">
+				{{testScore.Unanswered}}
+				</div>
+				<div class="col s10">
+					<p class="label">Unanswer</p>
+					<div class="progress">
+							<div class="determinate unanswer" style="width: 20%"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="score-perc">
+			{{testScore.Correct * testScore.TotalQues /100}}%
+		</div>
+	</div>
 </div>

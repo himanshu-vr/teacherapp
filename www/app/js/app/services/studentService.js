@@ -71,32 +71,80 @@ angular.module('studentApp').factory('studentService', ['$http', '$cookies', fun
     if(cookie != undefined && cookie != null){
       cookie  = JSON.parse(cookie);
       var access_token = cookie.access_token;
-      // var data = {
-      //   "TestId" : "2"
-      // }
       var data = {
-        "TestId":29,
-      	"SubjectId":3,
-      	"StartTime":"2018-02-08",
-      	"EndTime":"2018-02-09",
-      	"StudentId":4,
-      	"lstQuesAns":[
-      		{
-      		"QuestionId":59,
-      		"AnswerId":52
-      	},
-      	{
-      		"QuestionId":60,
-      		"AnswerId":53
-      	},
-      	{
-      		"QuestionId":7,
-      		"AnswerId":6
-      	}
-	     ]
+        "TestId" : "2"
       }
+      // var data = {
+      //   "TestId":29,
+      // 	"SubjectId":3,
+      // 	"StartTime":"2018-02-08",
+      // 	"EndTime":"2018-02-09",
+      // 	"StudentId":4,
+      // 	"lstQuesAns":[
+      // 		{
+      // 		"QuestionId":59,
+      // 		"AnswerId":52
+      // 	},
+      // 	{
+      // 		"QuestionId":60,
+      // 		"AnswerId":53
+      // 	},
+      // 	{
+      // 		"QuestionId":7,
+      // 		"AnswerId":6
+      // 	}
+	    //  ]
+      // }
+      // console.log(data);
+      // console.log(access_token);
+      var $promise = $http.post('http://ajay.abhigna.info/api/api/TestQuestion', data, {
+        headers: {
+          'Authorization': 'bearer ' + access_token
+        }
+      })
+      $promise.then(function onSuccess(result) {
+        console.log(result);
+        })
+        .catch(function onError(error) {
+        });
+      return $promise;
+    }else{
+      return [];
+    }
+  },
+
+  //submit the test here
+  submitTest : function(data){
+    var cookie = $cookies.get('access_token');
+    if(cookie != undefined && cookie != null){
+      cookie  = JSON.parse(cookie);
+      var access_token = cookie.access_token;
+      data.StudentId  =  cookie.UserID;
+      var data = data;
       console.log(data);
-      console.log(access_token);
+      // var data = {
+      //   "TestId":29,
+      // 	"SubjectId":3,
+      // 	"StartTime":"2018-02-08",
+      // 	"EndTime":"2018-02-09",
+      // 	"StudentId":4,
+      // 	"lstQuesAns":[
+      // 		{
+      // 		"QuestionId":59,
+      // 		"AnswerId":52
+      // 	},
+      // 	{
+      // 		"QuestionId":60,
+      // 		"AnswerId":53
+      // 	},
+      // 	{
+      // 		"QuestionId":7,
+      // 		"AnswerId":6
+      // 	}
+	    //  ]
+      // }
+      // console.log(data);
+      // console.log(access_token);
       var $promise = $http.post('http://ajay.abhigna.info/api/api/TestAnswer', data, {
         headers: {
           'Authorization': 'bearer ' + access_token
