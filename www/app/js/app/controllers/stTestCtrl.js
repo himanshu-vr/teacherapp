@@ -12,7 +12,6 @@ angular.module('studentApp').controller('stTestCtrl',['$scope','$rootScope','$lo
   var questionIndex = 0;
   $scope.TestId = '';
    $scope.init = function(){
-     console.log('sfs');
      $scope.TestId = '';
      $scope.upcomingTest = true;
      $scope.attemptedTest = false;
@@ -161,7 +160,6 @@ $scope.nextQuestion = function(){
 }
 
 $scope.prevQuestion = function(){
-  console.log(questionIndex);
   questionIndex-= 1;
   if(questionIndex == 0){
     $scope.first_question = true;
@@ -246,4 +244,8 @@ var span = document.getElementsByClassName("close")[0];
 //         modal.style.display = "none";
 //     }
 // }
+
+  $scope.labels = ["Download Sales", "In-Store Sales"];
+  $scope.data = [300, 500];
+  $scope.colors = ['#42AEF3', '#ffffff'];
 }]);

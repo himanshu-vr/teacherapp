@@ -5,29 +5,51 @@
 */
 angular.module('studentApp').controller('stVideoCtrl',['$scope','$rootScope','$location','$timeout','$cookies','studentService', function ($scope,$rootScope,$location,$timeout,$cookies,studentService) {
    $scope.init = function(){
-     //get Recommended videos
-     studentService.recommendedVideo()
-       .then(function onSuccess(response) {
-         if(response != undefined && typeof(response) == 'object'){
-           if(response.data != undefined && response.data.length > 0){
-             $scope.videos = response.data;
-             console.log( $scope.videos);
-           }
-         }else{
-         }
-       })
-       .catch(function onError(errorResponse) {
+    $scope.vidimg = false;
+    //setting now as static need to remove this code
+    studentService.getVideoDetail($rootScope.videoId)
+      .then(function onSuccess(response) {
+        if(response != undefined && typeof(response) == 'object'){
+          if(response.data != undefined){
+            $scope.videoDetail = response.data;
+            console.log($scope.videoDetail);
+            // var myVideo = document.getElementById('main_video')[0];
+            // myVideo.src = vidURL;
+            // console.log('Test');
+            // console.log(myVideo.src);
+            // myVideo.load();
+            // myVideo.play();
+            // // video = angular.element(video);
+            // // console.log(video);
+            // // video[0].play();
+          }
+        }else{
+        }
+      })
+      .catch(function onError(errorResponse) {
 
-       })
-       .finally(function eitherWay(){
-       })
+      })
+      .finally(function eitherWay(){
+      })
    }
    //Play a video
    $scope.pauseOrPlay = function(ele){
-     var video = angular.element(ele.srcElement);
-     if(video != undefined){
-       if(video[0].paused){
-         if (video[0].requestFullscreen) {
+    var video = document.getElementById("main_video");
+    video = angular.element(video);
+     if(video != undefined && video[0].paused){
+         video[0].play();
+         $scope.vidimg = false;
+       }
+         else{
+         video[0].pause();
+         $scope.vidimg = true;
+       }
+     }
+  $scope.expandVideo  = function(){
+    var video = document.getElementById("main_video");
+    video = angular.element(video);
+    if(video != undefined){
+        if (video[0].requestFullscreen) {
               video[0].requestFullscreen();
           }
           else if (video[0].msRequestFullscreen) {
@@ -38,14 +60,9 @@ angular.module('studentApp').controller('stVideoCtrl',['$scope','$rootScope','$l
           }
           else if (video[0].webkitRequestFullScreen) {
               video[0].webkitRequestFullScreen();
-          }
-         video[0].play();
-         
-       }else{
-         video[0].pause();
-       }
+        }
      }
-   }
+  }
   $scope.goBack  = function(){
     $location.path('/home');
   }

@@ -21,7 +21,7 @@
 			<div class="col s12 home-videos" ng-repeat="item in videos">
 				<h6 class="heading">{{item.Subject}}</h6>
 				<div class="col s12 left-no-pad" ng-repeat="video in item.lstVideoModel">
-					<video  class="vid-open" height="" ng-click="pauseOrPlay($event)">
+					<video  class="vid-open" height="" ng-click="videoDetail(video.DIGITALDOCID)">
 							<source src="{{video.VideoPath}}" type="video/mp4" />
 					</video>
 					<h6 class="slider-text">{{video.DOCUMENTNAME}}</h6>

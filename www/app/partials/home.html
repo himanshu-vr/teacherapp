@@ -63,9 +63,7 @@
 			  	<div class="col s12 home-videos" ng-repeat="item in popularVideos">
 
 						<div class="col s12" ng-repeat="video in item.lstVideoModel">
-								<img class="play-sign" src="app/images/play-sign.png" ng-if="isPlay">
-								<img class="play-sign" src="app/images/play-sign.png" ng-if="isPause">
-							<video  class="vid-open" height="" ng-click="pauseOrPlay($event)">
+							<video  class="vid-open" height="" ng-click="vidPlay(video.DIGITALDOCID)">
 								<source src="{{video.VideoPath}}" type="video/mp4" />
 							</video>
 
