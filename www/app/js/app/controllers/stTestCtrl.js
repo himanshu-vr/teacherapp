@@ -201,4 +201,8 @@ $scope.prevQuestion = function(){
 //         modal.style.display = "none";
 //     }
 // }
+
+  $scope.labels = ["Download Sales", "In-Store Sales"];
+  $scope.data = [300, 500];
+  $scope.colors = ['#42AEF3', '#ffffff'];
 }]);

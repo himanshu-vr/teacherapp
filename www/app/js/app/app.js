@@ -6,7 +6,7 @@
 
 //Create a Global scope module here
 
-var app  = angular.module('studentApp',['ngRoute' , 'ngCookies']);
+var app  = angular.module('studentApp',['ngRoute' , 'ngCookies','chart.js']);
 angular.module('studentApp')
 
 //Settig Up the routes
@@ -33,6 +33,8 @@ angular.module('studentApp')
           { controller: 'stTestCtrl', templateUrl: 'app/partials/student/test/score.html'})
       .when('/recommended_video/video-details',
           { controller: 'stVideoCtrl', templateUrl: 'app/partials/student/video/video_details.html'})
+      .when('/results',
+          { controller: 'stTestCtrl', templateUrl: 'app/partials/student/results.html'})
       $routeProvider.otherwise('/login');
   });
 
@@ -114,4 +116,5 @@ angular.module('studentApp').filter('cut', function () {
                      .attr('fill', function(d, i){ return color(i) });
             }
    }
+   
   });

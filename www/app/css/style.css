@@ -1028,3 +1028,47 @@ height: 100%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
+.res-info{
+  padding-top: 10px !important;
+  margin-top: 10px;
+  padding-bottom: 10px !important;
+  margin-bottom: 10px;
+  border-radius: 3px;
+  background-color: white;
+  text-align: center;
+}
+.res-info h6{
+  font-weight: 600;
+  font-size: 20px;
+  color: #2E5E86 !important;
+  margin: 0;
+}
+.res-info p{
+  font-size: 11px !important;
+  opacity: 0.5;
+  margin: 0;
+}
+.sub-res select{
+  display: block;
+}
+.res-analysis .head-res{
+  font-weight: 600;
+  color: #2E5E86 !important;
+  font-size: 15px;
+  margin-bottom: 15px;
+  margin-top: 10px;
+}
+.res-chart{
+  padding-top: 25px !important;
+}
+.res-chart .pie-chart{
+position: relative;
+}
+.res-chart .pie-chart h6{
+  position: absolute;
+  top: 30px;
+  right: 26px;
+  font-size: 18px;
+  font-weight: 600;
+  color: white;
+}
