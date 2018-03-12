@@ -175,7 +175,6 @@ $scope.prevQuestion = function(){
     $scope.first_question = false;
   }
 }
-
 // // Get the modal
 // var modal = document.getElementById('submit_Modal');
 
@@ -205,4 +204,6 @@ $scope.prevQuestion = function(){
   $scope.labels = ["Download Sales", "In-Store Sales"];
   $scope.data = [300, 500];
   $scope.colors = ['#42AEF3', '#ffffff'];
+
+  
 }]);
