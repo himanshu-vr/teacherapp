@@ -60,6 +60,10 @@ angular.module('studentApp').controller('homeCtrl',['$scope','$rootScope','$loca
     $rootScope.videoId = id;
     $location.path('/recommended_video/video-details');
   }
+  $scope.resultsAnalysis = function(){
+  $location.path('/results');
+}
+$('.modal').modal();
   $('#popular_videos').slick({
     centerMode: false,
     centerPadding: '0px',

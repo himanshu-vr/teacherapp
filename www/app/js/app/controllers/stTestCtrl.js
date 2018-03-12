@@ -56,6 +56,13 @@ angular.module('studentApp').controller('stTestCtrl',['$scope','$rootScope','$lo
   $scope.goBack  = function(){
     $location.path('/home');
   }
+  $scope.goToTest = function(){
+    $scope.isTest = true;
+    $scope.isInstruction = false;
+    $scope.isScore = false;
+    $scope.isTestStart = false;
+  //  $scope.init();
+  }
   $scope.goTest = function(){
       $scope.isTest = true;
       $scope.isInstruction = false;
@@ -248,4 +255,6 @@ var span = document.getElementsByClassName("close")[0];
   $scope.labels = ["Download Sales", "In-Store Sales"];
   $scope.data = [300, 500];
   $scope.colors = ['#42AEF3', '#ffffff'];
+
+
 }]);
