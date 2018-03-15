@@ -26,7 +26,7 @@ angular.module('studentApp')
       .when('/test/instructions',
           { controller: 'stTestCtrl', templateUrl: 'app/partials/student/test/instructions.html'})
       .when('/student/recommended_video',
-          { controller: 'stVideoCtrl', templateUrl: 'app/partials/student/video/recommended_video.html'})
+          { controller: 'streVideoCtrl', templateUrl: 'app/partials/student/video/recommended_video.html'})
       .when('/test/start',
           { controller: 'stTestCtrl', templateUrl: 'app/partials/student/test/start.html'})
       .when('/test/score',
@@ -63,6 +63,11 @@ angular.module('studentApp').filter('cut', function () {
             return value + (tail || ' …');
         };
     });
+  app.filter("trustUrl", ['$sce', function ($sce) {
+          return function (recordingUrl) {
+              return $sce.trustAsResourceUrl(recordingUrl);
+          };
+      }]);
   //set basic headers for api key and another base authentication
   app.run(['$http','$rootScope', '$cookies', '$location','$timeout', function ($http,$rootScope,$cookies,$location,$timeout) {
       $rootScope.$on('$routeChangeStart', function (event) {
@@ -95,7 +100,7 @@ angular.module('studentApp').filter('cut', function () {
   app.directive('donut', function() {
   return { restrict: 'E',
            link: function(scope, element) {
-                   //custom colors          
+                   //custom colors
                   var color = d3.scale.ordinal()
                   .range(["#FFFF33", "#FF4500", "#3CB371"]);
                    var data = [4, 6, 10];
@@ -116,5 +121,5 @@ angular.module('studentApp').filter('cut', function () {
                      .attr('fill', function(d, i){ return color(i) });
             }
    }
-   
+
   });

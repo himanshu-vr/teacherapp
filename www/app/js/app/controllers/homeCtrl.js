@@ -7,10 +7,12 @@ angular.module('studentApp').controller('homeCtrl',['$scope','$rootScope','$loca
 
   //init videos and other details
   $scope.init =  function(){
+    $rootScope.videoId = '';
     //get Recommended videos
-    studentService.recommendedVideo()
+    studentService.popularVideo()
       .then(function onSuccess(response) {
         if(response != undefined && typeof(response) == 'object'){
+          console.log(response);
           if(response.data != undefined && response.data.length > 0){
             $scope.popularVideos = response.data;
           }
@@ -49,11 +51,13 @@ angular.module('studentApp').controller('homeCtrl',['$scope','$rootScope','$loca
     $location.path('/notifications');
   }
   //for recommended video
-  $scope.recommendedVideo = function(){
+  $scope.recommendedVideo = function(id){
+    $rootScope.videoId = id;
     $location.path('/student/recommended_video');
   }
   // for video play
-  $scope.vidPlay = function(ele){
+  $scope.vidPlay = function(id){
+    $rootScope.videoId = id;
     $location.path('/recommended_video/video-details');
   }
   $scope.resultsAnalysis = function(){

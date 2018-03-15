@@ -6,22 +6,31 @@
 angular.module('studentApp').controller('stVideoCtrl',['$scope','$rootScope','$location','$timeout','$cookies','studentService', function ($scope,$rootScope,$location,$timeout,$cookies,studentService) {
    $scope.init = function(){
     $scope.vidimg = false;
-     //get Recommended videos
-     // studentService.recommendedVideo()
-     //   .then(function onSuccess(response) {
-     //     if(response != undefined && typeof(response) == 'object'){
-     //       if(response.data != undefined && response.data.length > 0){
-     //         $scope.videos = response.data;
-     //         console.log( $scope.videos);
-     //       }
-     //     }else{
-     //     }
-     //   })
-     //   .catch(function onError(errorResponse) {
+    //setting now as static need to remove this code
+    studentService.getVideoDetail($rootScope.videoId)
+      .then(function onSuccess(response) {
+        if(response != undefined && typeof(response) == 'object'){
+          if(response.data != undefined){
+            $scope.videoDetail = response.data;
+            console.log($scope.videoDetail);
+            // var myVideo = document.getElementById('main_video')[0];
+            // myVideo.src = vidURL;
+            // console.log('Test');
+            // console.log(myVideo.src);
+            // myVideo.load();
+            // myVideo.play();
+            // // video = angular.element(video);
+            // // console.log(video);
+            // // video[0].play();
+          }
+        }else{
+        }
+      })
+      .catch(function onError(errorResponse) {
 
-     //   })
-     //   .finally(function eitherWay(){
-     //   })
+      })
+      .finally(function eitherWay(){
+      })
    }
    //Play a video
    $scope.pauseOrPlay = function(ele){
@@ -51,9 +60,9 @@ angular.module('studentApp').controller('stVideoCtrl',['$scope','$rootScope','$l
           }
           else if (video[0].webkitRequestFullScreen) {
               video[0].webkitRequestFullScreen();
-        } 
+        }
      }
-  } 
+  }
   $scope.goBack  = function(){
     $location.path('/home');
   }
