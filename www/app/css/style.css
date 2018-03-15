@@ -60,7 +60,7 @@ height: 50px !important;
 }
 .forgot-pass{
   margin-top: -10px !important;
-  margin-right: -10px !important;
+  margin-right: -37px !important;
   color: #000;
   opacity: .3;
 }
@@ -1101,7 +1101,7 @@ position: relative;
   padding: 10px;
 }
 .modal-overlay{
-  opacity: .9 !important;
+  opacity: .9  !important;
 }
 .head-col{
   color: #2E5E86 !important;
