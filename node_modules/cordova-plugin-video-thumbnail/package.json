@@ -1,0 +1,56 @@
+{
+  "_from": "cordova-plugin-video-thumbnail",
+  "_id": "cordova-plugin-video-thumbnail@2.0.1",
+  "_inBundle": false,
+  "_integrity": "sha1-TI5rOSd0wzsgWUFVewMIhj7cKX8=",
+  "_location": "/cordova-plugin-video-thumbnail",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "cordova-plugin-video-thumbnail",
+    "name": "cordova-plugin-video-thumbnail",
+    "escapedName": "cordova-plugin-video-thumbnail",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-video-thumbnail/-/cordova-plugin-video-thumbnail-2.0.1.tgz",
+  "_shasum": "4c8e6b392774c33b205941557b0308863edc297f",
+  "_spec": "cordova-plugin-video-thumbnail",
+  "_where": "/home/vr-himanshu/TeacherApp",
+  "author": {
+    "name": "Lewis Barnes"
+  },
+  "bugs": {
+    "url": "https://github.com/lewie9021/cordova-plugin-video-thumbnail/issues"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "cordova-plugin-video-thumbnail",
+    "platforms": [
+      "android"
+    ]
+  },
+  "deprecated": false,
+  "description": "Create video thumbnails from video file paths on Android.",
+  "homepage": "https://github.com/lewie9021/cordova-plugin-video-thumbnail#readme",
+  "keywords": [
+    "cordova",
+    "video",
+    "thumbnail",
+    "ecosystem:cordova",
+    "cordova-android"
+  ],
+  "license": "MIT",
+  "name": "cordova-plugin-video-thumbnail",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lewie9021/cordova-plugin-video-thumbnail.git"
+  },
+  "version": "2.0.1"
+}

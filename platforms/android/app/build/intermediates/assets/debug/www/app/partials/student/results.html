@@ -1,0 +1,63 @@
+<div class="row f5f5f5-bg">
+	<div class="col s12 lecture-bg home-nav center">
+		  <div class="col s1 st-lecture left-no-pad" ng-click="goBack()">
+		    <img src="app/images/go-back-left-arrow.png" class="" width="20" height="20">
+		  </div>
+		  <div class="col s11 stlec-heading center">
+		  		<div class="col s4 offset-s4 ">
+			  		<div class="icon">
+			  			<img src="app/images/lecture.png" class="">
+			  		</div>
+		  		</div>
+		  		<div class="col s12">
+		  			<h6>Results and Analysis</h6>
+		  		</div>
+		  </div>
+	</div>
+	<div class="col s12">
+		<div class="col s12 res-info">
+			<div class="col s4">
+				<img src="app/images/thumb-up.png" class="">
+				<h6>75%</h6>
+				<p>Aggregate</p>
+			</div>
+			<div class="col s4">
+				<img src="app/images/thumb-up.png" class="">
+				<h6>10</h6>
+				<p>Position</p>
+			</div>
+			<div class="col s4">
+				<img src="app/images/thumb-up.png" class="">
+				<h6>24hrs</h6>
+				<p>Times Spent</p>
+			</div>
+		</div>
+	</div>
+	<div class="col s12 res-analysis">
+		<h6 class="head-res">Select subject to view performance</h6>
+		<div class="col s12">
+			<div class="col s3">
+				<h6>
+					Subject
+				</h6>
+			</div>
+			<div class="col s9 sub-res">
+				<select>
+				  <option value="volvo">Volvo</option>
+				  <option value="saab">Saab</option>
+				</select>
+			</div>
+		</div>
+	</div>
+	<div class="col s10 offset-s1 res-chart">
+		<div class="col s7 pie-chart">
+			<canvas id="pie" class="chart chart-pie"
+			  chart-data="data" chart-labels="labels" chart-colors="colors"  chart-options="options">
+			</canvas> 
+			<h6>10%</h6>
+		</div>
+		<div class="col s5">
+			
+		</div>
+	</div>
+</div>

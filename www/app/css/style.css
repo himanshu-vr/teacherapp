@@ -1102,7 +1102,7 @@ position: relative;
   padding: 10px;
 }
 .modal-overlay{
-  opacity: .9  !important;
+  opacity: .9 !important;
 }
 .head-col{
   color: #2E5E86 !important;
@@ -1114,6 +1114,13 @@ position: relative;
 .bl-bg{
   background-color: #42AEF3 !important;
   color: white !important;
+}
+.mrbt10{
+  margin-bottom: 10px;
+}
+.no-side-margin{
+  margin-left: 0px;
+  margin-right: 0px;
 }
 .vid-dt{
   width: 100%;

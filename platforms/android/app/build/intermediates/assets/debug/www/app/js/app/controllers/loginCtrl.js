@@ -15,9 +15,11 @@ if($cookies.get('access_token') == undefined || $cookies.get('access_token') == 
   //function for student
   $scope.studentSelect = function(){
     $scope.UserTypeId = 1;
+    $scope.loginForm = true;
   }
   $scope.teacherSelect = function(){
     $scope.UserTypeId = 2;
+    $scope.loginForm = true;
   }
 
   $scope.login = function(user){

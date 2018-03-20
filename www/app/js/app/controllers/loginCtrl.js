@@ -11,6 +11,7 @@ if($cookies.get('access_token') == undefined || $cookies.get('access_token') == 
     document.getElementById("isStudent").focus();
     $scope.inValid =  '';
     $scope.loginName = 'Sign In';
+    $('.modal').modal();
   }
   //function for student
   $scope.studentSelect = function(){
@@ -23,36 +24,47 @@ if($cookies.get('access_token') == undefined || $cookies.get('access_token') == 
   }
 
   $scope.login = function(user){
-    $scope.loginName = 'Signing In...';
-    $scope.loginObj = {
-      "UserName" : user.name,
-      "Password" : user.password,
-      "UserTypeId" :  $scope.UserTypeId
-    }
-    //login user services api
-    studentService.login($scope.loginObj)
-      .then(function onSuccess(response) {
-        if(response != undefined && typeof(response) == 'object'){
-          if(response.data.ErrorMessage == '' && response.data.access_token != null){
-            var now = new Date();
-            var time = now.getTime();
-            time += 3600 * 1000 * 14;
-            now.setTime(time);
-            $cookies.put("access_token",JSON.stringify(response.data),{expires:now.toUTCString()});
-            $location.path('/home');
+    if(user.name == undefined || user.name == ''){
+      $scope.nameInvalid = true;
+    }else if(user.password == undefined || user.password == ''){
+      $scope.passInvalid = true;
+    }else{
+      setTimeout(function () {
+              console.log('here');
+             $('#loginModal').modal('open');
+        }, 1);
+      $scope.loginName = 'Signing In...';
+      $scope.loginObj = {
+        "UserName" : user.name,
+        "Password" : user.password,
+        "UserTypeId" :  $scope.UserTypeId
+      }
+      //login user services api
+      studentService.login($scope.loginObj)
+        .then(function onSuccess(response) {
+          if(response != undefined && typeof(response) == 'object'){
+            if(response.data.ErrorMessage == '' && response.data.access_token != null){
+              var now = new Date();
+              var time = now.getTime();
+              time += 3600 * 1000 * 14;
+              now.setTime(time);
+              $cookies.put("access_token",JSON.stringify(response.data),{expires:now.toUTCString()});
+              $location.path('/home');
+            }else{
+              $scope.loginName = 'Sign In';
+              $scope.inValid = 'Invalid Username or Password';
+            }
           }else{
             $scope.loginName = 'Sign In';
-            $scope.inValid = 'Invalid Username or Password';
           }
-        }else{
-          $scope.loginName = 'Sign In';
-        }
-      })
-      .catch(function onError(sailsresponse) {
-      })
-      .finally(function eitherWay(){
-          $scope.loginName = 'Sign In';
-      })
+        })
+        .catch(function onError(sailsresponse) {
+        })
+        .finally(function eitherWay(){
+            $scope.loginName = 'Sign In';
+            $('#loginModal').modal('close');
+        })
+    }
   }
 }else{
   $location.path('/home');

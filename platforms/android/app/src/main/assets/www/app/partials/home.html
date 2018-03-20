@@ -41,7 +41,7 @@
 				</div>
 			</div>
 			<div class="col s6">
-				<div class="col s12 task-list">
+				<div class="col s12 task-list" ng-click="resultsAnalysis()">
 					<img src="app/images/statistics.png" class="">
 					<h6>Results and Analysis</h6>
 				</div>
@@ -61,11 +61,15 @@
 		  	</h6>
 		  	<div class="slick" id="popular_videos">
 			  	<div class="col s12 home-videos" ng-repeat="item in popularVideos">
-			  		<video  class="vid-open" height="" ng-click="pauseOrPlay($event)">
-						  <source src="{{item.VideoPath}}" type="video/mp4" />
-					</video>
-			  		<h6 class="slider-text">{{item.DOCUMENTNAME}}</h6>
-			  		<p class="slider-text">{{item.SubjectName}}</p>
+
+						<div class="col s12" ng-repeat="video in item.lstVideoModel">
+							<video class="vid-open" height="" src="{{video.VideoPath}}#t=2 | trustUrl}}" ng-click="vidPlay(video.DIGITALDOCID)" preload="auto">
+								<!-- <source src="{{video.VideoPath}}" type="video/mp4" /> -->
+							</video>
+
+							<h6 class="">{{video.DOCUMENTNAME}}</h6>
+							<p class="slider-text">{{video.SubjectName}}</p>
+						</div>
 			  	</div>
 			  	<!-- <div class="col s12 home-videos">
 			  		<video  class="vid-open">
@@ -85,6 +89,27 @@
  	 </div>
   </div>
 </div>
+	<!-- Modal Trigger -->
+  <!-- <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Test Modal</a> -->
+
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal submitModal">
+    <div class="modal-footer">
+    <div class="col s12 white">
+    	<h6>Confirm test submission?</h6>
+    </div>
+    <div class="col s12 white side-no-pad">
+    	<div class="col s6">
+    		<a href="#!" class="modal-action modal-close cancel-btn">Cancel</a>
+    	</div>
+    	<div class="col s6">
+    		<a href="#!" class="modal-action head-col">Submit</a>
+    	</div>
+    </div>
+
+
+    </div>
+  </div>
 </div>
 
 <!-- side nav -->
