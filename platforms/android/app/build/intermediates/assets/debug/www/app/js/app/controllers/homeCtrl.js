@@ -7,10 +7,12 @@ angular.module('studentApp').controller('homeCtrl',['$scope','$rootScope','$loca
 
   //init videos and other details
   $scope.init =  function(){
+    $rootScope.videoId = '';
     //get Recommended videos
-    studentService.recommendedVideo()
+    studentService.popularVideo()
       .then(function onSuccess(response) {
         if(response != undefined && typeof(response) == 'object'){
+          console.log(response);
           if(response.data != undefined && response.data.length > 0){
             $scope.popularVideos = response.data;
           }
@@ -23,6 +25,7 @@ angular.module('studentApp').controller('homeCtrl',['$scope','$rootScope','$loca
       .finally(function eitherWay(){
       })
   }
+  var video = '';
   $scope.lecture = function(){
   	$location.path('/student/lecture');
   }
@@ -48,10 +51,19 @@ angular.module('studentApp').controller('homeCtrl',['$scope','$rootScope','$loca
     $location.path('/notifications');
   }
   //for recommended video
-  $scope.recommendedVideo = function(){
-    console.log('sdfsdf');
+  $scope.recommendedVideo = function(id){
+    $rootScope.videoId = id;
     $location.path('/student/recommended_video');
   }
+  // for video play
+  $scope.vidPlay = function(id){
+    $rootScope.videoId = id;
+    $location.path('/recommended_video/video-details');
+  }
+  $scope.resultsAnalysis = function(){
+  $location.path('/results');
+}
+$('.modal').modal();
   $('#popular_videos').slick({
     centerMode: false,
     centerPadding: '0px',
@@ -79,27 +91,4 @@ angular.module('studentApp').controller('homeCtrl',['$scope','$rootScope','$loca
       }
     ]
       });
-  //Play a video
-  $scope.pauseOrPlay = function(ele){
-    var video = angular.element(ele.srcElement);
-    if(video != undefined){
-      if(video[0].paused){
-        if (video[0].requestFullscreen) {
-             video[0].requestFullscreen();
-         }
-         else if (video[0].msRequestFullscreen) {
-             video[0].msRequestFullscreen();
-         }
-         else if (video[0].mozRequestFullScreen) {
-             video[0].mozRequestFullScreen();
-         }
-         else if (video[0].webkitRequestFullScreen) {
-             video[0].webkitRequestFullScreen();
-         }
-        video[0].play();
-      }else{
-        video[0].pause();
-      }
-    }
-  }
 }]);

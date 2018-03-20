@@ -21,7 +21,7 @@
           </button>
         </div>
     </div>
-    <form name="loginForm" ng-submit="loginForm.$valid && login(user)" novalidate>
+    <form name="loginForm" ng-submit="loginForm.$valid && login(user)" ng-if="loginForm" novalidate>
       <div class="col s12 login-form">
         <div class="invalid-user text-center">
           {{inValid}}
@@ -33,7 +33,7 @@
           </p>
         </div>
         <div class="col s12 user-pass">
-          <input type="password" placeholder="Password" class="user-fix" ng-required="true" ng-model="user.password" name="password">
+          <input type="password" placeholder="Password" class="password-fix" ng-required="true" ng-model="user.password" name="password">
           <p class="slight-margin err-color small-font pull-right" ng-show="loginForm.password.$dirty">
             <span ng-show="loginForm.password.$error.required">Password is required</span>
           </p>
