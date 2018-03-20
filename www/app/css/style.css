@@ -850,7 +850,7 @@ input:-webkit-autofill {
     background-color: #FF4500;
  }
  .progress .unanswer {
-    background-color: #FFFF33;
+    background-color: #ffff00;
  }
  .score-progressor{
       padding-left: 20px !important;
@@ -874,7 +874,7 @@ input:-webkit-autofill {
   color: #FF4500;
  }
  .unanswer-col{
-  color: #FFFF33;
+  color: #FFFF00;
  }
 
  /* The Modal (background) */
