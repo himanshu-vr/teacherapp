@@ -772,7 +772,7 @@ input:-webkit-autofill {
     height: 50px;
     width: 50% !important;
     background: #42AEF3;
-    border: 0px !important;
+    border: 0px;
     color: #fff !important;
     font-size: 20px !important;
 }
@@ -1121,4 +1121,7 @@ position: relative;
 .no-side-margin{
   margin-left: 0px;
   margin-right: 0px;
+}
+.btn-border{
+  border-right: 1.4px solid white !important;
 }
