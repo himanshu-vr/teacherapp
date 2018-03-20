@@ -815,7 +815,7 @@ input:-webkit-autofill {
   text-align: center;
   margin-bottom: 15px !important;
 }
-.score-detail h6{ 
+.score-detail h6{
   font-size: 18px;
   color: #2E5E83 !important;
   font-weight: 600;
@@ -941,7 +941,7 @@ input:-webkit-autofill {
     position: fixed;
     right: 0;
     bottom: 0;
-    min-width: 100%; 
+    min-width: 100%;
     min-height: 100%;
 }*/
 #myBtn {
@@ -1090,7 +1090,7 @@ position: relative;
 }
 .submitModal .modal-footer a{
   font-size: 16px;
-  color: white; 
+  color: white;
   width: 50%;
   display: inline-block;
   float: right;
@@ -1114,4 +1114,11 @@ position: relative;
 .bl-bg{
   background-color: #42AEF3 !important;
   color: white !important;
+}
+.mrbt10{
+  margin-bottom: 10px;
+}
+.no-side-margin{
+  margin-left: 0px;
+  margin-right: 0px;
 }

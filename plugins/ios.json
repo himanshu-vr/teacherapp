@@ -12,6 +12,9 @@
     },
     "cordova-plugin-splashscreen": {
       "PACKAGE_NAME": "com.student.teacher"
+    },
+    "cordova-plugin-video-thumbnail": {
+      "PACKAGE_NAME": "com.student.teacher"
     }
   },
   "dependent_plugins": {}
