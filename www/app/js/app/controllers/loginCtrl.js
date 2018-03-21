@@ -24,13 +24,16 @@ if($cookies.get('access_token') == undefined || $cookies.get('access_token') == 
   }
 
   $scope.login = function(user){
-    if(user.name == undefined || user.name == ''){
+    console.log(user);
+    if(user == undefined || user.name == undefined || user.name == ''){
       $scope.nameInvalid = true;
-    }else if(user.password == undefined || user.password == ''){
+    }else if(user == undefined || user.password == undefined || user.password == ''){
       $scope.passInvalid = true;
+      $scope.nameInvalid = false;
     }else{
+      $scope.passInvalid = false;
+      $scope.nameInvalid = false;
       setTimeout(function () {
-              console.log('here');
              $('#loginModal').modal('open');
         }, 1);
       $scope.loginName = 'Signing In...';
