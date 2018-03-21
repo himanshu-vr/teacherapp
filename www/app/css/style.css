@@ -55,7 +55,7 @@ height: 50px !important;
   box-shadow: none !important;
 }
  .user-fix{
-  background: url('../images/user.png') no-repeat;
+  background: url('../images/username.png') no-repeat;
   background-size: 16px 16px;
   background-position: 5% 13px !important;
 }
@@ -92,7 +92,7 @@ height: 50px !important;
   color: white;
 }
 .home-nav .menu img{
-  vertical-align: middle;
+  vertical-align: text-top;
 }
 .home-nav .home-head{
   font-size: 16px;
@@ -209,10 +209,10 @@ border-radius: 2px;
 -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0);
 box-shadow: 0px 0px 5px 0px rgba(0,0,0,0);
 }
-.stlec-heading .icon img{
+/*.stlec-heading .icon img{
   height: 45px;
   width: 45px;
-}
+}*/
 .stlec-heading h6{
  font-size: 15px;
  font-weight: 600;
@@ -484,10 +484,10 @@ input:-webkit-autofill {
     -webkit-animation-fill-mode: both;
 }
 .invalid-user{
-  text-align: center;
+  text-align: left;
   margin-bottom: 10px;
   color: red;
-  margin-left: 10%;
+  margin-left: 7%;
 }
 .text-center{
   text-align: center;
@@ -511,7 +511,7 @@ input:-webkit-autofill {
     padding: 10px 8px 10px 15px;
     text-decoration: none;
     font-size: 17px;
-    color: #000;
+    color: #486078;
     display: block;
     transition: 0.3s;
     opacity: .6;
@@ -1128,4 +1128,14 @@ position: relative;
 }
 .pos-rel{
   position: relative;
+}
+.err-pass   {
+  margin-top: -20px;
+  color: red;
+  text-align: left;
+}
+.err-usr{
+  margin-top: -20px;
+  margin-bottom: 10px !important;
+  color: red;
 }

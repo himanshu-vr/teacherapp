@@ -1,6 +1,6 @@
 <div class="row teacher-fair" ng-init="init()">
     <div class="col s12 logo center">
-      <img src="app/images/logo.jpg" alt="teacher Fair">
+      <img src="app/images/tf_logo.png" alt="teacher Fair">
     </div>
     <div class="col s12 log-head">
       <h1>Login to your account</h1>
@@ -8,14 +8,14 @@
     <div class="col s12 login-sec">
         <div class="col s6 stu-div">
           <button class="col s11 student-sec" ng-click="studentSelect()" id="isStudent">
-                  <img src="app/images/graduate-student-avatar.png" alt="teacher Fair">
+                  <img src="app/images/studentlogo.png" alt="teacher Fair">
                 <p>I'm a Student
                 </p>
           </button>
         </div>
         <div class="col s6 tea-div">
           <button class="col s11 student-sec" ng-click="teacherSelect()" id="isTeacher">
-                  <img src="app/images/male-cartoon-pointing-to-white-board.png" alt="teacher Fair">
+                  <img src="app/images/teacherlogo.png" alt="teacher Fair">
                 <p>I'm a Lecturer
                 </p>
           </button>
@@ -28,13 +28,13 @@
         </div>
         <div class="col s12 user-name">
           <input type="text" placeholder="Username" class="user-fix" ng-required="true" ng-model="user.name" name="name">
-          <p class="slight-margin small-font err-color pull-right" ng-show="nameInvalid">
-            <span>username is required</span>
+          <p class="err-usr" ng-show="nameInvalid">
+            <span>Username is required</span>
           </p>
         </div>
         <div class="col s12 user-pass">
           <input type="password" placeholder="Password" class="password-fix mrbt10" ng-required="true" ng-model="user.password" name="password">
-          <p class="slight-margin err-color small-font pull-right" ng-show="passInvalid">
+          <p class="err-pass" ng-show="passInvalid">
             <span>Password is required</span>
           </p>
           <a class="right forgot-pass">Forgot Password?</a>
