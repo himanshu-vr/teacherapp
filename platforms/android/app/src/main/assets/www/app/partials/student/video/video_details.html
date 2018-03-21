@@ -1,14 +1,14 @@
 <div class="row f5f5f5" ng-init="init()">
-	<div class="col s12 side-no-pad">
-		<video id="main_video" name="Test" src="{{videoDetail.VideoPath}}#t=2 | trustUrl}}" preload="auto" autoplay></video>
-		<!-- <video controls="controls"  class="vid-open course_video" id="main_video" autoplay>
+	<div class="col s12 side-no-pad pos-rel">
+		<video class="vid-dt" id="main_video" name="Test" src="{{videoDetail.VideoPath}}#t=2 | trustUrl}}" autoplay></video>
+	<!-- 	<video class="vid-open course_video" id="main_video" autoplay>
 		  <source ng-src="{{videoDetail.VideoPath}}#t=2 controls" type="video/mp4">
 		  Your browser does not support the video tag.
 		</video> -->
 		<img src="app/images/go-back-left-arrow.png" class="vid-back" width="20" height="20" ng-click="goBack()">
-		<img src="app/images/expand-arrows.png" class="vids-expand" width="25" height="25" ng-click="expandVideo()">
-		<img src="app/images/play-sign.png" class="play-vid" width="25" height="25" ng-if="vidimg" ng-click=pauseOrPlay()>
-		<img src="app/images/pause.png" class="play-vid" width="25"  ng-if="!vidimg" height="25" ng-click=pauseOrPlay()>
+		<img src="app/images/expand-arrows.png" class="vids-expand" width="28" height="28" ng-click="expandVideo()">
+		<img src="app/images/play-sign.png" class="play-vid" width="32" height="32" ng-if="vidimg" ng-click=pauseOrPlay()>
+		<img src="app/images/pause.png" class="play-vid" width="32"  ng-if="!vidimg" height="32" ng-click=pauseOrPlay()>
 	</div>
 	<div class="col s12 vid-exp-detail">
 		<h5>Map based questions for MCQS</h5>

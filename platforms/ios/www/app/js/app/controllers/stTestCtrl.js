@@ -49,9 +49,8 @@ angular.module('studentApp').controller('stTestCtrl',['$scope','$rootScope','$lo
               variableWidth: false
          };
        setTimeout(function () {
-            console.log('sdfs');
              $(".uptest-info").not('.slick-initialized').slick(options)
-         }, 10);
+         }, 1);
     }
   $scope.goBack  = function(){
     $location.path('/home');
@@ -90,11 +89,12 @@ angular.module('studentApp').controller('stTestCtrl',['$scope','$rootScope','$lo
     fade: true,
     asNavFor: '.question-slider'
   });
-  }, 10);
+}, 1);
 
-$scope.showInstructions = function(testId,SubjectId){
+$scope.showInstructions = function(testId,SubjectId,SubjectName){
   $scope.TestId = testId;
   $scope.subjectID = SubjectId;
+  $scope.SubjectName = SubjectName;
   $scope.isInstruction = true;
   $scope.isTest = false;
   $scope.isTestStart = false;
@@ -120,7 +120,9 @@ $scope.startTest = function(){
   $scope.isTest = false;
   $scope.isTestStart = true;
   $scope.first_question = true;
+  $scope.last_question = false;
   $scope.answers = [];
+  $scope.StartTime = $scope.getFormattedDate();
   //function to get test questions
 
     $timeout(function() {
@@ -147,11 +149,17 @@ $scope.startTest = function(){
     });
     $('.question-slider').on('afterChange', function(event, slick, currentSlide, nextSlide){
       questionIndex = parseInt($('.question-slider').find('.slick-current').attr('data-slick-index'));
+      console.log(questionIndex);
       if(questionIndex == 0){
         $scope.first_question = true;
         $scope.$apply();
-      }else{
+      }else if (questionIndex + 1 == $scope.testQuestions.length) {
+        $scope.last_question = true;
+        $scope.$apply();
+      }
+      else{
         $scope.first_question = false;
+        $scope.last_question = false;
         $scope.$apply();
       }
    });
@@ -160,7 +168,6 @@ $scope.startTest = function(){
 $scope.nextQuestion = function(){
   questionIndex+= 1
   if(questionIndex < $scope.testQuestions.length){
-    $scope.first_question = false;
     $(".quesinfo-slider").slick( "slickGoTo", questionIndex);
   }
 //  $scope.$apply();
@@ -168,6 +175,7 @@ $scope.nextQuestion = function(){
 
 $scope.prevQuestion = function(){
   questionIndex-= 1;
+  console.log(questionIndex);
   if(questionIndex == 0){
     $scope.first_question = true;
     $(".quesinfo-slider").slick( "slickGoTo", questionIndex);
@@ -197,13 +205,22 @@ $scope.submitAnswer = function(QuestionId,AnswerId,index,parentIndex){
   $scope.answers.push(key);
 }
 
+$scope.openSubmitModal = function(){
+  setTimeout(function () {
+         $('.modal').modal();
+         $('#submitTest').modal('open');
+    }, 1);
+}
 $scope.submitTest = function(){
-  console.log($scope.TestId + '==' + $scope.subjectID);
+  setTimeout(function () {
+         $('#submitTest').modal('close');
+    }, 1);
+  $scope.EndTime = $scope.getFormattedDate();
   $scope.testData = {
     "TestId" : $scope.TestId,
     "SubjectId" : $scope.subjectID,
-  	"StartTime":"2018-02-08",
-  	"EndTime":"2018-02-09",
+  	"StartTime":$scope.StartTime,
+  	"EndTime": $scope.EndTime,
     "lstQuesAns" : $scope.answers
   }
   //submit the test
@@ -224,7 +241,16 @@ $scope.submitTest = function(){
 
     })
   .finally(function eitherWay(){
+    setTimeout(function () {
+           $('#submitTest').modal('close');
+      }, 1);
   })
+}
+
+$scope.getFormattedDate = function(){
+  var date = new Date();
+  var str = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + " " +  date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+  return str;
 }
 // Get the modal
 var modal = document.getElementById('submit_Modal');

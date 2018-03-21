@@ -63,7 +63,7 @@
 			  	<div class="col s12 home-videos" ng-repeat="item in popularVideos">
 
 						<div class="col s12" ng-repeat="video in item.lstVideoModel">
-							<video class="vid-open" id="popcorn" height="" src="{{video.VideoPath}}" ng-click="vidPlay(video.DIGITALDOCID)" preload="auto">
+							<video poster="{{video.PosterImage}}" class="vid-open" id="popcorn" height="" src="{{video.VideoPath}}" ng-click="vidPlay(video.DIGITALDOCID)" preload="auto">
 							</video>
 
 							<h6 class="">{{video.DOCUMENTNAME}}</h6>
