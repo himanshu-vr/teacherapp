@@ -511,10 +511,9 @@ input:-webkit-autofill {
     padding: 10px 8px 10px 15px;
     text-decoration: none;
     font-size: 17px;
-    color: #486078;
+    color: #808080;
     display: block;
     transition: 0.3s;
-    opacity: .6;
 }
 
 /* When you mouse over the navigation links, change their color */
@@ -549,7 +548,6 @@ input:-webkit-autofill {
 .sidenav-icon{
     width: 20px;
     height: 20px;
-    background-color: white;
     vertical-align: sub;
 }
 .sidenav .stlec-heading .head-nav {
@@ -563,6 +561,7 @@ input:-webkit-autofill {
 .sidenav .nav-links {
     font-size: 14px;
     padding-left: 35px;
+    letter-spacing: .5px;
 }
 .sidenav .nav-logout{
     position: absolute;
@@ -1138,4 +1137,13 @@ position: relative;
   margin-top: -20px;
   margin-bottom: 10px !important;
   color: red;
+}
+.icon-opacity{
+  opacity: .35;
+}
+.secondary-color{
+  color: #486078;
+}
+.dark-bg{
+  background: #d6d6d6;
 }
