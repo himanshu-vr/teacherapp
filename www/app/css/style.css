@@ -2,6 +2,11 @@
 .teacher-fair{
   margin-top: 20%;
 }
+.login-scr{
+  position: absolute;
+  min-height: 100%;
+  background:white;
+}
 .teacher-fair .logo img{
 width: 150px !important;
 height: 50px !important;
