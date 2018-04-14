@@ -12,7 +12,11 @@ angular.module('studentApp').controller('streVideoCtrl',['$scope','$rootScope','
         if(response != undefined && typeof(response) == 'object'){
           if(response.data != undefined){
             $scope.videos = response.data;
-            console.log($scope.videos);
+            
+       setTimeout(function () {
+            console.log('sdfs');
+             $(".uptest-info").not('.slick-initialized').slick()
+         }, 10);
           }
         }else{
         }

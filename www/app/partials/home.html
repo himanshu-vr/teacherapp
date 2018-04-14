@@ -59,7 +59,24 @@
 		  	<h6 class="heading">
 		  		Popular Videos
 		  	</h6>
-		  	<div class="slick" id="popular_videos">
+		  	<div  class="col s12 uptest-info slick" slick-slider="{arrows: false,
+				                infinite: false,
+				                centerMode: true,
+				                centerPadding: '0px',
+				                slidesToShow: 2,
+				                variableWidth: false}" id="popular_videos">
+			  		<div class="col s12 home-videos" ng-repeat="item in popularVideos">
+
+						<div class="col s12" ng-repeat="video in item.lstVideoModel">
+							<video class="vid-open" id="popcorn" height="" src="{{video.VideoPath}}" ng-click="vidPlay(video.DIGITALDOCID)" preload="auto">
+							</video>
+
+							<h6 class="">{{video.DOCUMENTNAME}}</h6>
+							<p class="slider-text">{{video.SubjectName}}</p>
+						</div>
+			  	</div>
+		  	</div>
+		  	<!-- <div class="slick" id="popular_videos">
 			  	<div class="col s12 home-videos" ng-repeat="item in popularVideos">
 
 						<div class="col s12" ng-repeat="video in item.lstVideoModel">
@@ -70,7 +87,7 @@
 							<p class="slider-text">{{video.SubjectName}}</p>
 						</div>
 			  	</div>
-		  </div>
+		  </div> -->
  	 </div>
   </div>
 </div>

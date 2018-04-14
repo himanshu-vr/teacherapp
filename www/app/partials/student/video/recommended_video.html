@@ -18,17 +18,25 @@
 		<div class="col s12 mr20 mrbtm">
  		  <div class="col s12 ">
 			<!-- Tab content -->
-			<div class="col s12 home-videos" ng-repeat="item in videos">
+			<div class="col s12" ng-repeat="item in videos">
 				<h6 class="heading">{{item.Subject}}</h6>
-				<div class="col s12 left-no-pad" ng-repeat="video in item.lstVideoModel">
-					<video class="vid-open" name="Test" src="{{video.VideoPath}}#t=2 | trustUrl}}" ng-click="videoDetail(video.DIGITALDOCID)" autolo></video>
-					<!-- <video  class="vid-open" height="">
-							<source src="{{video.VideoPath}}" type="video/mp4" />
-					</video> -->
-					<h6 class="slider-text">{{video.DOCUMENTNAME}}</h6>
-				</div>
+				<div  class="col s12 uptest-info slick" slick-slider="{arrows: false,
+				                infinite: false,
+				                centerMode: true,
+				                centerPadding: '0px',
+				                slidesToShow: 2,
+				                variableWidth: false}">
+			  		<div class="col-xs-12" ng-repeat="video in item.lstVideoModel">
+			  			<video class="vid-open slider-item " name="Test" src="{{video.VideoPath}}#t=2 | trustUrl}}" ng-click="videoDetail(video.DIGITALDOCID)" autolo></video>
+						<!-- <video  class="vid-open" height="">
+								<source src="{{video.VideoPath}}" type="video/mp4" />
+						</video> -->
+						<h6 class="slider-text">{{video.DOCUMENTNAME}}</h6>
+			  		</div>
+		  		</div>
 			</div>
 		</div>
 	</div>
 </div>
 </div>
+

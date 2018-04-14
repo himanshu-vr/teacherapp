@@ -15,6 +15,7 @@ angular.module('studentApp').controller('homeCtrl',['$scope','$rootScope','$loca
           console.log(response);
           if(response.data != undefined && response.data.length > 0){
             $scope.popularVideos = response.data;
+            console.log($scope.popularVideos);
           }
         }else{
         }

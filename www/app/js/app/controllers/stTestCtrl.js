@@ -36,8 +36,12 @@ angular.module('studentApp').controller('stTestCtrl',['$scope','$rootScope','$lo
         $scope.isScore = false;
         if(testType == 'upcomingTest'){
             $scope.upcomingTest = true;
+            angular.element(document.querySelector("#uptest-btn1")).addClass("testbtn-active");
+            angular.element(document.querySelector("#uptest-btn2")).removeClass("testbtn-active");
         }else{
             $scope.upcomingTest = false;
+            angular.element(document.querySelector("#uptest-btn1")).removeClass("testbtn-active");
+            angular.element(document.querySelector("#uptest-btn2")).addClass("testbtn-active");
             //$scope.attemptedTest  = true;
         }
         var options = {
