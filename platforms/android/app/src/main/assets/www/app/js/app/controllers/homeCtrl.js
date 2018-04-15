@@ -14,6 +14,7 @@ angular.module('studentApp').controller('homeCtrl',['$scope','$rootScope','$loca
         if(response != undefined && typeof(response) == 'object'){
           if(response.data != undefined && response.data.length > 0){
             $scope.popularVideos = response.data;
+
             for(var i = 0; i< $scope.popularVideos.length; i++){
               for(var k =0; k < $scope.popularVideos[i].lstVideoModel.length; k++){
                 console.log($scope.popularVideos[i].lstVideoModel[k].VideoPath);
@@ -26,6 +27,18 @@ angular.module('studentApp').controller('homeCtrl',['$scope','$rootScope','$loca
               });
               }
             }
+            var Slideroptions = {
+                  arrows: false,
+                  infinite: false,
+                  centerMode: false,
+                  centerPadding: '500px',
+                  slidesToShow: 2,
+                  variableWidth: true
+             };
+           setTimeout(function () {
+                  console.log('sdf');
+                 $(".popular-info").not('.slick-initialized').slick(Slideroptions)
+             }, 1);
           }
         }else{
         }

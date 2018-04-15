@@ -4,14 +4,17 @@
   Aditya Gupta
 */
 angular.module('studentApp').controller('stTestCtrl',['$scope','$rootScope','$location','$timeout','$cookies','studentService', function ($scope,$rootScope,$location,$timeout,$cookies,studentService) {
-
   $scope.isTest = true;
   $scope.isInstruction = false;
   $scope.isScore = false;
   $scope.isTestStart = false;
   var questionIndex = 0;
   $scope.TestId = '';
+
    $scope.init = function(){
+     setTimeout(function(){
+       document.addEventListener("deviceready", onDeviceReady(), false);
+     },1)
      $scope.TestId = '';
      $scope.upcomingTest = true;
      $scope.attemptedTest = false;
@@ -21,7 +24,7 @@ angular.module('studentApp').controller('stTestCtrl',['$scope','$rootScope','$lo
          if(response != undefined && typeof(response) == 'object'){
            if(response.data != undefined && response.data.length > 0){
               $scope.upcomingtests = response.data[0].Data;
-              $scope.attemptedtests = response.data[0].Data;
+              $scope.attemptedtests = response.data[1].Data;
            }
          }else{
          }
@@ -32,14 +35,20 @@ angular.module('studentApp').controller('stTestCtrl',['$scope','$rootScope','$lo
        .finally(function eitherWay(){
        })
    }
+   function onBackKeyDown() {
+     alert("back");
+     console.log('chalo');
+    // $scope.goBack();
+  }
+   // device APIs are available
+   //
+   function onDeviceReady() {
+     // Register the event listener
+     alert("deviceready");
+     document.addEventListener("backbutton", onBackKeyDown, false);
+   };
    $scope.openTestSchedule = function(testType) {
         $scope.isScore = false;
-        if(testType == 'upcomingTest'){
-            $scope.upcomingTest = true;
-        }else{
-            $scope.upcomingTest = false;
-            //$scope.attemptedTest  = true;
-        }
         var options = {
               arrows: false,
               infinite: false,
@@ -48,9 +57,22 @@ angular.module('studentApp').controller('stTestCtrl',['$scope','$rootScope','$lo
               slidesToShow: 1,
               variableWidth: false
          };
-       setTimeout(function () {
-             $(".uptest-info").not('.slick-initialized').slick(options)
-         }, 1);
+        if(testType == 'upcomingTest'){
+            $scope.upcomingTest = true;
+            angular.element(document.querySelector("#uptest-btn1")).addClass("testbtn-active");
+            angular.element(document.querySelector("#uptest-btn2")).removeClass("testbtn-active");
+            setTimeout(function () {
+                  $(".uptest-info").not('.slick-initialized').slick(options)
+              }, 100);
+        }else{
+            $scope.upcomingTest = false;
+            angular.element(document.querySelector("#uptest-btn1")).removeClass("testbtn-active");
+            angular.element(document.querySelector("#uptest-btn2")).addClass("testbtn-active");
+            setTimeout(function () {
+                  $(".uptest-info").not('.slick-initialized').slick(options)
+              }, 100);
+            //$scope.attemptedTest  = true;
+        }
     }
   $scope.goBack  = function(){
     $location.path('/home');

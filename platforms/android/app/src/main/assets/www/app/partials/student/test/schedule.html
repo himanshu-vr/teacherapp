@@ -17,8 +17,8 @@
 	<div class="col s12 side-no-pad">
 			<!-- Tab links -->
 			<div class="upcomingTesttab">
-			  <button class="tablinks" ng-click="openTestSchedule('upcomingTest')">Upcoming Tests</button>
-			  <button class="tablinks" ng-click="openTestSchedule('attemptedTest')">Attempted Test</button>
+			  <button class="tablinks testbtn-active" ng-click="openTestSchedule('upcomingTest')" id="uptest-btn1">Upcoming Tests</button>
+			  <button class="tablinks" ng-click="openTestSchedule('attemptedTest')" id="uptest-btn2">Attempted Test</button>
 		 </div>
 
 			<!-- Tab content -->
@@ -84,63 +84,31 @@
 
 	</div>
 	<div class="col s12 pad40">
-		<div class="col s12 test-instructions">
+	<div class="col s12 test-instructions">
 			<div class="col s2 instr-img">
-				<img src="app/images/presentation.png" width="45" height="45" class="black">
+				<img src="app/images/instruction1.png" width="45" height="45" class="">
 			</div>
 			<div class="col s10 instr-details">
-				<h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</h6>
+				<h6>This test may contain multiple-choice or fill in the blank type of questions. No marks are awarded for unattempted questions.</h6>
 			</div>
 		</div>
 		<div class="col s12 test-instructions">
 			<div class="col s2 instr-img">
-				<img src="app/images/presentation.png" width="45" height="45" class="black">
+				<img src="app/images/instruction2.png" width="45" height="45" class="">
 			</div>
 			<div class="col s10 instr-details">
-				<h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</h6>
+				<h6>Tap to select correct answer and double tap to clear the selection. tap on an image to zoom.</h6>
 			</div>
 		</div>
 		<div class="col s12 test-instructions">
 			<div class="col s2 instr-img">
-				<img src="app/images/presentation.png" width="45" height="45" class="black">
+				<img src="app/images/instruction3.png" width="45" height="45" class="">
 			</div>
 			<div class="col s10 instr-details">
-				<h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</h6>
+				<h6>Mark the question for review using the mark for review icon. Report an issue in aquestion/answer using report an issue icon.</h6>
 			</div>
 		</div>
-		<div class="col s12 test-instructions">
-			<div class="col s2 instr-img">
-				<img src="app/images/presentation.png" width="45" height="45" class="black">
-			</div>
-			<div class="col s10 instr-details">
-				<h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</h6>
-			</div>
-		</div>
-		<div class="col s12 test-instructions">
-			<div class="col s2 instr-img">
-				<img src="app/images/presentation.png" width="45" height="45" class="black">
-			</div>
-			<div class="col s10 instr-details">
-				<h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</h6>
-			</div>
-		</div>
-		<div class="col s12 test-instructions">
-			<div class="col s2 instr-img">
-				<img src="app/images/presentation.png" width="45" height="45" class="black">
-			</div>
-			<div class="col s10 instr-details">
-				<h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</h6>
-			</div>
-		</div>
-		<div class="col s12 test-instructions">
-			<div class="col s2 instr-img">
-				<img src="app/images/presentation.png" width="45" height="45" class="black">
-			</div>
-			<div class="col s10 instr-details">
-				<h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</h6>
-			</div>
-		</div>
-</div>
+	</div>
 <div class="col s12 test-start">
      <button ng-click="startTest()">Continue</button>
 </div>

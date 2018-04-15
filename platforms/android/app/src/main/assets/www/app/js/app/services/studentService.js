@@ -99,7 +99,7 @@ angular.module('studentApp').factory('studentService', ['$http', '$cookies', fun
       cookie  = JSON.parse(cookie);
       var access_token = cookie.access_token;
       var data = {
-        "TestId" : "2"
+        "TestId" : testId
       }
       // var data = {
       //   "TestId":29,
