@@ -52,13 +52,25 @@
 					<h6>{{test.SubjectName}}</h6>
 				</div>
 				<div class="col s12 uptest-info slick">
-					<div class="col s12 white slider-item" ng-repeat="subtest in test.TDetails">
-						<h6 class="test-name"> </h6>
-						<p class="test-expiry"><span><i class="material-icons dp48">timer</i></span> Published on : {{ subtest.PublishDate | date :  "dd MMM yyyy"  }}</p>
-						<p class="test-syllabus">Syllabus Info</p>
-						<p class="testsyllabus-info syllabus-border"><span class="span-num">{{subtest.TotalQuestion}}</span><span class="span-text">Question</span><span class="span-ques">?</span></p>
-						<p class="testsyllabus-info syllabus-border"><span class="span-num">{{subtest.TotalMarks}}</span><span class="span-text">Marks</span><span class="span-done"><i class="material-icons dp48">done</i></span></p>
-						<p class="testsyllabus-info"><span class="span-num">{{subtest.TotalTime}}</span><span class="span-done"><i class="material-icons dp48">timer</i></span></p>
+					<div class="col s12 white slider-item side-no-pad" ng-repeat="subtest in test.TDetails">
+						<div class="col s12">
+							<div class="col s10 side-no-pad pad">
+								<h5 class="secondary-color padtop-10">Di & Reasoning Test 1</h5>
+							</div>
+							<div class="col s2 side-no-pad right-align">
+								<img src="app/images/success.png" class="right">
+							</div>
+						</div>
+						<div class="col s12">
+							<div class="col s4 side-no-pad pad">
+								<span></span>
+								<span>50%</span>
+							</div>
+							<div class="col s4 side-no-pad right-align">
+								<span><img src="app/images/star.png" class="star-css"></span>
+								<span class="star-h6">21</span>
+							</div>
+						</div>
 						<button class="teststart">Solutions</button>
 					</div>
 				</div>
