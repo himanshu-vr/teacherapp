@@ -14,30 +14,18 @@ angular.module('studentApp').controller('homeCtrl',['$scope','$rootScope','$loca
         if(response != undefined && typeof(response) == 'object'){
           if(response.data != undefined && response.data.length > 0){
             $scope.popularVideos = response.data;
-
-            for(var i = 0; i< $scope.popularVideos.length; i++){
-              for(var k =0; k < $scope.popularVideos[i].lstVideoModel.length; k++){
-                console.log($scope.popularVideos[i].lstVideoModel[k].VideoPath);
-                navigator.createThumbnail($scope.popularVideos[i].lstVideoModel[k].VideoPath, function(err, imageData) {
-                  console.log(imageData);
-                  if (err){
-                    throw err;
-                  }
-                  $scope.popularVideos[i].lstVideoModel[k].PosterImage = imageData; // Will log the base64 encoded string in console.
-              });
-              }
-            }
             var Slideroptions = {
-                  arrows: false,
-                  infinite: false,
-                  centerMode: false,
-                  centerPadding: '500px',
-                  slidesToShow: 2,
-                  variableWidth: true
+              arrows: false,
+              infinite: false,
+              centerMode: false,
+              centerPadding: '50px',
+              slidesToShow: 2,
+              variableWidth: false
              };
+             console.log('hee');
            setTimeout(function () {
-                  console.log('sdf');
-                 $(".popular-info").not('.slick-initialized').slick(Slideroptions)
+              console.log('sdf');
+                 $(".popularvideo").slick(Slideroptions)
              }, 1);
           }
         }else{

@@ -1158,6 +1158,40 @@ position: relative;
   font-weight: 500;
   border-bottom: 2px solid #42AEF3 !important;
 }
+.padtop-10{
+  padding-top: 10px;
+}
+.star-css{
+  display: inline-block !important;
+}
+.star-h6{
+  font-size: 18px;
+  padding-left: 10px;
+  opacity: .7;
+  vertical-align: top;
+}
+.circle-test{
+  width: 20px;
+  border: 1px solid green;
+  height: 20px;
+  border-radius: 20px;
+  display: inline-block;
+  margin-top: 4px;
+}
+.cor-ans{
+  background-color: #b2d0b2 !important;
+}
+.wrong-ans{
+  background-color: #ff9999 !important;
+}
+.mr40{
+  margin-top: 40px;
+}
+.sol-title{
+  font-size: 12px;
+    opacity: .6;
+    padding-left: 15px;
+}
 .btn-border{
   border-right: 1.4px solid white !important;
 }

@@ -22,7 +22,7 @@ angular.module('studentApp').controller('streVideoCtrl',['$scope','$rootScope','
              };
             setTimeout(function () {
               $(".recommended-info").not('.slick-initialized').slick(options)
-              }, 10);
+              }, 1);
           }
         }else{
         }

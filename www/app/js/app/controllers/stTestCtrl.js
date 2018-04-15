@@ -4,9 +4,11 @@
   Aditya Gupta
 */
 angular.module('studentApp').controller('stTestCtrl',['$scope','$rootScope','$location','$timeout','$cookies','studentService', function ($scope,$rootScope,$location,$timeout,$cookies,studentService) {
+
   $scope.isTest = true;
   $scope.isInstruction = false;
   $scope.isScore = false;
+  $scope.isSolutionShow = false;
   $scope.isTestStart = false;
   var questionIndex = 0;
   $scope.TestId = '';
@@ -62,6 +64,7 @@ angular.module('studentApp').controller('stTestCtrl',['$scope','$rootScope','$lo
               slidesToShow: 1,
               variableWidth: false
          };
+$scope.isSolutionShow = false;
         if(testType == 'upcomingTest'){
             $scope.upcomingTest = true;
             angular.element(document.querySelector("#uptest-btn1")).addClass("testbtn-active");
@@ -87,12 +90,14 @@ angular.module('studentApp').controller('stTestCtrl',['$scope','$rootScope','$lo
     $scope.isInstruction = false;
     $scope.isScore = false;
     $scope.isTestStart = false;
+    $scope.isSolutionShow = false;
   //  $scope.init();
   }
   $scope.goTest = function(){
       $scope.isTest = true;
       $scope.isInstruction = false;
       $scope.isTestStart = false;
+      $scope.isSolutionShow = false;
   }
   $timeout(function() {
         $('.question-slider').slick({
@@ -125,6 +130,7 @@ $scope.showInstructions = function(testId,SubjectId,SubjectName){
   $scope.isInstruction = true;
   $scope.isTest = false;
   $scope.isTestStart = false;
+  $scope.isSolutionShow = false;
   //get the question based on test ID
   studentService.getQuestions($scope.TestId)
     .then(function onSuccess(response) {
@@ -148,6 +154,7 @@ $scope.startTest = function(){
   $scope.isTestStart = true;
   $scope.first_question = true;
   $scope.last_question = false;
+$scope.isSolutionShow = false;
   $scope.answers = [];
   $scope.StartTime = $scope.getFormattedDate();
   //function to get test questions
@@ -179,9 +186,11 @@ $scope.startTest = function(){
       console.log(questionIndex);
       if(questionIndex == 0){
         $scope.first_question = true;
+        $scope.last_question = false;
         $scope.$apply();
-      }else if (questionIndex + 1 == $scope.testQuestions.length) {
+      }else if (questionIndex + 1 == $scope.testQuestions.length && questionIndex != 0) {
         $scope.last_question = true;
+        $scope.first_question = false;
         $scope.$apply();
       }
       else{
@@ -192,17 +201,23 @@ $scope.startTest = function(){
    });
     }, 1);
 }
-$scope.nextQuestion = function(){
+$scope.nextQuestion = function(type){
   questionIndex+= 1
-  if(questionIndex < $scope.testQuestions.length){
-    $(".quesinfo-slider").slick( "slickGoTo", questionIndex);
+  if(type == 'Attempted'){
+    if(questionIndex < $scope.testSolution.length){
+      $(".quesinfo-slider").slick( "slickGoTo", questionIndex);
+    }
+  }else{
+    if(questionIndex < $scope.testQuestions.length){
+      $(".quesinfo-slider").slick( "slickGoTo", questionIndex);
+    }
   }
 //  $scope.$apply();
 }
 
 $scope.prevQuestion = function(){
   questionIndex-= 1;
-  console.log(questionIndex);
+  console.log('sdfsdf');
   if(questionIndex == 0){
     $scope.first_question = true;
     $(".quesinfo-slider").slick( "slickGoTo", questionIndex);
@@ -273,12 +288,76 @@ $scope.submitTest = function(){
       }, 1);
   })
 }
+$scope.showSolution = function(testId){
+    console.log('herer')
+    questionIndex = 0;
+    $scope.isTest = false;
+    $scope.isInstruction = false;
+    $scope.isScore = false;
+    $scope.isTestStart = false;
+    $scope.isSolutionShow = true;
+    $scope.TestId = testId;
+    $scope.first_question = true;
+    $scope.last_question = false;
+    studentService.getSolutions($scope.TestId)
+    .then(function onSuccess(response) {
+    if(response != undefined && typeof(response) == 'object'){
+      if(response.data != undefined && response.data.length > 0){
+         $scope.testSolution = response.data;
 
-$scope.getFormattedDate = function(){
-  var date = new Date();
-  var str = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + " " +  date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
-  return str;
-}
+    $timeout(function() {
+          $('.question-slider').slick({
+          slidesToShow: 4,
+          slidesToScroll: 1,
+          asNavFor: '.quesinfo-slider',
+          dots: false,
+          nav: false,
+          infinite: false,
+          prevArrow: false,
+          nextArrow: false,
+          centerMode: true,
+          focusOnSelect: true
+      });
+
+      $('.quesinfo-slider').slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      arrows: false,
+      infinite: false,
+      fade: true,
+      asNavFor: '.question-slider'
+    });
+    $('.question-slider').on('afterChange', function(event, slick, currentSlide, nextSlide){
+      questionIndex = parseInt($('.question-slider').find('.slick-current').attr('data-slick-index'));
+      if(questionIndex == 0){
+        $scope.first_question = true;
+        $scope.last_question = false;
+        $scope.$apply();
+      }else if (questionIndex + 1 == $scope.testSolution.length && questionIndex != 0) {
+        $scope.last_question = true;
+        $scope.first_question = false;
+        $scope.$apply();
+      }
+      else{
+        $scope.first_question = false;
+        $scope.last_question = false;
+        $scope.$apply();
+      }
+   });
+    }, 1);
+        }
+      }else{
+      }
+    })
+    .catch(function onError(errorResponse) {
+
+    })
+  .finally(function eitherWay(){
+  });
+
+  //  $scope.init();
+  }
+
 // Get the modal
 var modal = document.getElementById('submit_Modal');
 
@@ -308,6 +387,10 @@ var span = document.getElementsByClassName("close")[0];
   $scope.labels = ["Download Sales", "In-Store Sales"];
   $scope.data = [300, 500];
   $scope.colors = ['#42AEF3', '#ffffff'];
-
+	$scope.getFormattedDate = function(){
+	  var date = new Date();
+	  var str = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + " " +  date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+	  return str;
+	}
 
 }]);

@@ -59,11 +59,11 @@
 		  	<h6 class="heading">
 		  		Popular Videos
 		  	</h6>
-		  	<div class="col s12" id="popular_videos">
-			  		<div class="col s12 slick popular-info" ng-repeat="item in popularVideos | limitTo:1">
+		  	<div class="col s12 rd" id="popular_videos">
+			  		<div class="col s12 popularvideo slick side-no-pad" ng-repeat="item in popularVideos | limitTo:1">
 							<!-- <div class=" col s12  "> -->
-								<div class="slider-item" style="min-width:100px;max-width:155px;" ng-repeat="video in item.lstVideoModel | limitTo:5">
-									<video class="vid-open" id="popcorn" height="" src="{{video.VideoPath}}" ng-click="vidPlay(video.DIGITALDOCID)" preload="auto">
+								<div class="slider-item col s12" style="min-width:100px;max-width:155px;" ng-repeat="video in item.lstVideoModel | limitTo:5">
+									<video class="vid-open" id="popcorn" height="" ng-src="{{video.VideoPath}}" ng-click="vidPlay(video.DIGITALDOCID)" preload="auto">
 									</video>
 
 									<h6 class="small-font">{{video.DOCUMENTNAME}}</h6>
