@@ -1170,3 +1170,11 @@ position: relative;
   opacity: .7;
   vertical-align: top;
 }
+.circle-test{
+      width: 20px;
+    border: 1px solid green;
+    height: 20px;
+    border-radius: 20px;
+    display: inline-block;
+        margin-top: 4px;
+}
