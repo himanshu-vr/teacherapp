@@ -6,7 +6,7 @@
 
 //Create a Global scope module here
 
-var app  = angular.module('studentApp',['ngRoute' , 'ngCookies','chart.js']);
+var app  = angular.module('studentApp',['ngRoute' , 'ngCookies','chart.js','nvd3']);
 angular.module('studentApp')
 
 //Settig Up the routes
