@@ -320,8 +320,8 @@
 			  				</div>
 			  				<div class="ques-option col s12 side-no-pad">
 								  <div class="selection" ng-repeat="option in ques.TAnswer">
-								    <input id="option_{{$index + 1}}_{{$parent.$index + 1}}" name="ques-option" type="radio">
-								    <label for="option_{{$index + 1}}_{{$parent.$index + 1}}" class="bg_{{$parent.$index + 1}} selected_{{$index + 1}}_{{$parent.$index + 1}}" ng-click="submitAnswer(ques.QuestionId, option.AnswerId,$index+1,$parent.$index + 1)" ng-class="{'cor-ans' : (ques.ValidAnswer == option.AnswerId),'wrong-ans' : (ques.AttamptedAns != ques.ValidAnswer && ques.AttamptedAns == option.AnswerId)}">
+								    <!-- <input id="option_{{$index + 1}}_{{$parent.$index + 1}}" name="ques-option" type="radio"> -->
+								    <label for="option_{{$index + 1}}_{{$parent.$index + 1}}" class="bg_{{$parent.$index + 1}} selected_{{$index + 1}}_{{$parent.$index + 1}}" ng-class="{'cor-ans' : (ques.ValidAnswer == option.AnswerId),'wrong-ans' : (ques.AttamptedAns != ques.ValidAnswer && ques.AttamptedAns == option.AnswerId)}">
 											<span>{{$index+1}}.
 											</span>
 											{{option.Answer}}
@@ -332,10 +332,13 @@
 			  		</div>
 			</div>
 				<div class="col s12 test-start txt-strt-btn" ng-show="first_question">
-				     <button ng-click="nextQuestion();">Next</button>
+				     <button ng-click="nextQuestion('Attempted');">Next</button>
 				</div>
 				<div class="col s12 test-nxt-prev txt-strt-btn" ng-hide="first_question">
-				     <button ng-click="prevQuestion();">Prev</button><button ng-click="nextQuestion();">Next</button>
+				     <button ng-click="prevQuestion();">Prev</button><button ng-click="nextQuestion('Attempted');">Next</button>
+				</div>
+				<div class="col s12 test-start txt-strt-btn" ng-show="last_question">
+						 <button ng-click="prevQuestion();">Prev</button>
 				</div>
 
 

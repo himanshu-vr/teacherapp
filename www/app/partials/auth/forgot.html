@@ -1,0 +1,34 @@
+<div class="row login-scr" ng-init="init()">
+    <div class="teacher-fair col s12 logo center">
+      <img src="app/images/tf_logo.png" alt="teacher Fair">
+    </div>
+    <div class="col s12 log-head">
+      <h1>Forgot Password?</h1>
+    </div>
+    <form name="loginForm" ng-submit="forgot(user)"  novalidate>
+        <div class="col s12 login-form">
+        <div class="invalid-user text-center">
+          {{inValid}}
+        </div>
+        <div class="col s12 user-name">
+          <input type="text" placeholder="Email-address" class="user-fix" ng-required="true" ng-model="user.name" name="name">
+          <p class="err-usr" ng-show="nameInvalid">
+            <span>Username is required</span>
+          </p>
+        </div>
+        <div class="col s12">
+          <p>An email has been sent with the instructions,Please check your email.</p>
+        </div>
+      </div>
+      <div class="col s12 sign-in">
+        <button type="submit" class="btn btn-circle">Forgot Password</button>
+      </div>
+    </form>
+    <div id="loginModal" class="modal submitModal">
+      <div class="modal-footer">
+      <div class="col s12 white">
+        <h6>Signing in...</h6>
+      </div>
+      </div>
+    </div>
+</div>

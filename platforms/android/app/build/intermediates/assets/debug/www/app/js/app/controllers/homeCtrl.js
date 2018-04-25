@@ -7,6 +7,9 @@ angular.module('studentApp').controller('homeCtrl',['$scope','$rootScope','$loca
 
   //init videos and other details
   $scope.init =  function(){
+    // setTimeout(function(){
+    //   document.addEventListener("deviceready", onDeviceReady(), false);
+    // },1)
     $rootScope.videoId = '';
     //get Recommended videos
     studentService.popularVideo()
@@ -37,6 +40,15 @@ angular.module('studentApp').controller('homeCtrl',['$scope','$rootScope','$loca
       .finally(function eitherWay(){
       })
   }
+  // device APIs are available
+  //
+ //  function onDeviceReady() {
+ //    // Register the event listener
+ //    document.addEventListener("backbutton", onBackKeyDown, false);
+ //  };
+ //  function onBackKeyDown() {
+ //    navigator.app.exitApp();
+ // }
   var video = '';
   $scope.lecture = function(){
   	$location.path('/student/lecture');

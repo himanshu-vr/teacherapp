@@ -38,11 +38,18 @@ angular.module('studentApp').controller('stTestCtrl',['$scope','$rootScope','$lo
        })
    }
    function onBackKeyDown() {
-     setTimeout(function () {
-            $('.modal').modal();
-            $('#backTest').modal('open');
-       }, 1);
-    // $scope.goBack();
+     console.log($scope.isTestStart);
+     if($scope.isTestStart){
+       console.log('here');
+       setTimeout(function () {
+              $('.modal').modal();
+              $('#backTest').modal('open');
+         }, 1);
+     }else{
+       console.log('there');
+       $scope.goToTest();
+       $scope.$apply();
+     }
   }
   $scope.cancelTest = function(){
     $('#backTest').modal('close');
@@ -91,6 +98,7 @@ $scope.isSolutionShow = false;
     $scope.isScore = false;
     $scope.isTestStart = false;
     $scope.isSolutionShow = false;
+    //$scope.$apply();
   //  $scope.init();
   }
   $scope.goTest = function(){
