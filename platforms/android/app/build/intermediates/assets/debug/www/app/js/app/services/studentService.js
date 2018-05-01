@@ -99,7 +99,7 @@ angular.module('studentApp').factory('studentService', ['$http', '$cookies', fun
       cookie  = JSON.parse(cookie);
       var access_token = cookie.access_token;
       var data = {
-        "TestId" : "2"
+        "TestId" : testId
       }
       // var data = {
       //   "TestId":29,
@@ -125,6 +125,32 @@ angular.module('studentApp').factory('studentService', ['$http', '$cookies', fun
       // console.log(data);
       // console.log(access_token);
       var $promise = $http.post('http://ajay.abhigna.info/api/api/TestQuestion', data, {
+        headers: {
+          'Authorization': 'bearer ' + access_token
+        }
+      })
+      $promise.then(function onSuccess(result) {
+        console.log(result);
+        })
+        .catch(function onError(error) {
+        });
+      return $promise;
+    }else{
+      return [];
+    }
+  },
+
+  //function to get solutions
+  getSolutions : function(testId){
+    var cookie = $cookies.get('access_token');
+    if(cookie != undefined && cookie != null){
+      cookie  = JSON.parse(cookie);
+      var access_token = cookie.access_token;
+      var data = {
+        "TestId" : testId,
+        "StudentId" : cookie.UserID
+      }
+      var $promise = $http.post('http://ajay.abhigna.info/api/api/TestQuestionAns ', data, {
         headers: {
           'Authorization': 'bearer ' + access_token
         }

@@ -703,7 +703,7 @@ input:-webkit-autofill {
   color: #000;
   padding: 0.5em;
   cursor: pointer;
-  height: 35px;
+  height: 100%;
 }
 
 .ques-option .selection [type="radio"]:not(:checked)+label:before, .ques-option .selection  [type="radio"]:not(:checked)+label:after{
@@ -820,7 +820,7 @@ input:-webkit-autofill {
   text-align: center;
   margin-bottom: 15px !important;
 }
-.score-detail h6{ 
+.score-detail h6{
   font-size: 18px;
   color: #2E5E83 !important;
   font-weight: 600;
@@ -832,9 +832,9 @@ input:-webkit-autofill {
 }
 .score-perc{
     position: absolute;
-    top: 190px;
-    left: 57px;
-    font-size: 25px;
+    top: 192px;
+    left: 54px;
+    font-size: 22px;
     font-weight: 600;
     opacity: .5;
 }
@@ -946,7 +946,7 @@ input:-webkit-autofill {
     position: fixed;
     right: 0;
     bottom: 0;
-    min-width: 100%; 
+    min-width: 100%;
     min-height: 100%;
 }*/
 #myBtn {
@@ -1095,7 +1095,7 @@ position: relative;
 }
 .submitModal .modal-footer a{
   font-size: 16px;
-  color: white; 
+  color: white;
   width: 50%;
   display: inline-block;
   float: right;
@@ -1191,4 +1191,41 @@ position: relative;
   font-size: 12px;
     opacity: .6;
     padding-left: 15px;
+}
+.btn-border{
+  border-right: 1.4px solid white !important;
+}
+.small-font{
+  font-size: 11px;
+}
+.rd .uptest-info .slick-list{
+  padding-left: 1px !important
+}
+.rd .uptest-info .slick-list .slider-item{
+  padding-left: 1px !important
+}
+.slight-top-margin{
+  margin-top: 7px;
+}
+.user-pro{
+  margin-top: 80px;
+}
+.user-pro .pro-img {
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    vertical-align: middle;
+}
+.user-info{
+  word-wrap: break-word;
+  color: black;
+}
+.mr10{
+  margin-top: 10px;
+}
+.mr6{
+  margin-top: 6px;
+}
+.fs17{
+  font-size: 17px;
 }

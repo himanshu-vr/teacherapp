@@ -6,7 +6,7 @@
 		  <div class="col s11 stlec-heading center">
 		  		<div class="col s4 offset-s4 ">
 			  		<div class="icon">
-			  			<img src="app/images/lecture.png" class="">
+			  			<img src="app/images/rc_onclick.png" class="">
 			  		</div>
 		  		</div>
 		  		<div class="col s12">
@@ -15,20 +15,33 @@
 		  </div>
 	</div>
 	<div class="col s12 side-no-pad">
-		<div class="col s12 mr20 mrbtm">
- 		  <div class="col s12 ">
+		<div class="col s12 mr20 mrbtm side-no-pad">
+ 		  <div class="col s12 rd side-no-pad">
 			<!-- Tab content -->
-			<div class="col s12 home-videos" ng-repeat="item in videos">
+			<!-- <div class="col s12" ng-repeat="item in videos">
 				<h6 class="heading">{{item.Subject}}</h6>
-				<div class="col s12 left-no-pad" ng-repeat="video in item.lstVideoModel">
-					<video class="vid-open" name="Test" src="{{video.VideoPath}}#t=2 | trustUrl}}" ng-click="videoDetail(video.DIGITALDOCID)" autolo></video>
-					<!-- <video  class="vid-open" height="">
-							<source src="{{video.VideoPath}}" type="video/mp4" />
-					</video> -->
-					<h6 class="slider-text">{{video.DOCUMENTNAME}}</h6>
+				<div slick-slider="{arrows: false,
+												infinite: false,
+												centerMode: true,
+												centerPadding: '50px',
+												slidesToShow: 2,
+												variableWidth: false}" class="col s12 uptest-info-{{$index}} slick">
+			  		<div class="slider-item" ng-repeat="video in item.lstVideoModel">
+			  			<video class="vid-open" name="Test" src="{{video.VideoPath}}#t=2 | trustUrl}}" ng-click="videoDetail(video.DIGITALDOCID)"></video>
+						<h6 class="small-font">{{video.DOCUMENTNAME}}</h6>
+			  		</div>
+		  		</div> -->
+			<div class="col s12 side-no-pad slight-top-margin" ng-repeat="item in videos">
+				<div class="col s12 uptest-name">
+					<h6 class="heading">{{item.Subject}}</h6>
+				</div>
+				<div class="col s12 recommended-info slick">
+					<div class="col s12 slider-item" style="min-width:100px;max-width:155px;" ng-repeat="video in item.lstVideoModel">
+			  			<video class="vid-open"  name="Test" src="{{video.VideoPath}}#t=2 | trustUrl}}" ng-click="videoDetail(video.DIGITALDOCID)"></video>
+						<h6 class="small-font">{{video.DOCUMENTNAME}}</h6>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
 </div>

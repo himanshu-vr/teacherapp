@@ -24,8 +24,8 @@
 			<!-- Tab content -->
 		<div ng-show="upcomingTest" class="tabcontent upcomingTest">
 	  	<div class="col s12 side-no-pad" ng-repeat="test in upcomingtests">
-	  		<div class="col s12 uptest-name">
-	  			<h6>{{test.SubjectName}}</h6>
+	  		<div class="col s12 uptest-name slight-top-margin">
+	  			<h6 class="slight-top-margin">{{test.SubjectName}}</h6>
 	  		</div>
 	  		<div slick-slider="{arrows: false,
 				                infinite: false,
@@ -40,7 +40,7 @@
 		  			<p class="testsyllabus-info syllabus-border"><span class="span-num">{{subtest.TotalQuestion}}</span><span class="span-text">Question</span><span class="span-ques">?</span></p>
 		  			<p class="testsyllabus-info syllabus-border"><span class="span-num">{{subtest.TotalMarks}}</span><span class="span-text">Marks</span><span class="span-done"><i class="material-icons dp48">done</i></span></p>
 		  			<p class="testsyllabus-info"><span class="span-num">{{subtest.TotalTime}}</span><!--<span class="span-text">Minutes</span>--><span class="span-done"><i class="material-icons dp48">timer</i></span></p>
-		  			<button class="teststart" ng-click="showInstructions(subtest.TestId, subtest.SubjectId)">Start Test</button>
+		  			<button class="teststart" ng-click="showInstructions(subtest.TestId, subtest.SubjectId,subtest.SubjectName)">Start Test</button>
 		  		</div>
 		  	</div>
   	</div>
@@ -88,7 +88,7 @@
 
 		  </div>
 		  <div class="col s11 test-name">
-		  		<h6> Di & Reasoning Test 1</h6>
+		  		<h6>{{SubjectName}}</h6>
 		  </div>
 	</div>
 	<div class="col s12 center test-heading">
@@ -134,7 +134,7 @@
 
 		</div>
 		<div class="col s3 test-submit">
-			<button ng-click="submitTest(testQuestions)">Submit</button>
+			<button ng-click="openSubmitModal()">Submit</button>
 		</div>
 	</div>
 
@@ -181,10 +181,47 @@
 				     <button ng-click="nextQuestion();">Next</button>
 				</div>
 				<div class="col s12 test-nxt-prev txt-strt-btn" ng-hide="first_question">
-				     <button ng-click="prevQuestion();">Prev</button><button ng-click="nextQuestion();">Next</button>
+				     <button ng-click="prevQuestion();" class="btn-border">Prev</button><button ng-click="nextQuestion();">Next</button>
+				</div>
+				<div class="col s12 test-start txt-strt-btn" ng-show="last_question">
+						 <button ng-click="prevQuestion();">Prev</button>
 				</div>
 
+		<div id="submitTest" class="modal submitModal">
+	    <div class="modal-footer">
+	    <div class="col s12 white">
+	    	<h6>Confirm test submission?</h6>
+	    </div>
+	    <div class="col s12 white side-no-pad">
+	    	<div class="col s6">
+	    		<a href="javaScript:void(0)" class="modal-action modal-close cancel-btn">Cancel</a>
+	    	</div>
+	    	<div class="col s6">
+	    		<a href="javaScript:void(0)"  ng-click="submitTest(testQuestions)" class="modal-action head-col">Submit</a>
+	    	</div>
+	    </div>
 
+
+	    </div>
+	  </div>
+
+		<div id="backTest" class="modal submitModal">
+	    <div class="modal-footer">
+	    <div class="col s12 white">
+	    	<h6>Are you sure to cancel this test?</h6>
+	    </div>
+	    <div class="col s12 white side-no-pad">
+	    	<div class="col s6">
+	    		<a href="javaScript:void(0)" class="modal-action modal-close cancel-btn">No</a>
+	    	</div>
+	    	<div class="col s6">
+	    		<a href="javaScript:void(0)"  ng-click="cancelTest()" class="modal-action head-col">Yes</a>
+	    	</div>
+	    </div>
+
+
+	    </div>
+	  </div>
 </div>
 <div class="row f5f5f5" ng-if="isScore">
 	<div class="col s12 test-info">
@@ -295,10 +332,10 @@
 			  		</div>
 			</div>
 				<div class="col s12 test-start txt-strt-btn" ng-show="first_question">
-				     <button ng-click="nextQuestion();">Next</button>
+				     <button ng-click="nextQuestion('Attempted');">Next</button>
 				</div>
 				<div class="col s12 test-nxt-prev txt-strt-btn" ng-hide="first_question">
-				     <button ng-click="prevQuestion();">Prev</button><button ng-click="nextQuestion();">Next</button>
+				     <button ng-click="prevQuestion();">Prev</button><button ng-click="nextQuestion('Attempted');">Next</button>
 				</div>
 
 

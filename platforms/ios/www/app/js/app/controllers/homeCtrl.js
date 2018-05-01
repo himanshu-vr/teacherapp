@@ -12,9 +12,21 @@ angular.module('studentApp').controller('homeCtrl',['$scope','$rootScope','$loca
     studentService.popularVideo()
       .then(function onSuccess(response) {
         if(response != undefined && typeof(response) == 'object'){
-          console.log(response);
           if(response.data != undefined && response.data.length > 0){
             $scope.popularVideos = response.data;
+            var Slideroptions = {
+              arrows: false,
+              infinite: false,
+              centerMode: false,
+              centerPadding: '50px',
+              slidesToShow: 2,
+              variableWidth: false
+             };
+             console.log('hee');
+           setTimeout(function () {
+              console.log('sdf');
+                 $(".popularvideo").slick(Slideroptions)
+             }, 1);
           }
         }else{
         }

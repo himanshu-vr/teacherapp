@@ -35,6 +35,8 @@ angular.module('studentApp')
           { controller: 'stVideoCtrl', templateUrl: 'app/partials/student/video/video_details.html'})
       .when('/results',
           { controller: 'stTestCtrl', templateUrl: 'app/partials/student/results.html'})
+      .when('/profile',
+          { controller: 'userCtrl', templateUrl: 'app/partials/student/user/profile.html'})
       $routeProvider.otherwise('/login');
   });
 

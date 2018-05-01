@@ -8,10 +8,15 @@ angular.module('studentApp').controller('stTestCtrl',['$scope','$rootScope','$lo
   $scope.isTest = true;
   $scope.isInstruction = false;
   $scope.isScore = false;
+  $scope.isSolutionShow = false;
   $scope.isTestStart = false;
   var questionIndex = 0;
   $scope.TestId = '';
+
    $scope.init = function(){
+     setTimeout(function(){
+       document.addEventListener("deviceready", onDeviceReady(), false);
+     },1)
      $scope.TestId = '';
      $scope.upcomingTest = true;
      $scope.attemptedTest = false;
@@ -21,7 +26,7 @@ angular.module('studentApp').controller('stTestCtrl',['$scope','$rootScope','$lo
          if(response != undefined && typeof(response) == 'object'){
            if(response.data != undefined && response.data.length > 0){
               $scope.upcomingtests = response.data[0].Data;
-              $scope.attemptedtests = response.data[0].Data;
+              $scope.attemptedtests = response.data[1].Data;
            }
          }else{
          }
@@ -32,14 +37,25 @@ angular.module('studentApp').controller('stTestCtrl',['$scope','$rootScope','$lo
        .finally(function eitherWay(){
        })
    }
+   function onBackKeyDown() {
+     setTimeout(function () {
+            $('.modal').modal();
+            $('#backTest').modal('open');
+       }, 1);
+    // $scope.goBack();
+  }
+  $scope.cancelTest = function(){
+    $('#backTest').modal('close');
+    $location.path('/home');
+  }
+   // device APIs are available
+   //
+   function onDeviceReady() {
+     // Register the event listener
+     document.addEventListener("backbutton", onBackKeyDown, false);
+   };
    $scope.openTestSchedule = function(testType) {
         $scope.isScore = false;
-        if(testType == 'upcomingTest'){
-            $scope.upcomingTest = true;
-        }else{
-            $scope.upcomingTest = false;
-            //$scope.attemptedTest  = true;
-        }
         var options = {
               arrows: false,
               infinite: false,
@@ -48,10 +64,23 @@ angular.module('studentApp').controller('stTestCtrl',['$scope','$rootScope','$lo
               slidesToShow: 1,
               variableWidth: false
          };
-       setTimeout(function () {
-            console.log('sdfs');
-             $(".uptest-info").not('.slick-initialized').slick(options)
-         }, 10);
+$scope.isSolutionShow = false;
+        if(testType == 'upcomingTest'){
+            $scope.upcomingTest = true;
+            angular.element(document.querySelector("#uptest-btn1")).addClass("testbtn-active");
+            angular.element(document.querySelector("#uptest-btn2")).removeClass("testbtn-active");
+            setTimeout(function () {
+                  $(".uptest-info").not('.slick-initialized').slick(options)
+              }, 100);
+        }else{
+            $scope.upcomingTest = false;
+            angular.element(document.querySelector("#uptest-btn1")).removeClass("testbtn-active");
+            angular.element(document.querySelector("#uptest-btn2")).addClass("testbtn-active");
+            setTimeout(function () {
+                  $(".uptest-info").not('.slick-initialized').slick(options)
+              }, 100);
+            //$scope.attemptedTest  = true;
+        }
     }
   $scope.goBack  = function(){
     $location.path('/home');
@@ -61,12 +90,14 @@ angular.module('studentApp').controller('stTestCtrl',['$scope','$rootScope','$lo
     $scope.isInstruction = false;
     $scope.isScore = false;
     $scope.isTestStart = false;
+    $scope.isSolutionShow = false;
   //  $scope.init();
   }
   $scope.goTest = function(){
       $scope.isTest = true;
       $scope.isInstruction = false;
       $scope.isTestStart = false;
+      $scope.isSolutionShow = false;
   }
   $timeout(function() {
         $('.question-slider').slick({
@@ -90,14 +121,16 @@ angular.module('studentApp').controller('stTestCtrl',['$scope','$rootScope','$lo
     fade: true,
     asNavFor: '.question-slider'
   });
-  }, 10);
+}, 1);
 
-$scope.showInstructions = function(testId,SubjectId){
+$scope.showInstructions = function(testId,SubjectId,SubjectName){
   $scope.TestId = testId;
   $scope.subjectID = SubjectId;
+  $scope.SubjectName = SubjectName;
   $scope.isInstruction = true;
   $scope.isTest = false;
   $scope.isTestStart = false;
+  $scope.isSolutionShow = false;
   //get the question based on test ID
   studentService.getQuestions($scope.TestId)
     .then(function onSuccess(response) {
@@ -120,7 +153,10 @@ $scope.startTest = function(){
   $scope.isTest = false;
   $scope.isTestStart = true;
   $scope.first_question = true;
+  $scope.last_question = false;
+$scope.isSolutionShow = false;
   $scope.answers = [];
+  $scope.StartTime = $scope.getFormattedDate();
   //function to get test questions
 
     $timeout(function() {
@@ -147,11 +183,19 @@ $scope.startTest = function(){
     });
     $('.question-slider').on('afterChange', function(event, slick, currentSlide, nextSlide){
       questionIndex = parseInt($('.question-slider').find('.slick-current').attr('data-slick-index'));
+      console.log(questionIndex);
       if(questionIndex == 0){
+        console.log('sf');
         $scope.first_question = true;
         $scope.$apply();
-      }else{
+      }else if (questionIndex + 1 == $scope.testQuestions.length && questionIndex != 0) {
+        $scope.last_question = true;
         $scope.first_question = false;
+        $scope.$apply();
+      }
+      else{
+        $scope.first_question = false;
+        $scope.last_question = false;
         $scope.$apply();
       }
    });
@@ -160,7 +204,6 @@ $scope.startTest = function(){
 $scope.nextQuestion = function(){
   questionIndex+= 1
   if(questionIndex < $scope.testQuestions.length){
-    $scope.first_question = false;
     $(".quesinfo-slider").slick( "slickGoTo", questionIndex);
   }
 //  $scope.$apply();
@@ -168,6 +211,7 @@ $scope.nextQuestion = function(){
 
 $scope.prevQuestion = function(){
   questionIndex-= 1;
+  console.log('sdfsdf');
   if(questionIndex == 0){
     $scope.first_question = true;
     $(".quesinfo-slider").slick( "slickGoTo", questionIndex);
@@ -197,13 +241,22 @@ $scope.submitAnswer = function(QuestionId,AnswerId,index,parentIndex){
   $scope.answers.push(key);
 }
 
+$scope.openSubmitModal = function(){
+  setTimeout(function () {
+         $('.modal').modal();
+         $('#submitTest').modal('open');
+    }, 1);
+}
 $scope.submitTest = function(){
-  console.log($scope.TestId + '==' + $scope.subjectID);
+  setTimeout(function () {
+         $('#submitTest').modal('close');
+    }, 1);
+  $scope.EndTime = $scope.getFormattedDate();
   $scope.testData = {
     "TestId" : $scope.TestId,
     "SubjectId" : $scope.subjectID,
-  	"StartTime":"2018-02-08",
-  	"EndTime":"2018-02-09",
+  	"StartTime":$scope.StartTime,
+  	"EndTime": $scope.EndTime,
     "lstQuesAns" : $scope.answers
   }
   //submit the test
@@ -224,8 +277,78 @@ $scope.submitTest = function(){
 
     })
   .finally(function eitherWay(){
+    setTimeout(function () {
+           $('#submitTest').modal('close');
+      }, 1);
   })
 }
+$scope.showSolution = function(testId){
+    console.log('herer')
+    $scope.isTest = false;
+    $scope.isInstruction = false;
+    $scope.isScore = false;
+    $scope.isTestStart = false;
+    $scope.isSolutionShow = true;
+    $scope.TestId = testId;
+      studentService.getSolutions($scope.TestId)
+    .then(function onSuccess(response) {
+    if(response != undefined && typeof(response) == 'object'){
+      if(response.data != undefined && response.data.length > 0){
+         $scope.testSolution = response.data;
+
+    $timeout(function() {
+          $('.question-slider').slick({
+          slidesToShow: 4,
+          slidesToScroll: 1,
+          asNavFor: '.quesinfo-slider',
+          dots: false,
+          nav: false,
+          infinite: false,
+          prevArrow: false,
+          nextArrow: false,
+          centerMode: true,
+          focusOnSelect: true
+      });
+
+      $('.quesinfo-slider').slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      arrows: false,
+      infinite: false,
+      fade: true,
+      asNavFor: '.question-slider'
+    });
+    $('.question-slider').on('afterChange', function(event, slick, currentSlide, nextSlide){
+      questionIndex = parseInt($('.question-slider').find('.slick-current').attr('data-slick-index'));
+      if(questionIndex == 0){
+        $scope.first_question = true;
+        $scope.last_question = false;
+        $scope.$apply();
+      }else if (questionIndex + 1 == $scope.testQuestions.length && questionIndex != 0) {
+        $scope.last_question = true;
+        $scope.first_question = false;
+        $scope.$apply();
+      }
+      else{
+        $scope.first_question = false;
+        $scope.last_question = false;
+        $scope.$apply();
+      }
+   });
+    }, 1);
+        }
+      }else{
+      }
+    })
+    .catch(function onError(errorResponse) {
+
+    })
+  .finally(function eitherWay(){
+  });
+
+  //  $scope.init();
+  }
+
 // Get the modal
 var modal = document.getElementById('submit_Modal');
 
@@ -255,6 +378,10 @@ var span = document.getElementsByClassName("close")[0];
   $scope.labels = ["Download Sales", "In-Store Sales"];
   $scope.data = [300, 500];
   $scope.colors = ['#42AEF3', '#ffffff'];
-
+	$scope.getFormattedDate = function(){
+	  var date = new Date();
+	  var str = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + " " +  date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+	  return str;
+	}
 
 }]);

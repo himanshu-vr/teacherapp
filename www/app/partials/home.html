@@ -59,28 +59,23 @@
 		  	<h6 class="heading">
 		  		Popular Videos
 		  	</h6>
-		  	<div  class="col s12 uptest-info slick" slick-slider="{arrows: false,
-				                infinite: false,
-				                centerMode: true,
-				                centerPadding: '0px',
-				                slidesToShow: 2,
-				                variableWidth: false}" id="popular_videos">
-			  		<div class="col s12 home-videos" ng-repeat="item in popularVideos">
+		  	<div class="col s12 right-no-pad" id="popular_videos">
+			  		<div class="col s12 popularvideo slick side-no-pad" ng-repeat="item in popularVideos | limitTo:1">
+							<!-- <div class=" col s12  "> -->
+								<div class="slider-item col s12 left-no-pad" style="min-width:100px;max-width:155px;" ng-repeat="video in item.lstVideoModel | limitTo:5">
+									<video class="vid-open" id="popcorn" height="" ng-src="{{video.VideoPath}}" ng-click="vidPlay(video.DIGITALDOCID)" preload="auto">
+									</video>
 
-						<div class="col s12" ng-repeat="video in item.lstVideoModel">
-							<video class="vid-open" id="popcorn" height="" src="{{video.VideoPath}}" ng-click="vidPlay(video.DIGITALDOCID)" preload="auto">
-							</video>
-
-							<h6 class="">{{video.DOCUMENTNAME}}</h6>
-							<p class="slider-text">{{video.SubjectName}}</p>
-						</div>
+									<h6 class="small-font">{{video.DOCUMENTNAME}}</h6>
+								</div>
+							<!-- </div> -->
 			  	</div>
-		  	</div>
+		  </div>
 		  	<!-- <div class="slick" id="popular_videos">
 			  	<div class="col s12 home-videos" ng-repeat="item in popularVideos">
 
 						<div class="col s12" ng-repeat="video in item.lstVideoModel">
-							<video class="vid-open" id="popcorn" height="" src="{{video.VideoPath}}" ng-click="vidPlay(video.DIGITALDOCID)" preload="auto">
+							<video poster="{{video.PosterImage}}" class="vid-open" id="popcorn" height="" src="{{video.VideoPath}}" ng-click="vidPlay(video.DIGITALDOCID)" preload="auto">
 							</video>
 
 							<h6 class="">{{video.DOCUMENTNAME}}</h6>
@@ -122,7 +117,7 @@
 
 			  <div class="col s11 stlec-heading">
 			  		<div class="col s4 ">
-				  		<div class="icon">
+				  		<div class="icon" ng-click="userProfile()">
 				  			<img src="app/images/sidebarusericon.png" >
 				  		</div>
 			  		</div>

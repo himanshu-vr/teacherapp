@@ -2,6 +2,11 @@
 .teacher-fair{
   margin-top: 20%;
 }
+.login-scr{
+  position: absolute;
+  min-height: 100%;
+  background:white;
+}
 .teacher-fair .logo img{
 width: 150px !important;
 height: 50px !important;
@@ -55,13 +60,13 @@ height: 50px !important;
   box-shadow: none !important;
 }
  .user-fix{
-  background: url('../images/user.png') no-repeat;
+  background: url('../images/username.png') no-repeat;
   background-size: 16px 16px;
   background-position: 5% 13px !important;
 }
 .forgot-pass{
   margin-top: -10px !important;
-  margin-right: -10px !important;
+  margin-right: -37px !important;
   color: #000;
   opacity: .3;
 }
@@ -92,7 +97,7 @@ height: 50px !important;
   color: white;
 }
 .home-nav .menu img{
-  vertical-align: middle;
+  vertical-align: text-top;
 }
 .home-nav .home-head{
   font-size: 16px;
@@ -209,10 +214,10 @@ border-radius: 2px;
 -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0);
 box-shadow: 0px 0px 5px 0px rgba(0,0,0,0);
 }
-.stlec-heading .icon img{
+/*.stlec-heading .icon img{
   height: 45px;
   width: 45px;
-}
+}*/
 .stlec-heading h6{
  font-size: 15px;
  font-weight: 600;
@@ -315,9 +320,10 @@ font-size: 20px !important;
   padding-top: 10px;
 }
 .test-instructions .instr-details h6{
-  font-size: 14px !important;
-    opacity: 0.5;
-        line-height: 1.25;
+  font-size: 12px !important;
+  opacity: 0.5;
+  line-height: 1.1;
+  padding-left: 20px;
 }
 .test-instructions {
     padding-top: 10px !important;
@@ -484,10 +490,10 @@ input:-webkit-autofill {
     -webkit-animation-fill-mode: both;
 }
 .invalid-user{
-  text-align: center;
+  text-align: left;
   margin-bottom: 10px;
   color: red;
-  margin-left: 10%;
+  margin-left: 7%;
 }
 .text-center{
   text-align: center;
@@ -511,10 +517,9 @@ input:-webkit-autofill {
     padding: 10px 8px 10px 15px;
     text-decoration: none;
     font-size: 17px;
-    color: #000;
+    color: #808080;
     display: block;
     transition: 0.3s;
-    opacity: .6;
 }
 
 /* When you mouse over the navigation links, change their color */
@@ -549,7 +554,6 @@ input:-webkit-autofill {
 .sidenav-icon{
     width: 20px;
     height: 20px;
-    background-color: white;
     vertical-align: sub;
 }
 .sidenav .stlec-heading .head-nav {
@@ -563,6 +567,7 @@ input:-webkit-autofill {
 .sidenav .nav-links {
     font-size: 14px;
     padding-left: 35px;
+    letter-spacing: .5px;
 }
 .sidenav .nav-logout{
     position: absolute;
@@ -698,7 +703,7 @@ input:-webkit-autofill {
   color: #000;
   padding: 0.5em;
   cursor: pointer;
-  height: 35px;
+  height: 100%;
 }
 
 .ques-option .selection [type="radio"]:not(:checked)+label:before, .ques-option .selection  [type="radio"]:not(:checked)+label:after{
@@ -815,7 +820,7 @@ input:-webkit-autofill {
   text-align: center;
   margin-bottom: 15px !important;
 }
-.score-detail h6{ 
+.score-detail h6{
   font-size: 18px;
   color: #2E5E83 !important;
   font-weight: 600;
@@ -827,9 +832,9 @@ input:-webkit-autofill {
 }
 .score-perc{
     position: absolute;
-    top: 190px;
-    left: 57px;
-    font-size: 25px;
+    top: 192px;
+    left: 54px;
+    font-size: 22px;
     font-weight: 600;
     opacity: .5;
 }
@@ -850,7 +855,7 @@ input:-webkit-autofill {
     background-color: #FF4500;
  }
  .progress .unanswer {
-    background-color: #FFFF33;
+    background-color: #ffff00;
  }
  .score-progressor{
       padding-left: 20px !important;
@@ -874,7 +879,7 @@ input:-webkit-autofill {
   color: #FF4500;
  }
  .unanswer-col{
-  color: #FFFF33;
+  color: #FFFF00;
  }
 
  /* The Modal (background) */
@@ -941,7 +946,7 @@ input:-webkit-autofill {
     position: fixed;
     right: 0;
     bottom: 0;
-    min-width: 100%; 
+    min-width: 100%;
     min-height: 100%;
 }*/
 #myBtn {
@@ -971,8 +976,8 @@ height: 100%;
 }
 .vids-expand{
   position: absolute;
-  top: 27%;
   right: 15px;
+  bottom: 15px;
 }
 .vid-exp-detail h5{
   font-size: 16px;
@@ -1024,7 +1029,7 @@ height: 100%;
 }
 .play-vid{
   position: absolute;
-  top: 17%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -1090,7 +1095,7 @@ position: relative;
 }
 .submitModal .modal-footer a{
   font-size: 16px;
-  color: white; 
+  color: white;
   width: 50%;
   display: inline-block;
   float: right;
@@ -1114,4 +1119,91 @@ position: relative;
 .bl-bg{
   background-color: #42AEF3 !important;
   color: white !important;
+}
+.mrbt10{
+  margin-bottom: 10px;
+}
+.no-side-margin{
+  margin-left: 0px;
+  margin-right: 0px;
+}
+.vid-dt{
+  width: 100%;
+  height: 100%;
+}
+.pos-rel{
+  position: relative;
+}
+.err-pass   {
+  margin-top: -20px;
+  color: red;
+  text-align: left;
+}
+.err-usr{
+  margin-top: -20px;
+  margin-bottom: 10px !important;
+  color: red;
+}
+.icon-opacity{
+  opacity: .35;
+}
+.secondary-color{
+  color: #486078;
+}
+.dark-bg{
+  background: #d6d6d6;
+}
+.testbtn-active{
+  color: #486078 !important;
+  font-weight: 500;
+  border-bottom: 2px solid #42AEF3 !important;
+}
+.padtop-10{
+  padding-top: 10px;
+}
+.star-css{
+  display: inline-block !important;
+}
+.star-h6{
+  font-size: 18px;
+  padding-left: 10px;
+  opacity: .7;
+  vertical-align: top;
+}
+.circle-test{
+  width: 20px;
+  border: 1px solid green;
+  height: 20px;
+  border-radius: 20px;
+  display: inline-block;
+  margin-top: 4px;
+}
+.cor-ans{
+  background-color: #b2d0b2 !important;
+}
+.wrong-ans{
+  background-color: #ff9999 !important;
+}
+.mr40{
+  margin-top: 40px;
+}
+.sol-title{
+  font-size: 12px;
+    opacity: .6;
+    padding-left: 15px;
+}
+.btn-border{
+  border-right: 1.4px solid white !important;
+}
+.small-font{
+  font-size: 11px;
+}
+.rd .uptest-info .slick-list{
+  padding-left: 1px !important
+}
+.rd .uptest-info .slick-list .slider-item{
+  padding-left: 1px !important
+}
+.slight-top-margin{
+  margin-top: 7px;
 }

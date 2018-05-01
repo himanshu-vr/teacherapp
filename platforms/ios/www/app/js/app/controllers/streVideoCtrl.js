@@ -12,7 +12,17 @@ angular.module('studentApp').controller('streVideoCtrl',['$scope','$rootScope','
         if(response != undefined && typeof(response) == 'object'){
           if(response.data != undefined){
             $scope.videos = response.data;
-            console.log($scope.videos);
+            var options = {
+                  arrows: false,
+                  infinite: false,
+                  centerMode: false,
+                  centerPadding: '50px',
+                  slidesToShow: 2,
+                  variableWidth: true
+             };
+            setTimeout(function () {
+              $(".recommended-info").not('.slick-initialized').slick(options)
+              }, 1);
           }
         }else{
         }
