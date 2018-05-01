@@ -38,11 +38,18 @@ angular.module('studentApp').controller('stTestCtrl',['$scope','$rootScope','$lo
        })
    }
    function onBackKeyDown() {
-     setTimeout(function () {
-            $('.modal').modal();
-            $('#backTest').modal('open');
-       }, 1);
-    // $scope.goBack();
+     console.log($scope.isTestStart);
+     if($scope.isTestStart){
+       console.log('here');
+       setTimeout(function () {
+              $('.modal').modal();
+              $('#backTest').modal('open');
+         }, 1);
+     }else{
+       console.log('there');
+       $scope.goToTest();
+       $scope.$apply();
+     }
   }
   $scope.cancelTest = function(){
     $('#backTest').modal('close');
@@ -91,6 +98,7 @@ $scope.isSolutionShow = false;
     $scope.isScore = false;
     $scope.isTestStart = false;
     $scope.isSolutionShow = false;
+    //$scope.$apply();
   //  $scope.init();
   }
   $scope.goTest = function(){
@@ -185,8 +193,8 @@ $scope.isSolutionShow = false;
       questionIndex = parseInt($('.question-slider').find('.slick-current').attr('data-slick-index'));
       console.log(questionIndex);
       if(questionIndex == 0){
-        console.log('sf');
         $scope.first_question = true;
+        $scope.last_question = false;
         $scope.$apply();
       }else if (questionIndex + 1 == $scope.testQuestions.length && questionIndex != 0) {
         $scope.last_question = true;
@@ -201,10 +209,16 @@ $scope.isSolutionShow = false;
    });
     }, 1);
 }
-$scope.nextQuestion = function(){
+$scope.nextQuestion = function(type){
   questionIndex+= 1
-  if(questionIndex < $scope.testQuestions.length){
-    $(".quesinfo-slider").slick( "slickGoTo", questionIndex);
+  if(type == 'Attempted'){
+    if(questionIndex < $scope.testSolution.length){
+      $(".quesinfo-slider").slick( "slickGoTo", questionIndex);
+    }
+  }else{
+    if(questionIndex < $scope.testQuestions.length){
+      $(".quesinfo-slider").slick( "slickGoTo", questionIndex);
+    }
   }
 //  $scope.$apply();
 }
@@ -284,13 +298,16 @@ $scope.submitTest = function(){
 }
 $scope.showSolution = function(testId){
     console.log('herer')
+    questionIndex = 0;
     $scope.isTest = false;
     $scope.isInstruction = false;
     $scope.isScore = false;
     $scope.isTestStart = false;
     $scope.isSolutionShow = true;
     $scope.TestId = testId;
-      studentService.getSolutions($scope.TestId)
+    $scope.first_question = true;
+    $scope.last_question = false;
+    studentService.getSolutions($scope.TestId)
     .then(function onSuccess(response) {
     if(response != undefined && typeof(response) == 'object'){
       if(response.data != undefined && response.data.length > 0){
@@ -324,7 +341,7 @@ $scope.showSolution = function(testId){
         $scope.first_question = true;
         $scope.last_question = false;
         $scope.$apply();
-      }else if (questionIndex + 1 == $scope.testQuestions.length && questionIndex != 0) {
+      }else if (questionIndex + 1 == $scope.testSolution.length && questionIndex != 0) {
         $scope.last_question = true;
         $scope.first_question = false;
         $scope.$apply();

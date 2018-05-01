@@ -33,6 +33,8 @@ angular.module('studentApp')
           { controller: 'stTestCtrl', templateUrl: 'app/partials/student/test/score.html'})
       .when('/recommended_video/video-details',
           { controller: 'stVideoCtrl', templateUrl: 'app/partials/student/video/video_details.html'})
+      .when('/forgot_password',
+              { controller: 'forgotCtrl', templateUrl: 'app/partials/auth/forgot.html'})
       .when('/results',
           { controller: 'stTestCtrl', templateUrl: 'app/partials/student/results.html'})
       .when('/profile',
@@ -78,8 +80,13 @@ angular.module('studentApp').filter('cut', function () {
           var readCookie = $cookies.get('access_token');
           $timeout(function () {
             if(readCookie == undefined || readCookie == null){
-                $location.path('/login');
+              if(($location.path()).includes('forgot_password') || ($location.path()).includes('resetpassword')||($location.path()).includes('booking/feedback/') || ($location.path()).includes('booking/account')
+                || ($location.path()).includes('booking/payment')){
+                $location.path($location.path());
+              }else{
+                 $location.path('/login');
               }
+            }
             else{
               $rootScope.isloggedin = true;
             }
