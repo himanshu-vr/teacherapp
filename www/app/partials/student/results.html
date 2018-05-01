@@ -35,7 +35,7 @@
 	</div>
 	<div class="col s12 res-analysis">
 		<h6 class="head-res">Select subject to view performance</h6>
-		<div class="col s12">
+		<div class="col s12 side-no-pad">
 			<div class="col s3">
 				<h6>
 					Subject
@@ -49,15 +49,21 @@
 			</div>
 		</div>
 	</div>
-	<div class="col s10 offset-s1 res-chart">
+	<div class="col s10 res-chart">
 		<div class="col s7 pie-chart">
 			<canvas id="pie" class="chart chart-pie"
 			  chart-data="data" chart-labels="labels" chart-colors="colors"  chart-options="options">
-			</canvas> 
+			</canvas>
 			<h6>10%</h6>
 		</div>
 		<div class="col s5">
-			
+
 		</div>
+	</div>
+
+	<div class="col s10" style="margin-top:20px;">
+		<div id="chartContainer" style="height: 200px; width: 100%;"></div>
+	</div>
+	<div class="col s10">
 	</div>
 </div>

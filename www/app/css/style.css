@@ -1207,3 +1207,6 @@ position: relative;
 .slight-top-margin{
   margin-top: 7px;
 }
+.canvasjs-chart-credit{
+  display: none !important;
+}
