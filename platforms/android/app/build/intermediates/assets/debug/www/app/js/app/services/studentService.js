@@ -214,6 +214,41 @@ angular.module('studentApp').factory('studentService', ['$http', '$cookies', fun
     }else{
       return [];
     }
-  }
+  },
+
+  //function to get user profile details
+  //function to get solutions
+  getUserProfile : function(){
+    var cookie = $cookies.get('access_token');
+    if(cookie != undefined && cookie != null){
+      cookie  = JSON.parse(cookie);
+      var access_token = cookie.access_token;
+      var data = {
+        "UserId" : cookie.UserID
+      }
+      var $promise = $http.post('http://ajay.abhigna.info/api/api/GetProfile ', data, {
+        headers: {
+          'Authorization': 'bearer ' + access_token
+        }
+      })
+      $promise.then(function onSuccess(result) {
+        })
+        .catch(function onError(error) {
+        });
+      return $promise;
+    }else{
+      return [];
+    }
+  },
+
+  forgotPassword: function(loginData) {
+    var $promise = $http.post('http://ajay.abhigna.info/api/api/ForgotPassword',loginData);
+        $promise.then(function onSuccess(response){
+        })
+        .catch(function onError(){
+
+        })
+        return $promise;
+  },
   };
 }])

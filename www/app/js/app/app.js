@@ -6,7 +6,7 @@
 
 //Create a Global scope module here
 
-var app  = angular.module('studentApp',['ngRoute' , 'ngCookies','chart.js']);
+var app  = angular.module('studentApp',['ngRoute' , 'ngCookies','chart.js','nvd3']);
 angular.module('studentApp')
 
 //Settig Up the routes
@@ -37,6 +37,8 @@ angular.module('studentApp')
               { controller: 'forgotCtrl', templateUrl: 'app/partials/auth/forgot.html'})
       .when('/results',
           { controller: 'stTestCtrl', templateUrl: 'app/partials/student/results.html'})
+      .when('/profile',
+          { controller: 'userCtrl', templateUrl: 'app/partials/student/user/profile.html'})
       $routeProvider.otherwise('/login');
   });
 

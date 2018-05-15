@@ -36,8 +36,8 @@
 					<h6 class="heading">{{item.Subject}}</h6>
 				</div>
 				<div class="col s12 recommended-info slick">
-					<div class="col s12 slider-item" style="min-width:100px;max-width:155px;" ng-repeat="video in item.lstVideoModel">
-			  			<video class="vid-open"  name="Test" src="{{video.VideoPath}}#t=2 | trustUrl}}" ng-click="videoDetail(video.DIGITALDOCID)"></video>
+					<div class="col s12 slider-item left-no-pad" style="min-width:100px;max-width:155px;" ng-repeat="video in item.lstVideoModel">
+			  			<video class="vid-open" poster="{{video.ThumbnailPath}}"  name="Test" src="{{video.VideoPath}}#t=2 | trustUrl}}" ng-click="videoDetail(video.DIGITALDOCID)"></video>
 						<h6 class="small-font">{{video.DOCUMENTNAME}}</h6>
 					</div>
 				</div>

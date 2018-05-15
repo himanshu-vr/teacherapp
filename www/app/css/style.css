@@ -51,6 +51,19 @@ height: 50px !important;
   padding-right: 60px !important;
   padding-bottom: 40px !important;
 }
+.forgot-form{
+  padding-left: 20px !important;
+  padding-right: 60px !important;
+  padding-bottom: 1px !important;
+}
+.forgot-form input{
+  padding-left: 35px !important;
+  border: 1px solid #42AEF3 !important;
+  border-radius: 15px !important;
+  font-size: 15px !important;
+  color: #42AEF3 !important;
+  box-shadow: none !important;
+}
 .login-form input{
   padding-left: 35px !important;
   border: 1px solid #42AEF3 !important;
@@ -966,8 +979,10 @@ input:-webkit-autofill {
     height: 14%;
 }*/
 .vid-open{
-width: 100%;
-height: 100%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  min-height: 100px;
 }
 .vid-back{
   position: absolute;
@@ -1207,6 +1222,35 @@ position: relative;
 .slight-top-margin{
   margin-top: 7px;
 }
+.user-pro{
+  margin-top: 80px;
+}
+.user-pro .pro-img {
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    vertical-align: middle;
+}
+.user-info{
+  word-wrap: break-word;
+  color: black;
+}
+.mr10{
+  margin-top: 10px;
+}
+.mr6{
+  margin-top: 6px;
+}
+.fs17{
+  font-size: 17px;
+}
 .canvasjs-chart-credit{
   display: none !important;
+}
+.sucess-small{
+  font-size: 11px;
+  color: green;
+}
+.error-mail{
+  color: red !important;
 }

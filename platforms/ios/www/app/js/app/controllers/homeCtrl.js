@@ -23,7 +23,7 @@ angular.module('studentApp').controller('homeCtrl',['$scope','$rootScope','$loca
               centerMode: false,
               centerPadding: '50px',
               slidesToShow: 2,
-              variableWidth: false
+              variableWidth: true
              };
              console.log('hee');
            setTimeout(function () {
@@ -88,31 +88,36 @@ angular.module('studentApp').controller('homeCtrl',['$scope','$rootScope','$loca
   $location.path('/results');
 }
 $('.modal').modal();
-  $('#popular_videos').slick({
-    centerMode: false,
-    centerPadding: '0px',
-    slidesToShow: 1,
-    responsive: [
-      {
-        breakpoint: 768,
-        settings: {
-          arrows: false,
-          centerMode: true,
-          centerPadding: '40px',
-          slidesToShow: 3
-        }
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          arrows: false,
-          infinite: false,
-          centerMode: true,
-          centerPadding: '50px',
-          slidesToShow: 1,
-          variableWidth: false
-        }
-      }
-    ]
-      });
+  // $('#popular_videos').slick({
+  //   centerMode: false,
+  //   centerPadding: '0px',
+  //   slidesToShow: 1,
+  //   responsive: [
+  //     {
+  //       breakpoint: 768,
+  //       settings: {
+  //         arrows: false,
+  //         centerMode: true,
+  //         centerPadding: '40px',
+  //         slidesToShow: 3
+  //       }
+  //     },
+  //     {
+  //       breakpoint: 480,
+  //       settings: {
+  //         arrows: false,
+  //         infinite: false,
+  //         centerMode: true,
+  //         centerPadding: '50px',
+  //         slidesToShow: 1,
+  //         variableWidth: false
+  //       }
+  //     }
+  //   ]
+  //     });
+
+  // for user profile
+  $scope.userProfile = function(){
+    $location.path('/profile');
+  }
 }]);

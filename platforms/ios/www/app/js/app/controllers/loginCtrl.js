@@ -69,6 +69,9 @@ if($cookies.get('access_token') == undefined || $cookies.get('access_token') == 
         })
     }
   }
+  $scope.forgot = function(){
+    $location.path('/forgot_password');
+  }
 }else{
   $location.path('/home');
 }
