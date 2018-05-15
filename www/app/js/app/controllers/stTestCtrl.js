@@ -461,4 +461,76 @@ var lineChart = new Chart(speedCanvas, {
   options: chartOptions
 });
 
+  window.onload = function () {
+
+  var chart = new CanvasJS.Chart("chartContainer", {
+  	animationEnabled: true,
+  	theme: "light2",
+    backgroundColor: "rgba(0, 0, 0, 0)",
+  	axisX:{
+  		crosshair: {
+  			enabled: true,
+  			snapToDataPoint: true
+  		}
+  	},
+  	axisY: {
+  		crosshair: {
+  			enabled: true
+  		},
+      lineThickness :1
+  	},
+  	toolTip:{
+  		shared:true
+  	},
+  	legend:{
+  		cursor:"pointer",
+  		verticalAlign: "bottom",
+  		horizontalAlign: "left",
+  		dockInsidePlotArea: true,
+  		itemclick: toogleDataSeries
+  	},
+  	data: [{
+  		type: "line",
+  		showInLegend: true,
+  		name: "",
+  		markerType: "circle",
+  		color: "#F08080",
+  		dataPoints: [
+  			{ x:0, y: 10 },
+        { x:10, y: 20 },
+        { x:20, y: 30 },
+        { x:25, y: 60 },
+        { x:45, y: 70 },
+        { x:90, y: 80 },
+        { x:91, y: 99 }
+  		]
+  	},
+  	{
+  		type: "line",
+  		showInLegend: true,
+  		name: "",
+      markerType: "circle",
+  		dataPoints: [
+        { x:2, y: 11 },
+        { x:5, y: 18 },
+        { x:15, y: 40 },
+        { x:35, y: 51 },
+        { x:50, y: 65 },
+        { x:78, y: 81 },
+        { x:94, y: 97 }
+  		]
+  	}]
+  });
+  chart.render();
+
+  function toogleDataSeries(e){
+  	if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+  		e.dataSeries.visible = false;
+  	} else{
+  		e.dataSeries.visible = true;
+  	}
+  	chart.render();
+  }
+  }
+
 }]);

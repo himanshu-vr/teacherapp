@@ -63,7 +63,7 @@
 			  		<div class="col s12 popularvideo slick side-no-pad" ng-repeat="item in popularVideos | limitTo:1">
 							<!-- <div class=" col s12  "> -->
 								<div class="slider-item col s12 left-no-pad" style="min-width:100px;max-width:155px;" ng-repeat="video in item.lstVideoModel | limitTo:5">
-									<video class="vid-open" id="popcorn" height="" ng-src="{{video.VideoPath}}" ng-click="vidPlay(video.DIGITALDOCID)" preload="auto">
+									<video class="vid-open" poster="{{video.ThumbnailPath}}" id="popcorn" height="" ng-src="{{video.VideoPath}}" ng-click="vidPlay(video.DIGITALDOCID)" preload="auto">
 									</video>
 
 									<h6 class="small-font">{{video.DOCUMENTNAME}}</h6>
@@ -113,7 +113,7 @@
 <div id="mySidenav" class="sidenav">
 
   <div class="row">
-	<div class="col s12 lecture-bg">
+	<div class="col s12 sidenav-bg page-bg">
 
 			  <div class="col s11 stlec-heading">
 			  		<div class="col s4 ">
@@ -136,6 +136,6 @@
   <a href="#"><img src="app/images/results_menu.png" class="sidenav-icon"><span class="nav-links">Results and Analysis</span></a>
   <a href="#!/student/recommended_video"><img src="app/images/rc_menu.png" class="sidenav-icon"><span class="nav-links">Recommended Videos</span></a>
   <a href="#"><img src="app/images/upload a doc.png" class="sidenav-icon icon-opacity"><span class="nav-links">Upload a document</span></a>
-  <a href="#"><img src="app/images/profile_menu.png" class="sidenav-icon icon-opacity"><span class="nav-links">Profile</span></a>
+  <a href="javascript:void(0);" ng-click="userProfile()"><img src="app/images/profile_menu.png" class="sidenav-icon icon-opacity"><span class="nav-links">Profile</span></a>
   <button type="submit" class="btn nav-logout" ng-click="logout()">Logout</button>
 </div>
