@@ -29,6 +29,12 @@
         <splash density="port-ldpi" src="res/screen/android/splash.jpg" />
         <splash density="port-mdpi" src="res/screen/android/splash.jpg" />
         <splash density="port-xhdpi" src="res/screen/android/splash.jpg" />
+        <icon density="ldpi" src="res/icon/android/tf_logo.png" />
+        <icon density="mdpi" src="res/icon/android/tf_logo.png" />
+        <icon density="hdpi" src="res/icon/android/tf_logo.png" />
+        <icon density="xhdpi" src="res/icon/android/tf_logo.png" />
+        <icon density="xxhdpi" src="res/icon/android/tf_logo.png" />
+        <icon density="xxxhdpi" src="res/icon/android/tf_logo.png" />
     </platform>
     <platform name="ios">
         <allow-intent href="itms:*" />

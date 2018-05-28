@@ -3,7 +3,7 @@
   controller for managing the login activities of student and teachers
   Aditya Gupta
 */
-angular.module('studentApp').controller('stTestCtrl',['$scope','$rootScope','$location','$timeout','$cookies','studentService', function ($scope,$rootScope,$location,$timeout,$cookies,studentService) {
+angular.module('studentApp').controller('stTestCtrl',['$scope','$rootScope','$location','$timeout','$cookies','studentService','$interval', function ($scope,$rootScope,$location,$timeout,$cookies,studentService,$interval) {
 
   $scope.isTest = true;
   $scope.isInstruction = false;
@@ -99,6 +99,7 @@ $scope.isSolutionShow = false;
         }
     }
   $scope.goBack  = function(){
+
     $location.path('/home');
   }
   $scope.goToTest = function(){
@@ -217,6 +218,9 @@ $scope.isSolutionShow = false;
       }
    });
     }, 1);
+    $scope.clock = 0;
+    $scope.tick();
+    $interval($scope.tick, 1000);
 }
 $scope.nextQuestion = function(type){
   questionIndex+= 1
@@ -374,7 +378,9 @@ $scope.showSolution = function(testId){
 
   //  $scope.init();
   }
-
+   $scope.tick = function() {
+     $scope.clock = $scope.clock + 1;
+  }
 // Get the modal
 var modal = document.getElementById('submit_Modal');
 

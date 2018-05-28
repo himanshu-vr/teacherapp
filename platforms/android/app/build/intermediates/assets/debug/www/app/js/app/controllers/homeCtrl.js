@@ -120,4 +120,7 @@ $('.modal').modal();
   $scope.userProfile = function(){
     $location.path('/profile');
   }
+ $scope.uploadFile = function(){
+    $location.path('/document');
+  }
 }]);

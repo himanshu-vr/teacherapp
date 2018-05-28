@@ -254,64 +254,50 @@ angular.module('studentApp').factory('studentService', ['$http', '$cookies', fun
  uploadDocument : function(file){
    var cookie = $cookies.get('access_token');
    if(cookie != undefined && cookie != null){
-     //var myFormData = new FormData();
+     var myFormData = new FormData();
      cookie  = JSON.parse(cookie);
      var access_token = cookie.access_token;
-     // var data = {
-     //   "File" : file,
-     //   "UserId" : cookie.UserID
-     // }
-     // var $promise = $http.post('http://ajay.abhigna.info/api/api/UploadDocs ', data, {
-     //   headers: {
-     //     'Content-type' : "application/x-www-form-urlencoded",
-     //     'Authorization': 'bearer ' + access_token
-     //   }
-     // })
-     //myFormData.append('File', file);
-     var $promise = $http({
-            method: 'POST',
-            url: 'http://ajay.abhigna.info/api/api/UploadDocs',
-            headers: {
-                'Authorization': 'bearer ' + access_token,
-                'Content-Type': undefined
-            },
-            data: {
-                "File" : file,
-                "UserId" : cookie.UserID
-            },
-            transformRequest: function (data, headersGetter) {
-                var formData = new FormData();
-                angular.forEach(data, function (value, key) {
-                    formData.append(key, value);
-                });
-
-                var headers = headersGetter();
-                //delete headers['Content-Type'];
-
-                return formData;
-            }
-        })
-        .success(function (data) {
-          console.log(data);
-        })
-        .error(function (data, status) {
-          console.log('sdf');
-        });
-     // var $promise = $http.post('http://ajay.abhigna.info/api/api/UploadDocs', formdata, {
-     //   //transformRequest: angular.identity,
-     //   headers: {
-     //     // 'Content-Type': 'application/x-www-form-urlencoded',
-     //     'Authorization': 'bearer ' + access_token
-     //   }
-     // })
-     // $promise.then(function onSuccess(result) {
-     //   })
-     //   .catch(function onError(error) {
-     //   });
+     myFormData.append('File', file);
+     myFormData.append('UserId', cookie.UserID);
+     var $promise = $http.post('http://ajay.abhigna.info/api/api/UploadDocs', myFormData, {
+       //transformRequest: angular.identity,
+       headers: {
+         'Content-Type': undefined,
+         'Authorization': 'bearer ' + access_token
+       }
+     })
+     $promise.then(function onSuccess(result) {
+       })
+       .catch(function onError(error) {
+       });
      return $promise;
    }else{
      return [];
    }
- }
+ },
+
+ //function to get all uploaded documents
+  getalluploadeddocuments : function(){
+    var cookie = $cookies.get('access_token');
+    if(cookie != undefined && cookie != null){
+      cookie  = JSON.parse(cookie);
+      var access_token = cookie.access_token;
+      var data = {
+        "UserId" : cookie.UserID
+      }
+      var $promise = $http.post('http://ajay.abhigna.info/api/api/AllDocuments ', data, {
+        headers: {
+          'Authorization': 'bearer ' + access_token
+        }
+      })
+      $promise.then(function onSuccess(result) {
+        })
+        .catch(function onError(error) {
+        });
+      return $promise;
+    }else{
+      return [];
+    }
+  },
   };
 }])

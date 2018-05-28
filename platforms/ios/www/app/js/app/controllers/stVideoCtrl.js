@@ -64,6 +64,6 @@ angular.module('studentApp').controller('stVideoCtrl',['$scope','$rootScope','$l
      }
   }
   $scope.goBack  = function(){
-    $location.path('/home');
+    $location.path('/student/recommended_video');
   }
 }]);

@@ -132,7 +132,7 @@
 <div class="row f5f5f5" ng-if="isTestStart">
 	<div class="col s12 test-timer">
 		<div class="col s9">
-
+			<p class="clock">{{ clock | secondsToDateTime | date:'HH:mm:ss'}}</p>
 		</div>
 		<div class="col s3 test-submit">
 			<button ng-click="openSubmitModal()">Submit</button>
