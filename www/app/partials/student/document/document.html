@@ -13,12 +13,12 @@
 	<div class="col s12 side-no-pad mt57">
 			<!-- Tab links -->
 		<div class="upcomingTesttab">
-			  <button class="tablinks testbtn-active">Uploaded</button>
-			  <button class="tablinks">Downloaded</button>
+			  <button class="tablinks testbtn-active" ng-click="documentTab('uploadDoc')" id="uptest-btn1">Uploaded</button>
+			  <button class="tablinks" ng-click="documentTab('downloadDoc')" id="uptest-btn2">Downloaded</button>
 		 </div>
 
 			<!-- Tab content -->
-		<div  class="tabcontent">
+		<div ng-show="uploadDoc" class="tabcontent">
 	  		<div class="col s12">
 	  			<h6 class="pri-col">Last 5 days</h6>
 	  			<div class="col s12 document-list pb10" ng-repeat="item in uploadDocumentData">
@@ -32,8 +32,19 @@
 	  			</div>
 	  		</div>
 		</div>
-		<div  class="tabcontent">
-	  	
+		<div ng-hide="uploadDoc" class="tabcontent">
+	  		<div class="col s12">
+	  			<h6 class="pri-col">Last 5 days</h6>
+	  			<div class="col s12 document-list pb10" ng-repeat="item in uploadDocumentData">
+	  				<div class="col s2 side-no-pad">
+	  					<img src="{{item.DocumentPath}}" class="doc-prew">
+	  				</div>
+	  				<div class="col s10 doc-info">
+	  					<h6 class="doc-nam">{{item.DocumentName}}</h6>
+	  					<p class="no-margin pt15"><span ><i class="material-icons dp48 up-icon">arrow_upward</i></span><span class="up-date">{{item.CreatedDate | date}}</span></p>
+	  				</div>
+	  			</div>
+	  		</div>
 		</div>
 </div>
 </div>
