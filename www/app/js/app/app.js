@@ -39,6 +39,8 @@ angular.module('studentApp')
           { controller: 'stTestCtrl', templateUrl: 'app/partials/student/results.html'})
       .when('/profile',
           { controller: 'userCtrl', templateUrl: 'app/partials/student/user/profile.html'})
+      .when('/document',
+          { controller: 'documentCtrl', templateUrl: 'app/partials/student/document/document.html'})
       $routeProvider.otherwise('/login');
   });
 
