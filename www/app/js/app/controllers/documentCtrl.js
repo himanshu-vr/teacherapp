@@ -6,7 +6,7 @@
 angular.module('studentApp').controller('documentCtrl',['$scope','$rootScope','$location','$timeout','$cookies','studentService', function ($scope,$rootScope,$location,$timeout,$cookies,studentService) {
 
 // for notifications
-  $scope.goBack = function(){
+  $scope.goHome = function(){
     $location.path('/home');
   }
 
@@ -21,6 +21,7 @@ angular.module('studentApp').controller('documentCtrl',['$scope','$rootScope','$
         }else{
         }
       })
+
       .catch(function onError(errorResponse) {
 
       })
