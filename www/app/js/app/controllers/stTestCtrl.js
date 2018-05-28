@@ -3,7 +3,7 @@
   controller for managing the login activities of student and teachers
   Aditya Gupta
 */
-angular.module('studentApp').controller('stTestCtrl',['$scope','$rootScope','$location','$timeout','$cookies','studentService', function ($scope,$rootScope,$location,$timeout,$cookies,studentService) {
+angular.module('studentApp').controller('stTestCtrl',['$scope','$rootScope','$location','$timeout','$cookies','studentService','$interval', function ($scope,$rootScope,$location,$timeout,$cookies,studentService,$interval) {
 
   $scope.isTest = true;
   $scope.isInstruction = false;
@@ -27,6 +27,15 @@ angular.module('studentApp').controller('stTestCtrl',['$scope','$rootScope','$lo
            if(response.data != undefined && response.data.length > 0){
               $scope.upcomingtests = response.data[0].Data;
               $scope.attemptedtests = response.data[1].Data;
+              //get lenght of upcomingTest
+              $scope.upcomingtestslength = 0;
+              $scope.attemptedtestslength = 0;
+              $scope.upcomingtests.map(function(value,key){
+                $scope.upcomingtestslength += Object.keys(value.TDetails).length
+              })
+              $scope.attemptedtests.map(function(value,key){
+                $scope.attemptedtestslength += Object.keys(value.TDetails).length
+              })
            }
          }else{
          }
@@ -90,6 +99,7 @@ $scope.isSolutionShow = false;
         }
     }
   $scope.goBack  = function(){
+
     $location.path('/home');
   }
   $scope.goToTest = function(){
@@ -208,6 +218,9 @@ $scope.isSolutionShow = false;
       }
    });
     }, 1);
+    $scope.clock = 0;
+    $scope.tick();
+    $interval($scope.tick, 1000);
 }
 $scope.nextQuestion = function(type){
   questionIndex+= 1
@@ -365,7 +378,9 @@ $scope.showSolution = function(testId){
 
   //  $scope.init();
   }
-
+   $scope.tick = function() {
+     $scope.clock = $scope.clock + 1;
+  }
 // Get the modal
 var modal = document.getElementById('submit_Modal');
 
@@ -399,7 +414,7 @@ var span = document.getElementsByClassName("close")[0];
 	  var date = new Date();
 	  var str = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + " " +  date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
 	  return str;
-	}   
+	}
 
 var speedCanvas = document.getElementById("speedChart");
 
@@ -455,11 +470,11 @@ var chartOptions = {
   }
 };
 
-var lineChart = new Chart(speedCanvas, {
-  type: 'line',
-  data: speedData,
-  options: chartOptions
-});
+// var lineChart = new Chart(speedCanvas, {
+//   type: 'line',
+//   data: speedData,
+//   options: chartOptions
+// });
 
   window.onload = function () {
 

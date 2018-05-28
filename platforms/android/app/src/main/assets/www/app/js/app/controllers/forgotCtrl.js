@@ -35,4 +35,7 @@ if($cookies.get('access_token') == undefined || $cookies.get('access_token') == 
 }else{
   $location.path('/home');
 }
+$scope.goBack = function(){
+    $location.path('/home');
+  }
 }]);

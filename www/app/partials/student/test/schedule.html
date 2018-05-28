@@ -17,8 +17,8 @@
 	<div class="col s12 side-no-pad">
 			<!-- Tab links -->
 			<div class="upcomingTesttab">
-			  <button class="tablinks testbtn-active" ng-click="openTestSchedule('upcomingTest')" id="uptest-btn1">Upcoming Tests</button>
-			  <button class="tablinks" ng-click="openTestSchedule('attemptedTest')" id="uptest-btn2">Attempted Test</button>
+			  <button class="tablinks testbtn-active" ng-click="openTestSchedule('upcomingTest')" id="uptest-btn1">Upcoming Tests -{{upcomingtestslength}}</button>
+			  <button class="tablinks" ng-click="openTestSchedule('attemptedTest')" id="uptest-btn2">Attempted Test -{{attemptedtestslength}}</button>
 		 </div>
 
 			<!-- Tab content -->
@@ -55,13 +55,14 @@
 					<div class="col s12 white slider-item side-no-pad" ng-repeat="subtest in test.TDetails">
 						<div class="col s12">
 							<div class="col s10 side-no-pad pad">
-								<h5 class="secondary-color padtop-10">Di & Reasoning Test 1</h5>
+								<p class="test-expiry padtop-10"><span><i class="material-icons dp48">timer</i></span> Submitted on : {{ subtest.PublishDate | date :  "dd MMM yyyy"  }}</p>
+								<h5 class="secondary-color  fs17">{{subtest.Title}}</h5>
 							</div>
 							<div class="col s2 side-no-pad right-align">
 								<img src="app/images/success.png" class="right">
 							</div>
 						</div>
-						<div class="col s12">
+						<!-- <div class="col s12">
 							<div class="col s4 side-no-pad pad">
 								<span><div class="circle-test"></div></span>
 								<span class="star-h6">50%</span>
@@ -70,7 +71,7 @@
 								<span><img src="app/images/star.png" class="star-css"></span>
 								<span class="star-h6">21</span>
 							</div>
-						</div>
+						</div> -->
 						<button class="teststart" ng-click="showSolution(subtest.TestId)">Solutions</button>
 					</div>
 				</div>
@@ -131,7 +132,7 @@
 <div class="row f5f5f5" ng-if="isTestStart">
 	<div class="col s12 test-timer">
 		<div class="col s9">
-
+			<p class="clock">{{ clock | secondsToDateTime | date:'HH:mm:ss'}}</p>
 		</div>
 		<div class="col s3 test-submit">
 			<button ng-click="openSubmitModal()">Submit</button>

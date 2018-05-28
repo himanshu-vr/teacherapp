@@ -1269,3 +1269,9 @@ position: relative;
   padding-top: 25px !important;
   padding-bottom: 10px !important;
 }
+.clock{
+  font-weight: 600;
+  margin: 0 !important;
+  font-size: 15px;
+  color: white;
+}

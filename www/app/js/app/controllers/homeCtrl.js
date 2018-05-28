@@ -120,4 +120,18 @@ $('.modal').modal();
   $scope.userProfile = function(){
     $location.path('/profile');
   }
+  $scope.filesubmit = function(){
+    console.log($scope.file);
+    studentService.uploadDocument($scope.file)
+      .then(function onSuccess(response) {
+        if(response != undefined && typeof(response) == 'object'){
+          console.log(response);
+        }
+      })
+      .catch(function onError(errorResponse) {
+
+      })
+      .finally(function eitherWay(){
+      })
+  }
 }]);

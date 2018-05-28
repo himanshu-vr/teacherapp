@@ -97,13 +97,13 @@ height: 50px !important;
   font-size: 20px !important;
 }
 .home-bg{
-  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),url(../images/beach.jpg);
+  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),url(../images/hom-bg.png);
   background-position: center !important;
   background-repeat: no-repeat !important;
   background-size: cover !important;
   width: 100%;
   opacity: .9;
-  height: 300px !important;
+  height: 275px !important;
 }
 .home-nav {
   padding-top: 15px !important;
@@ -200,14 +200,25 @@ border-radius: 2px;
 .home-notifications i{
   font-size: 27px;
 }
-.lecture-bg{
-  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),url(../images/beach.jpg);
+.page-bg{
   background-position: center !important;
   background-repeat: no-repeat !important;
   background-size: cover !important;
   width: 100%;
   opacity: .8;
   height: 150px !important;
+}
+.lecture-bg{
+  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),url(../images/lecture-bg.png);
+}
+.test-bg{
+  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),url(../images/res-bg.png);
+}
+.video-bg{
+  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),url(../images/vid-bg.png);
+}
+.sidenav-bg{
+  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),url(../images/hom-bg.png);
 }
 .stlec-heading{
       padding-top: 15px !important;
@@ -1253,4 +1264,8 @@ position: relative;
 }
 .error-mail{
   color: red !important;
+}
+.log-head{
+  padding-top: 25px !important;
+  padding-bottom: 10px !important;
 }
